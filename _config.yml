@@ -6,7 +6,7 @@
 # Site
 title: NexT
 subtitle:
-description:
+description: 做人呢，最重要的就是要开心
 author: Jiang
 # Support language: de, en, fr-FR, id, ja, ko, pt-BR, pt, ru, zh-Hans, zh-hk, zh-tw
 language: en
@@ -76,10 +76,10 @@ plugins:
 # ---------------------------------------------------------------
 
 # Put your favicon.ico into `assets/` directory.
-favicon: /assets/favicon.ico
+favicon: /assets/favicon.jpg
 
 # Set default keywords (Use a comma to separate)
-keywords: "Jekyll, NexT"
+keywords: "Jiang"
 
 # Set rss to false to disable feed link.
 # Leave rss as empty to use site's feed link.
@@ -93,7 +93,7 @@ since: 2018
 authoricon: heart
 
 # Footer `powered-by` and `theme-info` copyright
-copyright: true
+copyright: false
 
 # ---------------------------------------------------------------
 # SEO Settings
