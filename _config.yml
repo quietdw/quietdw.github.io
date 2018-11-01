@@ -4,7 +4,7 @@
 # ---------------------------------------------------------------
 
 # Site
-title: NexT
+title: Jiang
 subtitle:
 description: 做人呢，最重要的就是要开心
 author: Jiang
@@ -76,7 +76,7 @@ plugins:
 # ---------------------------------------------------------------
 
 # Put your favicon.ico into `assets/` directory.
-favicon: /assets/favicon.jpg
+favicon: /assets/favicon.ico
 
 # Set default keywords (Use a comma to separate)
 keywords: "Jiang"
@@ -234,7 +234,7 @@ social_icons:
 
 # Sidebar Avatar
 # in directory: /assets/images/avatar.gif
-avatar: /assets/images/avatar.png
+avatar: /assets/images/avatar.jpg
 
 
 # Table Of Contents in the Sidebar
