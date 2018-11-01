@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="HTTP,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="HTTP请求HTTP（HyperText Transfer Protocol）请求信息至少由3部分组成  请求方法（GET/POST）、URI、协议版本 请求头（Request Header） 空行（\n） 请求正文  或 ＜request-line＞ ＜headers＞ ＜blank line＞ ＜request-body＞  请求方法（GET/POST）、URI、协议版本  根据HTTP标准，">
+<meta name="keywords" content="HTTP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTTP请求与响应">
+<meta property="og:url" content="http://yoursite.com/2018/11/01/2018-10-13-HTTP请求与响应/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="HTTP请求HTTP（HyperText Transfer Protocol）请求信息至少由3部分组成  请求方法（GET/POST）、URI、协议版本 请求头（Request Header） 空行（\n） 请求正文  或 ＜request-line＞ ＜headers＞ ＜blank line＞ ＜request-body＞  请求方法（GET/POST）、URI、协议版本  根据HTTP标准，">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-10-18T06:58:09.335Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTTP请求与响应">
+<meta name="twitter:description" content="HTTP请求HTTP（HyperText Transfer Protocol）请求信息至少由3部分组成  请求方法（GET/POST）、URI、协议版本 请求头（Request Header） 空行（\n） 请求正文  或 ＜request-line＞ ＜headers＞ ＜blank line＞ ＜request-body＞  请求方法（GET/POST）、URI、协议版本  根据HTTP标准，">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/11/01/2018-10-13-HTTP请求与响应/">
+
+
+
+
+
+  <title>HTTP请求与响应 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/01/2018-10-13-HTTP请求与响应/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">HTTP请求与响应</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-01T17:26:05+08:00">
+                2018-11-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="HTTP请求"><a href="#HTTP请求" class="headerlink" title="HTTP请求"></a>HTTP请求</h3><p>HTTP（HyperText Transfer Protocol）请求信息至少由3部分组成</p>
+<ul>
+<li>请求方法（GET/POST）、URI、协议版本</li>
+<li>请求头（Request Header）</li>
+<li>空行（\n）</li>
+<li>请求正文</li>
+</ul>
+<p>或</p>
+<p>＜request-line＞</p>
+<p>＜headers＞</p>
+<p>＜blank line＞</p>
+<p>＜request-body＞</p>
+<ol>
+<li><p>请求方法（GET/POST）、URI、协议版本</p>
+<ul>
+<li>根据HTTP标准，HTTP请求可以使用多种请求方法。例如：HTTP1.1目前支持7种请求方法：GET、POST、HEAD、OPTIONS、PUT、DELETE和TARCE。</li>
+<li><p>在Internet应用中，最常用的方法是GET和POST。</p>
+<p>|请求方法|描述|<br>|–|——|<br>|GET|请求获取由Request-URI所标识的资源|<br>|POST|在Request-URI所标识的资源后附加新的数据|<br>|HEAD|请求获取由Request-URI所标识的资源的响应消息报头|<br>|OPTIONS|请求查询服务器的性能，或查询与资源相关的选项和需求|<br>|PUT|请求服务器存储一个资源，并用Request-URI作为其标识|<br>|DELETE|请求服务器删除由Request-URI所标识的资源|<br>|TRACE|请求服务器回送收到的请求信息，主要用语测试或诊断|</p>
+</li>
+</ul>
+</li>
+<li><p>请求头(Request Header)</p>
+<ul>
+<li><p>请求头包含许多有关的客户端环境和请求正文的有用信息。例如，请求头可以声明浏览器所用的语言，请求正文的长度等。</p>
+<p>|请求头|描述|<br>|–|——-|<br>|Content-Type|是返回消息中非常重要的内容，表示后面的文档属于什么MIME类型。Content-Type: [type]/[subtype]; parameter。例如最常见的就是text/html，它的意思是说返回的内容是文本类型，这个文本又是HTML格式的。原则上浏览器会根据Content-Type来决定如何显示返回的消息体内容|<br>|Host|指定请求资源的Intenet主机和端口号，必须表示请求url的原始服务器或网关的位置。HTTP/1.1请求必须包含主机头域，否则系统会以400状态码返回|<br>|Accept|浏览器可接受的MIME类型|<br>|Accept-Charset|浏览器可接受的字符集|<br>|Accept-Encoding|浏览器能够进行解码的数据编码方式，比如gzip。Servlet能够向支持gzip的浏览器返回经gzip编码的HTML页面。许多情形下这可以减少5到10倍的下载时间|<br>|Accept-Language|浏览器所希望的语言种类，当服务器能够提供一种以上的语言版本时要用到|<br>|Authorization|授权信息，通常出现在对服务器发送的WWW-Authenticate头的应答中|<br>|Connection|表示是否需要持久连接。如果Servlet看到这里的值为“Keep- Alive”，或者看到请求使用的是HTTP1.1（HTTP 1.1默认进行持久连接），它就可以利用持久连接的优点，当页面包含多个元素时（例如Applet，图片），显著地减少下载所需要的时间。要实现这一点，Servlet需要在应答中发送一个Content-Length头，最简单的实现方法是：先把内容写入 ByteArrayOutputStream，然后在正式写出内容之前计算它的大小|<br>|Content-Length|表示请求消息正文的长度|<br>|Cookie|这是最重要的请求头信息之一|<br>|From|请求发送者的email地址，由一些特殊的Web客户程序使用，浏览器不会用到它|<br>|Host|初始URL中的主机和端口|<br>|If-Modified-Since|只有当所请求的内容在指定的日期之后又经过修改才返回它，否则返回304“Not Modified”应答|<br>|Pragma|指定“no-cache”值表示服务器必须返回一个刷新后的文档，即使它是代理服务器而且已经有了页面的本地拷贝|<br>|Referer|包含一个URL，用户从该URL代表的页面出发访问当前请求的页面|<br>|User-Agent|浏览器类型，如果Servlet返回的内容与浏览器类型有关则该值非常有用<br>|UA-Pixels，UA-Color，UA-OS，UA-CPU|由某些版本的IE浏览器所发送的非标准的请求头，表示屏幕大小、颜色深度、操作系统和CPU类型|</p>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><p>常见的MIME类型如下：</p>
+<ol>
+<li>text/html ： HTML格式</li>
+<li>text/plain ：纯文本格式      </li>
+<li>text/xml ：  XML格式</li>
+<li>image/gif ：gif图片格式    </li>
+<li>image/jpeg ：jpg图片格式 </li>
+<li>image/png：png图片格式</li>
+<li>application/xhtml+xml ：XHTML格式</li>
+<li>application/xml     ： XML数据格式</li>
+<li>application/atom+xml  ：Atom XML聚合格式    </li>
+<li>application/json    ： JSON数据格式</li>
+<li>application/pdf       ：pdf格式  </li>
+<li>application/msword  ： Word文档格式</li>
+<li>application/octet-stream ： 二进制流数据（如常见的文件下载）</li>
+<li>application/x-www-form-urlencoded ： <code>&lt;form encType=””&gt;</code>中默认的encType，form表单数据被编码为key/value格式发送到服务器（表单默认的提交数据的格式）</li>
+<li>multipart/form-data ： 需要在表单中进行文件上传时，就需要使用该格式</li>
+</ol>
+</li>
+</ul>
+<ol start="3">
+<li><p>空行</p>
+<ul>
+<li>表示请求头已经结束，接下来的是请求正文</li>
+</ul>
+</li>
+<li><p>请求正文</p>
+<ul>
+<li>请求正文中可以包含客户提交的查询字符串信息，也可以为空</li>
+</ul>
+</li>
+</ol>
+<h3 id="HTTP响应"><a href="#HTTP响应" class="headerlink" title="HTTP响应"></a>HTTP响应</h3><p>HTTP应答与HTTP请求相似，HTTP响应也由3个部分构成，分别是：</p>
+<ul>
+<li>状态行</li>
+<li>响应头(Response Header)</li>
+<li>空行（\n）</li>
+<li>响应正文</li>
+</ul>
+<ol>
+<li><p>状态行</p>
+<ul>
+<li>由协议版本、数字形式的状态代码、及相应的状态描述，各元素之间以空格分隔，例如<code>HTTP/1.1 200 OK</code></li>
+<li>状态码有如下几种：<ul>
+<li>1xx:指示信息—表示请求已接收，继续处理。</li>
+<li>2xx:成功—表示请求已经被成功接收、理解、接受。</li>
+<li>3xx:重定向—要完成请求必须进行更进一步的操作。</li>
+<li>4xx:客户端错误—请求有语法错误或请求无法实现。</li>
+<li>5xx:服务器端错误—服务器未能实现合法的请求。<blockquote>
+<p>wiki百科HTTP状态码(需翻墙)：<a href="https://zh.wikipedia.org/wiki/HTTP%E7%8A%B6%E6%80%81%E7%A0%81" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/HTTP%E7%8A%B6%E6%80%81%E7%A0%81</a> </p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>响应头</p>
+<ul>
+<li><p>响应头可能包括：</p>
+<p>Location： </p>
+<p>Location响应报头域用于重定向接受者到一个新的位置。例如：客户端所请求的页面已不存在原先的位置，为了让客户端重定向到这个页面新的位置，服务 器端可以发回Location响应报头后使用重定向语句，让客户端去访问新的域名所对应的服务器上的资源。当我们在JSP中使用重定向语句的时候，服务器 端向客户端发回的响应报头中，就会有Location响应报头域。</p>
+<p>Server：  </p>
+<p>Server响应报头域包含了服务器用来处理请求的软件信息。它和User-Agent请求报头域是相对应的，前者发送服务器端软件的信息，后者发送客户 端软件(浏览器)和操作系统的信息。下面是Server响应报头域的一个例子：Server: Apache-Coyote/1.1</p>
+<p>WWW-Authenticate：</p>
+<p>WWW-Authenticate响应报头域必须被包含在401(未授权的)响应消息中，这个报头域和前面讲到的Authorization请求报头域是 相关的，当客户端收到401响应消息，就要决定是否请求服务器对其进行验证。如果要求服务器对其进行验证，就可以发送一个包含了 Authorization报头域的请求，下面是WWW-Authenticate响应报头域的一个例子：WWW-Authenticate: Basic realm=”Basic Auth Test!”</p>
+<p>从这个响应报头域，可以知道服务器端对我们所请求的资源采用的是基本验证机制。</p>
+<p>Content-Encoding：</p>
+<p>Content-Encoding实体报头域被使用作媒体类型的修饰符，它的值指示了已经被应用到实体正文的附加内容编码，因而要获得Content- Type报头域中所引用的媒体类型，必须采用相应的解码机制。Content-Encoding主要用语记录文档的压缩方法，下面是它的一个例子： Content-Encoding: gzip。如果一个实体正文采用了编码方式存储，在使用之前就必须进行解码。</p>
+<p>Content-Language：</p>
+<p>Content-Language实体报头域描述了资源所用的自然语言。Content-Language允许用户遵照自身的首选语言来识别和区分实体。 如果这个实体内容仅仅打算提供给丹麦的阅读者，那么可以按照如下的方式设置这个实体报头域：Content-Language: da。</p>
+<p>Content-Length：</p>
+<p>Content-Length实体报头域用于指明正文的长度，以字节方式存储的十进制数字来表示，也就是一个数字字符占一个字节，用其对应的ASCII码存储传输。<br>注意的是：这个长度仅仅是表示实体正文的长度，没有包括实体报头的长度。</p>
+<p>Content-Type</p>
+<p>Content-Type实体报头域用语指明发送给接收者的实体正文的媒体类型。</p>
+<p>Last-Modified</p>
+<p>Last-Modified实体报头域用于指示资源最后的修改日期及时间。</p>
+<p>Expires</p>
+<p>Expires实体报头域给出响应过期的日期和时间。通常，代理服务器或浏览器会缓存一些页面。当用户再次访问这些页面时，直接从缓存中加载并显示给用 户，这样缩短了响应的时间，减少服务器的负载。为了让代理服务器或浏览器在一段时间后更新页面，我们可以使用Expires实体报头域指定页面过期的时 间。当用户又一次访问页面时，如果Expires报头域给出的日期和时间比Date普通报头域给出的日期和时间要早(或相同)，那么代理服务器或浏览器就 不会再使用缓存的页面而是从服务器上请求更新的页面。不过要注意，即使页面过期了，也并不意味着服务器上的原始资源在此时间之前或之后发生了改变。</p>
+</li>
+</ul>
+</li>
+<li><p>表示分隔</p>
+</li>
+<li><p>要下载的内容</p>
+</li>
+</ol>
+<h3 id="关于HTTP请求GET和POST的区别"><a href="#关于HTTP请求GET和POST的区别" class="headerlink" title="关于HTTP请求GET和POST的区别"></a>关于HTTP请求GET和POST的区别</h3><ul>
+<li><p>提交</p>
+<ul>
+<li><p>GET提交，请求的数据会附在URL之后（就是把数据放置在HTTP协议头＜request-line＞中）， 以?分割URL和传输数据，多个参数用&amp;连接;例如：<code>login.action?name=hyddd&amp; password=idontknow&amp;verify=%E4%BD%A0 %E5%A5%BD</code>。如果数据是英文字母/数字，原样发送，如果是空格，转换为+，如果是中文/其他字符，则直接把字符串用BASE64加密，得出如： %E4%BD%A0%E5%A5%BD，其中％XX中的XX为该符号以16进制表示的ASCII。</p>
+</li>
+<li><p>POST提交：把提交的数据放置在是HTTP包的包体＜request-body＞中。</p>
+</li>
+</ul>
+<p>因此，GET提交的数据会在地址栏中显示出来，而POST提交，地址栏不会改变。</p>
+</li>
+<li><p>传输数据的大小：</p>
+<p> 首先声明,HTTP协议没有对传输的数据大小进行限制，HTTP协议规范也没有对URL长度进行限制。 而在实际开发中存在的限制主要有：</p>
+<ul>
+<li><p>GET:特定浏览器和服务器对URL长度有限制，例如IE对URL长度的限制是2083字节(2K+35)。对于其他浏览器，如Netscape、FireFox等，理论上没有长度限制，其限制取决于操作系统的支持。</p>
+<p>因此对于GET提交时，传输数据就会受到URL长度的限制。</p>
+</li>
+<li><p>POST:由于不是通过URL传值，理论上数据不受限。但实际各个WEB服务器会规定对post提交数据大小进行限制，Apache、IIS6都有各自的配置。</p>
+</li>
+</ul>
+</li>
+<li><p>安全性：</p>
+<ul>
+<li>POST的安全性要比GET的安全性高。比如：通过GET提交数据，用户名和密码将明文出现在URL上，因为(1)登录页面有可能被浏览器缓存， (2)其他人查看浏览器的历史纪录，那么别人就可以拿到你的账号和密码了。</li>
+</ul>
+</li>
+</ul>
+<h3 id="使用开发者工具查看HTTP请求内容和响应内容"><a href="#使用开发者工具查看HTTP请求内容和响应内容" class="headerlink" title="使用开发者工具查看HTTP请求内容和响应内容"></a>使用开发者工具查看HTTP请求内容和响应内容</h3><ol>
+<li><p>请求</p>
+<ul>
+<li>打开Network</li>
+<li>地址栏输入网址</li>
+<li>在Network点击，查看request Headers，点击「view source」,可以看见第一部分和第二部分，第三部分空行看不见</li>
+<li>如果有请求的第四部分，那么在FormData或Payload里面可以看到</li>
+</ul>
+</li>
+<li><p>响应</p>
+<ul>
+<li>打开 Network</li>
+<li>地址栏输入网址</li>
+<li>选中第一个响应查看Response Headers，点击「view source」，你会看到响应的前两部分</li>
+<li>查看Response或者Preview，你会看到响应的第4部分</li>
+</ul>
+</li>
+</ol>
+<h3 id="curl命令的使用"><a href="#curl命令的使用" class="headerlink" title="curl命令的使用"></a>curl命令的使用</h3><ul>
+<li>curl是一个利用URL规则在命令行下工作的文件传输工具，可以说是一款很强大的http命令行工具。它支持文件的上传和下载，是综合传输工具</li>
+<li>语法：<code>curl [option] [url]</code></li>
+<li><p>常见参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">-A/--user-agent &lt;string&gt;              设置用户代理发送给服务器</span><br><span class="line">-b/--cookie &lt;name=string/file&gt;    cookie字符串或文件读取位置</span><br><span class="line">-c/--cookie-jar &lt;file&gt;                    操作结束后把cookie写入到这个文件中</span><br><span class="line">-C/--continue-at &lt;offset&gt;            断点续转</span><br><span class="line">-D/--dump-header &lt;file&gt;              把header信息写入到该文件中</span><br><span class="line">-e/--referer                                  来源网址</span><br><span class="line">-f/--fail                                          连接失败时不显示http错误</span><br><span class="line">-o/--output                                  把输出写到该文件中</span><br><span class="line">-O/--remote-name                      把输出写到该文件中，保留远程文件的文件名</span><br><span class="line">-r/--range &lt;range&gt;                      检索来自HTTP/1.1或FTP服务器字节范围</span><br><span class="line">-s/--silent                                    静音模式。不输出任何东西</span><br><span class="line">-T/--upload-file &lt;file&gt;                  上传文件</span><br><span class="line">-u/--user &lt;user[:password]&gt;      设置服务器的用户和密码</span><br><span class="line">-w/--write-out [format]                什么输出完成后</span><br><span class="line">-x/--proxy &lt;host[:port]&gt;              在给定的端口上使用HTTP代理</span><br><span class="line">-#/--progress-bar                        进度条显示当前的传送状态</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Linux curl命令详解:<a href="https://www.cnblogs.com/duhuo/p/5695256.html" target="_blank" rel="noopener"><code>click here</code></a></p>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/HTTP/" rel="tag"># HTTP</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/01/2018-10-23-CSS小技巧/" rel="next" title="CSS布局">
+                <i class="fa fa-chevron-left"></i> CSS布局
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/01/2018-10-18-HTML常用标签/" rel="prev" title="HTML常用标签">
+                HTML常用标签 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP请求"><span class="nav-number">1.</span> <span class="nav-text">HTTP请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP响应"><span class="nav-number">2.</span> <span class="nav-text">HTTP响应</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于HTTP请求GET和POST的区别"><span class="nav-number">3.</span> <span class="nav-text">关于HTTP请求GET和POST的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用开发者工具查看HTTP请求内容和响应内容"><span class="nav-number">4.</span> <span class="nav-text">使用开发者工具查看HTTP请求内容和响应内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#curl命令的使用"><span class="nav-number">5.</span> <span class="nav-text">curl命令的使用</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
