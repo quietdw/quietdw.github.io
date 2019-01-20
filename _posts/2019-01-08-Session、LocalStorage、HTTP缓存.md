@@ -16,7 +16,6 @@ tags:
 5. 这块内存（哈希表）就是服务器上的所有 session
 6. 页面关闭的时候，会清空SessionStorage
 7. Session在服务器的默认有效时间是30分钟,可以通过代码控制失效时间
-<!-- more -->
 
 
 # LocalStorage
