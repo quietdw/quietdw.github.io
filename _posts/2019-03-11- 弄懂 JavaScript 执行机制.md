@@ -14,7 +14,7 @@ tags:
 
 举个的例子：
 
-```JavaScript
+```javascript
 console.log('script start');
 
 setTimeout(function() {
