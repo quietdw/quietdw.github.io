@@ -90,11 +90,19 @@ setTimeout 等待当前 macrotasks 结束，才能执行。这也解释 为什�
 
 觉得自己弄懂了吗？
 
-做个简单的小例子
+做个小例子
 
 ```javascript
 console.log("1");
-
+async function func1(){
+  await func2()
+  //以下所有内容都被放置微任务中
+	console.log(1)
+}
+async function func2(){
+	console.log(2)
+}
+func1()
 setTimeout(function() {
   console.log("2");
   Promise.resolve().then(function() {
@@ -131,7 +139,7 @@ setTimeout(function() {
 });
 ```
 
-在Chrome输出结果是：1,7,6,8,2,4,3,5,9,11,10,12
+在Chrome输出结果是：1,b,7,a,6,8,2,4,3,5,9,11,10,12
 
 > 引用
 
