@@ -1,5 +1,5 @@
 ---
-title: avaScript 中的生成器
+title: JavaScript 中的生成器
 tags:
   - ES6
   - JavaScript
