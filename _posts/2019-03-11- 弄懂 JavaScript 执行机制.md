@@ -97,10 +97,10 @@ console.log("1");
 async function func1(){
   await func2()
   //以下所有内容都被放置微任务中
-	console.log(1)
+	console.log('a')
 }
 async function func2(){
-	console.log(2)
+	console.log('b')
 }
 func1()
 setTimeout(function() {
