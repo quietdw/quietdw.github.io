@@ -509,7 +509,8 @@ busuanzi_count:
   enable: true
   # custom uv span for the whole site
   site_uv: true
-  site_uv_header: <i class="fa fa-user"></i>
+  site_uv_header: 
+  # <i class="fa fa-user"></i>
   site_uv_footer:
   # custom pv span for the whole site
   site_pv: true
