@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/avatar.jpg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="diff 算法是一种通过同层的树节点进行比较的高效算法，避免了对树进行逐层搜索遍历，所以时间复杂度只有 O(n)。在 Vue 虚拟 DOM 渲染成真实 DOM 的新旧 VNode 节点比较更新时，就用到了该算法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue diff 算法解析">
+<meta property="og:url" content="http://example.com/2022/01/21/Vue%20diff%20%E7%AE%97%E6%B3%95%E8%A7%A3%E6%9E%90/index.html">
+<meta property="og:site_name" content="Jiang">
+<meta property="og:description" content="diff 算法是一种通过同层的树节点进行比较的高效算法，避免了对树进行逐层搜索遍历，所以时间复杂度只有 O(n)。在 Vue 虚拟 DOM 渲染成真实 DOM 的新旧 VNode 节点比较更新时，就用到了该算法。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-01-21T09:38:10.390Z">
+<meta property="article:modified_time" content="2022-01-21T09:38:10.390Z">
+<meta property="article:author" content="Jiang">
+<meta property="article:tag" content="Vue">
+<meta property="article:tag" content="diff">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2022/01/21/Vue%20diff%20%E7%AE%97%E6%B3%95%E8%A7%A3%E6%9E%90/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Vue diff 算法解析 | Jiang</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Jiang</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Jiang 的博客</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="http://jiangnana.fun/resume/" rel="noopener" target="_blank"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/21/Vue%20diff%20%E7%AE%97%E6%B3%95%E8%A7%A3%E6%9E%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Jiang">
+      <meta itemprop="description" content="做人呢，最重要的就是要开心">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jiang">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Vue diff 算法解析
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-01-21 09:38:10" itemprop="dateCreated datePublished" datetime="2022-01-21T09:38:10+00:00">2022-01-21</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>diff 算法是一种通过同层的树节点进行比较的高效算法，避免了对树进行逐层搜索遍历，所以时间复杂度只有 O(n)。在 Vue 虚拟 DOM 渲染成真实 DOM 的新旧 VNode 节点比较更新时，就用到了该算法。</p>
+<span id="more"></span>
+
+<h3 id="当数据发生变化时，Vue-是怎么更新节点的？"><a href="#当数据发生变化时，Vue-是怎么更新节点的？" class="headerlink" title="当数据发生变化时，Vue 是怎么更新节点的？"></a>当数据发生变化时，Vue 是怎么更新节点的？</h3><p>Vue 根据真实 DOM 生成一颗 virtual DOM，当 virtual DOM 某个节点的<code>数据</code>改变后会生成一个新的 Vnode，然后 Vnode 和 oldVnode 作对比，发现有不一样的地方就直接修改在真实的 DOM 上，然后使 oldVnode 的值为 Vnode。</p>
+<p>diff 的过程就是调用名为 patch 的函数，比较新旧节点，一边比较一边给真实的 DOM 打补丁。</p>
+<p>当数据发生改变时，defineProperty set 方法会让调用 Dep.notify 通知所有订阅者 Watcher，订阅者就会调用 patch 给真实的 DOM 打补丁，更新相应的视图。</p>
+<h3 id="diff-算法特点"><a href="#diff-算法特点" class="headerlink" title="diff 算法特点"></a>diff 算法特点</h3><ol>
+<li>比较只会在同层级进行, 不会跨层级比较。</li>
+<li>在 diff 比较的过程中，循环从两边向中间收拢。</li>
+</ol>
+<h3 id="diff-流程"><a href="#diff-流程" class="headerlink" title="diff 流程"></a>diff 流程</h3><ol>
+<li><p>对新老 VNode 的开始和结束位置进行标记：oldStartIdx、oldEndIdx、newStartIdx、newEndIdx。</p>
+</li>
+<li><p>标记好节点位置之后，就开始进入到的 while 循环处理中，这里是 diff 算法的核心流程，分情况进行了新老节点的比较并移动对应的 VNode 节点。while 循环的退出条件是直到老节点或者新节点的开始位置大于结束位置。循环过程中首先对新老 VNode 节点的头尾进行比较，寻找相同节点，当其中两个能匹配上那么真实 DOM 中的相应节点会移到 Vnode 相应的位置。</p>
+<ol>
+<li>如果是 oldStartIdx 和 newEndIdx 匹配上了，那么将当前真实 DOM 移到 oldEndIdx 后面，匹配上的两个指针向中间移动；</li>
+<li>如果是 oldEndIdx 和 newStartIdx 匹配上了，那么将当前真实 DOM 移到 oldStartIdx 前面，匹配上的两个指针向中间移动；</li>
+<li>如果 oldStartIdx 和 newStartIdx ，真实 DOM 中的相应节点移到 Vnode 相应的位置，匹配上的两个指针向中间移动；</li>
+<li>如果 oldEndIdx 和 newEndIdx 匹配上了，匹配上的两个指针向中间移动；</li>
+<li>如果四种匹配没有一对是成功，那么会根据旧的 VNode 的 key 生成一张 hash 表，用 newStartIdx 的 key 与 hash 表做匹配，匹配成功就判断 newStartIdx 和匹配节点是否为 sameNode，如果是，就将真实 DOM 移到 oldStartIdx 前面，否则则说明当前索引下的新的 VNode 节点在旧的 VNode 队列中不存在，无法进行节点的复用，那么就只能调用 createElm 创建一个新的 DOM 节点放到当前 oldStartIdx 的位置。newStartIdx 指针向中间移动，被匹配 old 中的节点置为 null。</li>
+</ol>
+</li>
+</ol>
+<h3 id="案例演练"><a href="#案例演练" class="headerlink" title="案例演练"></a>案例演练</h3><p>假设以下所有节点都是有 key 的，且 key 为自身的值</p>
+<ul>
+<li>old:a-b-c-d</li>
+<li>new:a-c-b-e-f</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">oldStartIdx:a;</span><br><span class="line">oldEndIdx:d;</span><br><span class="line">newStartIdx:a</span><br><span class="line">newEndIdx:f</span><br><span class="line"></span><br><span class="line">oldStartIdx 和 newStartIdx 匹配，说明位置没变，此时 DOM 位置 a-b-c-d，此时指针：</span><br><span class="line"></span><br><span class="line">oldStartIdx: b;</span><br><span class="line">oldEndIdx: d;</span><br><span class="line">newStartIdx: c</span><br><span class="line">newEndIdx: f</span><br><span class="line"></span><br><span class="line">一个都没有匹配到，然后 c 匹配到旧的 VNode，将 c 放到 oldStartIdx前，此时 DOM 位置 a-c-b-d，此时指针：</span><br><span class="line"></span><br><span class="line">oldStartIdx: b;</span><br><span class="line">oldEndIdx: d;</span><br><span class="line">newStartIdx: b</span><br><span class="line">newEndIdx: f</span><br><span class="line"></span><br><span class="line">oldStartIdx 和 newStartIdx 匹配，说明位置没变，此时 DOM 位置 a-c-b-d，此时指针：</span><br><span class="line"></span><br><span class="line">oldStartIdx: d;</span><br><span class="line">oldEndIdx: d;</span><br><span class="line">newStartIdx: e</span><br><span class="line">newEndIdx: f</span><br><span class="line"></span><br><span class="line">一个都没有匹配到，然后 e 未匹配到旧的 VNode，将创建的 e 放到 oldStartIdx前，被匹配 old 中的节点置为 null。此时 DOM 位置 a-c-b-e</span><br><span class="line"></span><br><span class="line">遍历结束，说明旧的 VNode先遍历完。就将剩余的 VNode 节点根据自己的的index插入到真实DOM中去，此时 DOM 位置为：a-c-b-e-f</span><br><span class="line"></span><br><span class="line">一次模拟完成。</span><br><span class="line"></span><br><span class="line">这个匹配过程的结束有两个条件：</span><br><span class="line"></span><br><span class="line">1. oldStartIdx &gt; oldEndIdx 表示旧 VNode 先遍历完，那么就将多余的 VNode 根据index添加到DOM中去；</span><br><span class="line">2. newStartIdx &gt; newEndIdx 表示新 VNode 先遍历完，那么就在真实 DOM 中将区间为[oldStartIdx, oldEndIdx]的多余节点删掉</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>引用</p>
+</blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.infoq.cn/article/uDLCPKH4iQb0cR5wGY7f">Vue 的 diff 算法解析</a></li>
+<li><a target="_blank" rel="noopener" href="https://juejin.im/post/6844903607913938951#heading-3">详解 Vue 的 diff 算法</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Vue/" rel="tag"># Vue</a>
+              <a href="/tags/diff/" rel="tag"># diff</a>
+              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"># 算法</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/01/21/Vue%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" rel="prev" title="Vue 基础知识">
+      <i class="fa fa-chevron-left"></i> Vue 基础知识
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/01/21/Vue%20Router%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" rel="next" title="Vue Router的基本使用">
+      Vue Router的基本使用 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BD%93%E6%95%B0%E6%8D%AE%E5%8F%91%E7%94%9F%E5%8F%98%E5%8C%96%E6%97%B6%EF%BC%8CVue-%E6%98%AF%E6%80%8E%E4%B9%88%E6%9B%B4%E6%96%B0%E8%8A%82%E7%82%B9%E7%9A%84%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">当数据发生变化时，Vue 是怎么更新节点的？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#diff-%E7%AE%97%E6%B3%95%E7%89%B9%E7%82%B9"><span class="nav-number">2.</span> <span class="nav-text">diff 算法特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#diff-%E6%B5%81%E7%A8%8B"><span class="nav-number">3.</span> <span class="nav-text">diff 流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A1%88%E4%BE%8B%E6%BC%94%E7%BB%83"><span class="nav-number">4.</span> <span class="nav-text">案例演练</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Jiang"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Jiang</p>
+  <div class="site-description" itemprop="description">做人呢，最重要的就是要开心</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">84</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/quietdw" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;quietdw" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jiang</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
