@@ -186,7 +186,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/24/%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/24/%E7%AE%80%E5%8D%95%E7%9A%84%E6%A8%A1%E5%9D%97%E7%AE%A1%E7%90%86%E5%99%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -200,7 +200,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/01/24/%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98/" class="post-title-link" itemprop="url">事件委托</a>
+            <a href="/2022/01/24/%E7%AE%80%E5%8D%95%E7%9A%84%E6%A8%A1%E5%9D%97%E7%AE%A1%E7%90%86%E5%99%A8/" class="post-title-link" itemprop="url">简单的模块管理器</a>
         </h2>
 
         <div class="post-meta">
@@ -210,7 +210,7 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2022-01-24 02:57:11" itemprop="dateCreated datePublished" datetime="2022-01-24T02:57:11+00:00">2022-01-24</time>
+              <time title="Created: 2022-01-24 05:50:23" itemprop="dateCreated datePublished" datetime="2022-01-24T05:50:23+00:00">2022-01-24</time>
             </span>
 
           
@@ -224,10 +224,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>现页面有<code>&lt;li&gt;</code>若干个，倘若需要监听每个<code>&lt;li&gt;</code>，传统的方法是遍历标签，并给它们添加同样多的点击事件，但如果页面中有多个标签，给每个标签都添加点击事件，会造成内存占用过多。今天利用事件捕获冒泡机制，写一个事件委托，解决这个问题。</p>
+          <p>双 11 的销售额不会自己增长，知识也是，需要时长充电。最近在看 <code>你不知道的 JavaScript</code>，里面讲了模块管理器的核心概念，梳理一下其思路。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/01/24/%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98/#more" rel="contents">
+              <a class="btn" href="/2022/01/24/%E7%AE%80%E5%8D%95%E7%9A%84%E6%A8%A1%E5%9D%97%E7%AE%A1%E7%90%86%E5%99%A8/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -251,7 +251,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/24/%E4%B8%AA%E6%80%A7%E5%8C%96echarts/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/24/%E9%80%A0%E8%BD%AE%E5%AD%90%E6%97%B6%E8%B8%A9%E7%9A%84%E5%9D%91/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -265,7 +265,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/01/24/%E4%B8%AA%E6%80%A7%E5%8C%96echarts/" class="post-title-link" itemprop="url">个性化 echarts 图表</a>
+            <a href="/2022/01/24/%E9%80%A0%E8%BD%AE%E5%AD%90%E6%97%B6%E8%B8%A9%E7%9A%84%E5%9D%91/" class="post-title-link" itemprop="url">造轮子时踩的坑</a>
         </h2>
 
         <div class="post-meta">
@@ -275,7 +275,7 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2022-01-24 02:57:11" itemprop="dateCreated datePublished" datetime="2022-01-24T02:57:11+00:00">2022-01-24</time>
+              <time title="Created: 2022-01-24 05:50:23" itemprop="dateCreated datePublished" datetime="2022-01-24T05:50:23+00:00">2022-01-24</time>
             </span>
 
           
@@ -289,10 +289,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>最近公司开发 ERP 系统，其中有表格展示，一开始也没放在心上，心想用 echarts 就行了，但真正开始做后，才发现 echarts 并不简单。</p>
+          <h1 id="Vue-相关"><a href="#Vue-相关" class="headerlink" title="Vue 相关"></a>Vue 相关</h1><ol>
+<li>v-if：没有在 dom 中出现。v-show ：元素被加上 <code>display:none</code></li>
+<li>scss 尽量都用变量 <code>$</code></li>
+<li>使用 prop 传 Boolean 值时，需要在所传属性前加<code>:</code></li>
+<li>需要获取组件的 <code>$refs</code> 值时，需要在 <code>mounted</code> 后才能获取，mounted 是异步的</li>
+<li>slot 不能直接出现在 template 中，会报错</li>
+<li>$children 子组件</li>
+<li>声明组件后，再设置 name，方便调试</li>
+<li>scoped 会隔绝其他组件的样式，建议使用</li>
+<li>Vue 的<a target="_blank" rel="noopener" href="https://jsbin.com/bipojipeho/edit?html,output">双向绑定</a>，实质上是：</li>
+</ol>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/01/24/%E4%B8%AA%E6%80%A7%E5%8C%96echarts/#more" rel="contents">
+              <a class="btn" href="/2022/01/24/%E9%80%A0%E8%BD%AE%E5%AD%90%E6%97%B6%E8%B8%A9%E7%9A%84%E5%9D%91/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -316,7 +326,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/24/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E5%A6%82%E4%BD%95%E5%AE%9A%E4%BD%8D%E5%B7%A6%E8%BE%B9%E7%95%8C%E5%92%8C%E5%8F%B3%E8%BE%B9%E7%95%8C/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/24/%E9%87%8D%E6%8E%92%E5%92%8C%E9%87%8D%E7%BB%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -330,7 +340,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/01/24/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E5%A6%82%E4%BD%95%E5%AE%9A%E4%BD%8D%E5%B7%A6%E8%BE%B9%E7%95%8C%E5%92%8C%E5%8F%B3%E8%BE%B9%E7%95%8C/" class="post-title-link" itemprop="url">二分查找如何定位左边界和右边界</a>
+            <a href="/2022/01/24/%E9%87%8D%E6%8E%92%E5%92%8C%E9%87%8D%E7%BB%98/" class="post-title-link" itemprop="url">重排和重绘</a>
         </h2>
 
         <div class="post-meta">
@@ -340,7 +350,7 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2022-01-24 02:57:11" itemprop="dateCreated datePublished" datetime="2022-01-24T02:57:11+00:00">2022-01-24</time>
+              <time title="Created: 2022-01-24 05:50:23" itemprop="dateCreated datePublished" datetime="2022-01-24T05:50:23+00:00">2022-01-24</time>
             </span>
 
           
@@ -354,10 +364,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>不使用 JS 数组 API，查找<code>有序</code>数列最先出现的位置和最后出现的位置</p>
+          <p>网页生成的时候，至少会渲染一次。用户访问的过程中，还会不断重新渲染。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/01/24/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E5%A6%82%E4%BD%95%E5%AE%9A%E4%BD%8D%E5%B7%A6%E8%BE%B9%E7%95%8C%E5%92%8C%E5%8F%B3%E8%BE%B9%E7%95%8C/#more" rel="contents">
+              <a class="btn" href="/2022/01/24/%E9%87%8D%E6%8E%92%E5%92%8C%E9%87%8D%E7%BB%98/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -381,7 +391,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/24/%E4%BB%80%E4%B9%88%E6%98%AFAJAX/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/24/%E9%97%AD%E5%8C%85/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -395,7 +405,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/01/24/%E4%BB%80%E4%B9%88%E6%98%AFAJAX/" class="post-title-link" itemprop="url">什么是AJAX</a>
+            <a href="/2022/01/24/%E9%97%AD%E5%8C%85/" class="post-title-link" itemprop="url">闭包</a>
         </h2>
 
         <div class="post-meta">
@@ -405,7 +415,7 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2022-01-24 02:57:11" itemprop="dateCreated datePublished" datetime="2022-01-24T02:57:11+00:00">2022-01-24</time>
+              <time title="Created: 2022-01-24 05:50:23" itemprop="dateCreated datePublished" datetime="2022-01-24T05:50:23+00:00">2022-01-24</time>
             </span>
 
           
@@ -419,10 +429,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="什么是-AJAX"><a href="#什么是-AJAX" class="headerlink" title="什么是 AJAX"></a>什么是 AJAX</h1><p>1999 年，微软公司发布 IE 浏览器 5.0 版，第一次引入新功能：允许 JavaScript 脚本向服务器发起 HTTP 请求。这个功能当时并没有引起注意，直到 2004 年 Gmail 发布和 2005 年 Google Map 发布，才引起广泛重视。2005 年 2 月，AJAX 这个词第一次正式提出，它是 Asynchronous JavaScript and XML 的缩写，指的是通过 JavaScript 的异步通信，从服务器获取 XML 文档从中提取数据，再更新当前网页的对应部分，而不用刷新整个网页。后来，AJAX 这个词就成为 JavaScript 脚本发起 HTTP 通信的代名词，也就是说，只要用脚本发起通信，就可以叫做 AJAX 通信。W3C 也在 2006 年发布了它的国际标准。</p>
+          <p>今天我们搞清楚闭包是什么。</p>
+<h1 id="什么是闭包"><a href="#什么是闭包" class="headerlink" title="什么是闭包"></a>什么是闭包</h1><p>MDN 就是简单的一句话：</p>
+<blockquote>
+<p>A closure is the combination of a function and the lexical environment within which that function was declared.</p>
+</blockquote>
+<p>翻译过来就是：闭包是函数和该函数内部能访问到的<strong>环境</strong>变量的总和。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/01/24/%E4%BB%80%E4%B9%88%E6%98%AFAJAX/#more" rel="contents">
+              <a class="btn" href="/2022/01/24/%E9%97%AD%E5%8C%85/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
