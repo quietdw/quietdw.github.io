@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/avatar.jpg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="HTTP 请求HTTP（HyperText Transfer Protocol）请求信息至少由 3 部分组成  请求方法（GET&#x2F;POST）、URI、协议版本 请求头（Request Header） 空行（\n） 请求正文">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTTP请求与响应">
+<meta property="og:url" content="http://example.com/2018/10/13/HTTP%E8%AF%B7%E6%B1%82%E4%B8%8E%E5%93%8D%E5%BA%94/index.html">
+<meta property="og:site_name" content="Jiang">
+<meta property="og:description" content="HTTP 请求HTTP（HyperText Transfer Protocol）请求信息至少由 3 部分组成  请求方法（GET&#x2F;POST）、URI、协议版本 请求头（Request Header） 空行（\n） 请求正文">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2018-10-13T00:00:00.000Z">
+<meta property="article:modified_time" content="2018-10-13T00:00:00.000Z">
+<meta property="article:author" content="Jiang">
+<meta property="article:tag" content="HTTP">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2018/10/13/HTTP%E8%AF%B7%E6%B1%82%E4%B8%8E%E5%93%8D%E5%BA%94/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>HTTP请求与响应 | Jiang</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Jiang</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Jiang 的博客</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="http://jiangnana.fun/resume/" rel="noopener" target="_blank"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2018/10/13/HTTP%E8%AF%B7%E6%B1%82%E4%B8%8E%E5%93%8D%E5%BA%94/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Jiang">
+      <meta itemprop="description" content="做人呢，最重要的就是要开心">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jiang">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          HTTP请求与响应
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-10-13 00:00:00" itemprop="dateCreated datePublished" datetime="2018-10-13T00:00:00+00:00">2018-10-13</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="HTTP-请求"><a href="#HTTP-请求" class="headerlink" title="HTTP 请求"></a>HTTP 请求</h3><p>HTTP（HyperText Transfer Protocol）请求信息至少由 3 部分组成</p>
+<ul>
+<li>请求方法（GET/POST）、URI、协议版本</li>
+<li>请求头（Request Header）</li>
+<li>空行（\n）</li>
+<li>请求正文</li>
+</ul>
+<span id="more"></span>
+
+<p>或</p>
+<p>＜ request-line ＞</p>
+<p>＜ headers ＞</p>
+<p>＜ blank line ＞</p>
+<p>＜ request-body ＞</p>
+<ol>
+<li><p>请求方法（GET/POST）、URI、协议版本</p>
+<ul>
+<li>根据 HTTP 标准，HTTP 请求可以使用多种请求方法。例如：HTTP1.1 目前支持 7 种请求方法：GET、POST、HEAD、OPTIONS、PUT、DELETE 和 TARCE。</li>
+<li>在 Internet 应用中，最常用的方法是 GET 和 POST。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>请求方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>GET</td>
+<td>请求获取由 Request-URI 所标识的资源</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>在 Request-URI 所标识的资源后附加新的数据</td>
+</tr>
+<tr>
+<td>HEAD</td>
+<td>请求获取由 Request-URI 所标识的资源的响应消息报头</td>
+</tr>
+<tr>
+<td>OPTIONS</td>
+<td>请求查询服务器的性能，或查询与资源相关的选项和需求</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>请求服务器存储一个资源，并用 Request-URI 作为其标识</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>请求服务器删除由 Request-URI 所标识的资源</td>
+</tr>
+<tr>
+<td>TRACE</td>
+<td>请求服务器回送收到的请求信息，主要用语测试或诊断</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>请求头(Request Header)</p>
+<ul>
+<li>请求头包含许多有关的客户端环境和请求正文的有用信息。例如，请求头可以声明浏览器所用的语言，请求正文的长度等。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>请求头</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Content-Type</td>
+<td>是返回消息中非常重要的内容，表示后面的文档属于什么 MIME 类型。Content-Type: [type]/[subtype]; parameter。例如最常见的就是 text/html，它的意思是说返回的内容是文本类型，这个文本又是 HTML 格式的。原则上浏览器会根据 Content-Type 来决定如何显示返回的消息体内容</td>
+</tr>
+<tr>
+<td>Host</td>
+<td>指定请求资源的 Intenet 主机和端口号，必须表示请求 url 的原始服务器或网关的位置。HTTP/1.1 请求必须包含主机头域，否则系统会以 400 状态码返回</td>
+</tr>
+<tr>
+<td>Accept</td>
+<td>浏览器可接受的 MIME 类型</td>
+</tr>
+<tr>
+<td>Accept-Charset</td>
+<td>浏览器可接受的字符集</td>
+</tr>
+<tr>
+<td>Accept-Encoding</td>
+<td>浏览器能够进行解码的数据编码方式，比如 gzip。Servlet 能够向支持 gzip 的浏览器返回经 gzip 编码的 HTML 页面。许多情形下这可以减少 5 到 10 倍的下载时间</td>
+</tr>
+<tr>
+<td>Accept-Language</td>
+<td>浏览器所希望的语言种类，当服务器能够提供一种以上的语言版本时要用到</td>
+</tr>
+<tr>
+<td>Authorization</td>
+<td>授权信息，通常出现在对服务器发送的 WWW-Authenticate 头的应答中</td>
+</tr>
+<tr>
+<td>Connection</td>
+<td>表示是否需要持久连接。如果 Servlet 看到这里的值为“Keep- Alive”，或者看到请求使用的是 HTTP1.1（HTTP 1.1 默认进行持久连接），它就可以利用持久连接的优点，当页面包含多个元素时（例如 Applet，图片），显著地减少下载所需要的时间。要实现这一点，Servlet 需要在应答中发送一个 Content-Length 头，最简单的实现方法是：先把内容写入 ByteArrayOutputStream，然后在正式写出内容之前计算它的大小</td>
+</tr>
+<tr>
+<td>Content-Length</td>
+<td>表示请求消息正文的长度</td>
+</tr>
+<tr>
+<td>Cookie</td>
+<td>这是最重要的请求头信息之一</td>
+</tr>
+<tr>
+<td>From</td>
+<td>请求发送者的 email 地址，由一些特殊的 Web 客户程序使用，浏览器不会用到它</td>
+</tr>
+<tr>
+<td>Host</td>
+<td>初始 URL 中的主机和端口</td>
+</tr>
+<tr>
+<td>If-Modified-Since</td>
+<td>只有当所请求的内容在指定的日期之后又经过修改才返回它，否则返回 304“Not Modified”应答</td>
+</tr>
+<tr>
+<td>Pragma</td>
+<td>指定“no-cache”值表示服务器必须返回一个刷新后的文档，即使它是代理服务器而且已经有了页面的本地拷贝</td>
+</tr>
+<tr>
+<td>Referer</td>
+<td>包含一个 URL，用户从该 URL 代表的页面出发访问当前请求的页面</td>
+</tr>
+<tr>
+<td>User-Agent</td>
+<td>浏览器类型，如果 Servlet 返回的内容与浏览器类型有关则该值非常有用</td>
+</tr>
+<tr>
+<td>UA-Pixels，UA-Color，UA-OS，UA-CPU</td>
+<td>由某些版本的 IE 浏览器所发送的非标准的请求头，表示屏幕大小、颜色深度、操作系统和 CPU 类型</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<ul>
+<li><p>常见的 MIME 类型如下：</p>
+<ol>
+<li>text/html ： HTML 格式</li>
+<li>text/plain ：纯文本格式</li>
+<li>text/xml ： XML 格式</li>
+<li>image/gif ：gif 图片格式</li>
+<li>image/jpeg ：jpg 图片格式</li>
+<li>image/png：png 图片格式</li>
+<li>application/xhtml+xml ：XHTML 格式</li>
+<li>application/xml ： XML 数据格式</li>
+<li>application/atom+xml ：Atom XML 聚合格式</li>
+<li>application/json ： JSON 数据格式</li>
+<li>application/pdf ：pdf 格式</li>
+<li>application/msword ： Word 文档格式</li>
+<li>application/octet-stream ： 二进制流数据（如常见的文件下载）</li>
+<li>application/x-www-form-urlencoded ： <code>&lt;form encType=””&gt;</code>中默认的 encType，form 表单数据被编码为 key/value 格式发送到服务器（表单默认的提交数据的格式）</li>
+<li>multipart/form-data ： 需要在表单中进行文件上传时，就需要使用该格式</li>
+</ol>
+</li>
+</ul>
+<ol start="3">
+<li><p>空行</p>
+<ul>
+<li>表示请求头已经结束，接下来的是请求正文</li>
+</ul>
+</li>
+<li><p>请求正文</p>
+<ul>
+<li>请求正文中可以包含客户提交的查询字符串信息，也可以为空</li>
+</ul>
+</li>
+</ol>
+<h3 id="HTTP-响应"><a href="#HTTP-响应" class="headerlink" title="HTTP 响应"></a>HTTP 响应</h3><p>HTTP 应答与 HTTP 请求相似，HTTP 响应也由 3 个部分构成，分别是：</p>
+<ul>
+<li>状态行</li>
+<li>响应头(Response Header)</li>
+<li>空行（\n）</li>
+<li>响应正文</li>
+</ul>
+<ol>
+<li><p>状态行</p>
+<ul>
+<li>由协议版本、数字形式的状态代码、及相应的状态描述，各元素之间以空格分隔，例如<code>HTTP/1.1 200 OK</code></li>
+<li>状态码有如下几种：<ul>
+<li>1xx:指示信息—表示请求已接收，继续处理。</li>
+<li>2xx:成功—表示请求已经被成功接收、理解、接受。</li>
+<li>3xx:重定向—要完成请求必须进行更进一步的操作。</li>
+<li>4xx:客户端错误—请求有语法错误或请求无法实现。</li>
+<li>5xx:服务器端错误—服务器未能实现合法的请求。<blockquote>
+<p>wiki 百科 HTTP 状态码(需翻墙)：<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/HTTP%E7%8A%B6%E6%80%81%E7%A0%81">https://zh.wikipedia.org/wiki/HTTP%E7%8A%B6%E6%80%81%E7%A0%81</a></p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>响应头</p>
+<ul>
+<li>响应头可能包括：</li>
+</ul>
+<p>Location：</p>
+<p>Location 响应报头域用于重定向接受者到一个新的位置。例如：客户端所请求的页面已不存在原先的位置，为了让客户端重定向到这个页面新的位置，服务 器端可以发回 Location 响应报头后使用重定向语句，让客户端去访问新的域名所对应的服务器上的资源。当我们在 JSP 中使用重定向语句的时候，服务器 端向客户端发回的响应报头中，就会有 Location 响应报头域。</p>
+<p>Server：</p>
+<p>Server 响应报头域包含了服务器用来处理请求的软件信息。它和 User-Agent 请求报头域是相对应的，前者发送服务器端软件的信息，后者发送客户 端软件(浏览器)和操作系统的信息。下面是 Server 响应报头域的一个例子：Server: Apache-Coyote/1.1</p>
+<p>WWW-Authenticate：</p>
+<p>WWW-Authenticate 响应报头域必须被包含在 401(未授权的)响应消息中，这个报头域和前面讲到的 Authorization 请求报头域是 相关的，当客户端收到 401 响应消息，就要决定是否请求服务器对其进行验证。如果要求服务器对其进行验证，就可以发送一个包含了 Authorization 报头域的请求，下面是 WWW-Authenticate 响应报头域的一个例子：WWW-Authenticate: Basic realm=”Basic Auth Test!”</p>
+<p>从这个响应报头域，可以知道服务器端对我们所请求的资源采用的是基本验证机制。</p>
+<p>Content-Encoding：</p>
+<p>Content-Encoding 实体报头域被使用作媒体类型的修饰符，它的值指示了已经被应用到实体正文的附加内容编码，因而要获得 Content- Type 报头域中所引用的媒体类型，必须采用相应的解码机制。Content-Encoding 主要用语记录文档的压缩方法，下面是它的一个例子： Content-Encoding: gzip。如果一个实体正文采用了编码方式存储，在使用之前就必须进行解码。</p>
+<p>Content-Language：</p>
+<p>Content-Language 实体报头域描述了资源所用的自然语言。Content-Language 允许用户遵照自身的首选语言来识别和区分实体。 如果这个实体内容仅仅打算提供给丹麦的阅读者，那么可以按照如下的方式设置这个实体报头域：Content-Language: da。</p>
+<p>Content-Length：</p>
+<p>Content-Length 实体报头域用于指明正文的长度，以字节方式存储的十进制数字来表示，也就是一个数字字符占一个字节，用其对应的 ASCII 码存储传输。<br>注意的是：这个长度仅仅是表示实体正文的长度，没有包括实体报头的长度。</p>
+<p>Content-Type</p>
+<p>Content-Type 实体报头域用语指明发送给接收者的实体正文的媒体类型。</p>
+<p>Last-Modified</p>
+<p>Last-Modified 实体报头域用于指示资源最后的修改日期及时间。</p>
+<p>Expires</p>
+<p>Expires 实体报头域给出响应过期的日期和时间。通常，代理服务器或浏览器会缓存一些页面。当用户再次访问这些页面时，直接从缓存中加载并显示给用 户，这样缩短了响应的时间，减少服务器的负载。为了让代理服务器或浏览器在一段时间后更新页面，我们可以使用 Expires 实体报头域指定页面过期的时 间。当用户又一次访问页面时，如果 Expires 报头域给出的日期和时间比 Date 普通报头域给出的日期和时间要早(或相同)，那么代理服务器或浏览器就 不会再使用缓存的页面而是从服务器上请求更新的页面。不过要注意，即使页面过期了，也并不意味着服务器上的原始资源在此时间之前或之后发生了改变。</p>
+</li>
+<li><p>表示分隔</p>
+</li>
+<li><p>要下载的内容</p>
+</li>
+</ol>
+<h3 id="关于-HTTP-请求-GET-和-POST-的区别"><a href="#关于-HTTP-请求-GET-和-POST-的区别" class="headerlink" title="关于 HTTP 请求 GET 和 POST 的区别"></a>关于 HTTP 请求 GET 和 POST 的区别</h3><ul>
+<li><p>提交</p>
+<ul>
+<li><p>GET 提交，请求的数据会附在 URL 之后（就是把数据放置在 HTTP 协议头＜ request-line ＞中）， 以?分割 URL 和传输数据，多个参数用&amp;连接;例如：<code>login.action?name=hyddd&amp; password=idontknow&amp;verify=%E4%BD%A0 %E5%A5%BD</code>。如果数据是英文字母/数字，原样发送，如果是空格，转换为+，如果是中文/其他字符，则直接把字符串用 BASE64 加密，得出如： %E4%BD%A0%E5%A5%BD，其中％XX 中的 XX 为该符号以 16 进制表示的 ASCII。</p>
+</li>
+<li><p>POST 提交：把提交的数据放置在是 HTTP 包的包体＜ request-body ＞中。</p>
+</li>
+</ul>
+<p>因此，GET 提交的数据会在地址栏中显示出来，而 POST 提交，地址栏不会改变。</p>
+</li>
+<li><p>传输数据的大小：</p>
+<p>首先声明,HTTP 协议没有对传输的数据大小进行限制，HTTP 协议规范也没有对 URL 长度进行限制。 而在实际开发中存在的限制主要有：</p>
+<ul>
+<li>GET:特定浏览器和服务器对 URL 长度有限制，例如 IE 对 URL 长度的限制是 2083 字节(2K+35)。对于其他浏览器，如 Netscape、FireFox 等，理论上没有长度限制，其限制取决于操作系统的支持。</li>
+</ul>
+<p>因此对于 GET 提交时，传输数据就会受到 URL 长度的限制。</p>
+<ul>
+<li>POST:由于不是通过 URL 传值，理论上数据不受限。但实际各个 WEB 服务器会规定对 post 提交数据大小进行限制，Apache、IIS6 都有各自的配置。</li>
+</ul>
+</li>
+<li><p>安全性：</p>
+<ul>
+<li>POST 的安全性要比 GET 的安全性高。比如：通过 GET 提交数据，用户名和密码将明文出现在 URL 上，因为(1)登录页面有可能被浏览器缓存， (2)其他人查看浏览器的历史纪录，那么别人就可以拿到你的账号和密码了。</li>
+</ul>
+</li>
+</ul>
+<h3 id="使用开发者工具查看-HTTP-请求内容和响应内容"><a href="#使用开发者工具查看-HTTP-请求内容和响应内容" class="headerlink" title="使用开发者工具查看 HTTP 请求内容和响应内容"></a>使用开发者工具查看 HTTP 请求内容和响应内容</h3><ol>
+<li>请求</li>
+</ol>
+<ul>
+<li>打开 Network</li>
+<li>地址栏输入网址</li>
+<li>在 Network 点击，查看 request Headers，点击「view source」,可以看见第一部分和第二部分，第三部分空行看不见</li>
+<li>如果有请求的第四部分，那么在 FormData 或 Payload 里面可以看到</li>
+</ul>
+<ol start="2">
+<li>响应</li>
+</ol>
+<ul>
+<li>打开 Network</li>
+<li>地址栏输入网址</li>
+<li>选中第一个响应查看 Response Headers，点击「view source」，你会看到响应的前两部分</li>
+<li>查看 Response 或者 Preview，你会看到响应的第 4 部分</li>
+</ul>
+<h3 id="curl-命令的使用"><a href="#curl-命令的使用" class="headerlink" title="curl 命令的使用"></a>curl 命令的使用</h3><ul>
+<li>curl 是一个利用 URL 规则在命令行下工作的文件传输工具，可以说是一款很强大的 http 命令行工具。它支持文件的上传和下载，是综合传输工具</li>
+<li>语法：<code>curl [option] [url]</code></li>
+<li>常见参数</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">-A/--user-agent &lt;string&gt;              设置用户代理发送给服务器</span><br><span class="line">-b/--cookie &lt;name=string/file&gt;    cookie字符串或文件读取位置</span><br><span class="line">-c/--cookie-jar &lt;file&gt;                    操作结束后把cookie写入到这个文件中</span><br><span class="line">-C/--continue-at &lt;offset&gt;            断点续转</span><br><span class="line">-D/--dump-header &lt;file&gt;              把header信息写入到该文件中</span><br><span class="line">-e/--referer                                  来源网址</span><br><span class="line">-f/--fail                                          连接失败时不显示http错误</span><br><span class="line">-o/--output                                  把输出写到该文件中</span><br><span class="line">-O/--remote-name                      把输出写到该文件中，保留远程文件的文件名</span><br><span class="line">-r/--range &lt;range&gt;                      检索来自HTTP/1.1或FTP服务器字节范围</span><br><span class="line">-s/--silent                                    静音模式。不输出任何东西</span><br><span class="line">-T/--upload-file &lt;file&gt;                  上传文件</span><br><span class="line">-u/--user &lt;user[:password]&gt;      设置服务器的用户和密码</span><br><span class="line">-w/--write-out [format]                什么输出完成后</span><br><span class="line">-x/--proxy &lt;host[:port]&gt;              在给定的端口上使用HTTP代理</span><br><span class="line">-#/--progress-bar                        进度条显示当前的传送状态</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Linux curl 命令详解:<a target="_blank" rel="noopener" href="https://www.cnblogs.com/duhuo/p/5695256.html"><code>click here</code></a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/HTTP/" rel="tag"># HTTP</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/10/11/4%E7%A7%8D%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E7%94%A8%E6%B3%95/" rel="prev" title="4种常用Linux命令用法">
+      <i class="fa fa-chevron-left"></i> 4种常用Linux命令用法
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/10/21/CSS%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="next" title="CSS知识点">
+      CSS知识点 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-%E8%AF%B7%E6%B1%82"><span class="nav-number">1.</span> <span class="nav-text">HTTP 请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-%E5%93%8D%E5%BA%94"><span class="nav-number">2.</span> <span class="nav-text">HTTP 响应</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E-HTTP-%E8%AF%B7%E6%B1%82-GET-%E5%92%8C-POST-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">3.</span> <span class="nav-text">关于 HTTP 请求 GET 和 POST 的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7%E6%9F%A5%E7%9C%8B-HTTP-%E8%AF%B7%E6%B1%82%E5%86%85%E5%AE%B9%E5%92%8C%E5%93%8D%E5%BA%94%E5%86%85%E5%AE%B9"><span class="nav-number">4.</span> <span class="nav-text">使用开发者工具查看 HTTP 请求内容和响应内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#curl-%E5%91%BD%E4%BB%A4%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">5.</span> <span class="nav-text">curl 命令的使用</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Jiang"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Jiang</p>
+  <div class="site-description" itemprop="description">做人呢，最重要的就是要开心</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">64</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">85</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/quietdw" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;quietdw" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jiang</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

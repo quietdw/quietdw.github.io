@@ -186,7 +186,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/24/%E7%AE%80%E5%8D%95%E7%9A%84%E6%A8%A1%E5%9D%97%E7%AE%A1%E7%90%86%E5%99%A8/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2018/10/21/CSS%E7%9F%A5%E8%AF%86%E7%82%B9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -200,7 +200,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/01/24/%E7%AE%80%E5%8D%95%E7%9A%84%E6%A8%A1%E5%9D%97%E7%AE%A1%E7%90%86%E5%99%A8/" class="post-title-link" itemprop="url">简单的模块管理器</a>
+            <a href="/2018/10/21/CSS%E7%9F%A5%E8%AF%86%E7%82%B9/" class="post-title-link" itemprop="url">CSS知识点</a>
         </h2>
 
         <div class="post-meta">
@@ -210,7 +210,7 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2022-01-24 05:50:23" itemprop="dateCreated datePublished" datetime="2022-01-24T05:50:23+00:00">2022-01-24</time>
+              <time title="Created: 2018-10-21 00:00:00" itemprop="dateCreated datePublished" datetime="2018-10-21T00:00:00+00:00">2018-10-21</time>
             </span>
 
           
@@ -224,10 +224,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>双 11 的销售额不会自己增长，知识也是，需要时长充电。最近在看 <code>你不知道的 JavaScript</code>，里面讲了模块管理器的核心概念，梳理一下其思路。</p>
+          <h3 id="CSS-介绍"><a href="#CSS-介绍" class="headerlink" title="CSS 介绍"></a>CSS 介绍</h3><p>层叠样式表 (Cascading Style Sheets，缩写为 CSS），是一种 样式表语言，用来描述 HTML 或 XML（包括如 SVG、MathML、XHTML 之类的 XML 分支语言）文档的呈现。CSS 描述了在屏幕、纸质、音频等其它媒体上的元素应该如何被渲染的问题。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/01/24/%E7%AE%80%E5%8D%95%E7%9A%84%E6%A8%A1%E5%9D%97%E7%AE%A1%E7%90%86%E5%99%A8/#more" rel="contents">
+              <a class="btn" href="/2018/10/21/CSS%E7%9F%A5%E8%AF%86%E7%82%B9/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -251,7 +251,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/24/%E9%80%A0%E8%BD%AE%E5%AD%90%E6%97%B6%E8%B8%A9%E7%9A%84%E5%9D%91/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2018/10/13/HTTP%E8%AF%B7%E6%B1%82%E4%B8%8E%E5%93%8D%E5%BA%94/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -265,7 +265,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/01/24/%E9%80%A0%E8%BD%AE%E5%AD%90%E6%97%B6%E8%B8%A9%E7%9A%84%E5%9D%91/" class="post-title-link" itemprop="url">造轮子时踩的坑</a>
+            <a href="/2018/10/13/HTTP%E8%AF%B7%E6%B1%82%E4%B8%8E%E5%93%8D%E5%BA%94/" class="post-title-link" itemprop="url">HTTP请求与响应</a>
         </h2>
 
         <div class="post-meta">
@@ -275,7 +275,7 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2022-01-24 05:50:23" itemprop="dateCreated datePublished" datetime="2022-01-24T05:50:23+00:00">2022-01-24</time>
+              <time title="Created: 2018-10-13 00:00:00" itemprop="dateCreated datePublished" datetime="2018-10-13T00:00:00+00:00">2018-10-13</time>
             </span>
 
           
@@ -289,20 +289,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Vue-相关"><a href="#Vue-相关" class="headerlink" title="Vue 相关"></a>Vue 相关</h1><ol>
-<li>v-if：没有在 dom 中出现。v-show ：元素被加上 <code>display:none</code></li>
-<li>scss 尽量都用变量 <code>$</code></li>
-<li>使用 prop 传 Boolean 值时，需要在所传属性前加<code>:</code></li>
-<li>需要获取组件的 <code>$refs</code> 值时，需要在 <code>mounted</code> 后才能获取，mounted 是异步的</li>
-<li>slot 不能直接出现在 template 中，会报错</li>
-<li>$children 子组件</li>
-<li>声明组件后，再设置 name，方便调试</li>
-<li>scoped 会隔绝其他组件的样式，建议使用</li>
-<li>Vue 的<a target="_blank" rel="noopener" href="https://jsbin.com/bipojipeho/edit?html,output">双向绑定</a>，实质上是：</li>
-</ol>
+          <h3 id="HTTP-请求"><a href="#HTTP-请求" class="headerlink" title="HTTP 请求"></a>HTTP 请求</h3><p>HTTP（HyperText Transfer Protocol）请求信息至少由 3 部分组成</p>
+<ul>
+<li>请求方法（GET/POST）、URI、协议版本</li>
+<li>请求头（Request Header）</li>
+<li>空行（\n）</li>
+<li>请求正文</li>
+</ul>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/01/24/%E9%80%A0%E8%BD%AE%E5%AD%90%E6%97%B6%E8%B8%A9%E7%9A%84%E5%9D%91/#more" rel="contents">
+              <a class="btn" href="/2018/10/13/HTTP%E8%AF%B7%E6%B1%82%E4%B8%8E%E5%93%8D%E5%BA%94/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -326,7 +322,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/24/%E9%87%8D%E6%8E%92%E5%92%8C%E9%87%8D%E7%BB%98/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2018/10/11/4%E7%A7%8D%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E7%94%A8%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -340,7 +336,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/01/24/%E9%87%8D%E6%8E%92%E5%92%8C%E9%87%8D%E7%BB%98/" class="post-title-link" itemprop="url">重排和重绘</a>
+            <a href="/2018/10/11/4%E7%A7%8D%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E7%94%A8%E6%B3%95/" class="post-title-link" itemprop="url">4种常用Linux命令用法</a>
         </h2>
 
         <div class="post-meta">
@@ -350,7 +346,7 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2022-01-24 05:50:23" itemprop="dateCreated datePublished" datetime="2022-01-24T05:50:23+00:00">2022-01-24</time>
+              <time title="Created: 2018-10-11 00:00:00" itemprop="dateCreated datePublished" datetime="2018-10-11T00:00:00+00:00">2018-10-11</time>
             </span>
 
           
@@ -364,10 +360,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>网页生成的时候，至少会渲染一次。用户访问的过程中，还会不断重新渲染。</p>
+          <h3 id="ls"><a href="#ls" class="headerlink" title="ls"></a>ls</h3><ul>
+<li>语法：<code>ls [选项参数] [目录或者目录名]</code></li>
+<li>常用选项参数：<ul>
+<li><code>-a</code>：显示所有的文件，包括隐藏文件(以.开头的文件)，参考示例 1</li>
+<li><code>-d</code>：仅列出目录本身，而不是列出目录里的内容列</li>
+<li><code>-l</code>：列出长数据串，显示出文件的属性与权限等数据信息</li>
+<li><code>-h</code>：将文件内容大小以 GB、KB 等易读的方式显示</li>
+</ul>
+</li>
+<li>全部选项参数：<a target="_blank" rel="noopener" href="https://explainshell.com/explain/1/ls">https://explainshell.com/explain/1/ls</a></li>
+</ul>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/01/24/%E9%87%8D%E6%8E%92%E5%92%8C%E9%87%8D%E7%BB%98/#more" rel="contents">
+              <a class="btn" href="/2018/10/11/4%E7%A7%8D%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E7%94%A8%E6%B3%95/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -391,7 +397,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/24/%E9%97%AD%E5%8C%85/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2018/10/11/git%E5%85%A5%E9%97%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -405,7 +411,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/01/24/%E9%97%AD%E5%8C%85/" class="post-title-link" itemprop="url">闭包</a>
+            <a href="/2018/10/11/git%E5%85%A5%E9%97%A8/" class="post-title-link" itemprop="url">git入门</a>
         </h2>
 
         <div class="post-meta">
@@ -415,7 +421,7 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2022-01-24 05:50:23" itemprop="dateCreated datePublished" datetime="2022-01-24T05:50:23+00:00">2022-01-24</time>
+              <time title="Created: 2018-10-11 00:00:00" itemprop="dateCreated datePublished" datetime="2018-10-11T00:00:00+00:00">2018-10-11</time>
             </span>
 
           
@@ -429,15 +435,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>今天我们搞清楚闭包是什么。</p>
-<h1 id="什么是闭包"><a href="#什么是闭包" class="headerlink" title="什么是闭包"></a>什么是闭包</h1><p>MDN 就是简单的一句话：</p>
-<blockquote>
-<p>A closure is the combination of a function and the lexical environment within which that function was declared.</p>
-</blockquote>
-<p>翻译过来就是：闭包是函数和该函数内部能访问到的<strong>环境</strong>变量的总和。</p>
+          <p>使用 Git 前，需要先建立一个仓库(repository)。我们可以使用一个已经存在的目录作为 Git 仓库或创建一个空目录。<br>使用当前目录作为 Git 仓库，我们只需使它初始化。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/01/24/%E9%97%AD%E5%8C%85/#more" rel="contents">
+              <a class="btn" href="/2018/10/11/git%E5%85%A5%E9%97%A8/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
