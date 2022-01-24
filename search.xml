@@ -83,41 +83,6 @@
       </tags>
   </entry>
   <entry>
-    <title>堆叠上下文</title>
-    <url>/2022/01/24/CSS%E5%A0%86%E5%8F%A0%E4%B8%8A%E4%B8%8B%E6%96%87/</url>
-    <content><![CDATA[<h3 id="什么是堆叠上下文"><a href="#什么是堆叠上下文" class="headerlink" title="什么是堆叠上下文"></a>什么是堆叠上下文</h3><p>层叠上下文，英文称作 ”stacking context” 。是 HTML 中的一个三维的概念。如果一个元素含有层叠上下文，我们可以理解为这个元素（包括其中的子元素）在 z 轴上就“高人一等”。</p>
-<span id="more"></span>
-
-<p><img src="https://jiangnana.fun/test/%E5%A0%86%E5%8F%A0%E9%A1%BA%E5%BA%8F.jpg" alt="堆叠顺序"></p>
-<h3 id="什么时候出现堆叠上下文？"><a href="#什么时候出现堆叠上下文？" class="headerlink" title="什么时候出现堆叠上下文？"></a>什么时候出现堆叠上下文？</h3><p>堆叠上下文可以理解为堆叠作用域，以下属性会出发堆叠上下文。</p>
-<ul>
-<li>根元素(HTML)</li>
-<li>z-index 值不为 auto 的，相对绝对定位</li>
-<li>z-index 值不为 auto，flex 项目，即父元素 display:flex/inline-flex</li>
-<li>opacity 的值小于 1 的元素，rgba 不算，这是背景</li>
-<li>transform 属性不为 none</li>
-<li>mix-blend-mode 属性不为 normal 的元素</li>
-<li>filter 的值不为 none 的元素</li>
-<li>perspective 的值不为 none 的元素</li>
-<li>isolation 属性被设置为 isolate 的元素</li>
-<li>position: fixed</li>
-<li>在 will-charge 中指定了任意 css 属性</li>
-<li>webkit-overflow-scrolling 属性被设置 touch 的元素</li>
-</ul>
-<blockquote>
-<p>引用</p>
-</blockquote>
-<ul>
-<li><a href="https://www.zhangxinxu.com/wordpress/2016/01/understand-css-stacking-context-order-z-index/">https://www.zhangxinxu.com/wordpress/2016/01/understand-css-stacking-context-order-z-index/</a></li>
-</ul>
-]]></content>
-      <tags>
-        <tag>堆叠上下文</tag>
-        <tag>z-index</tag>
-        <tag>CSS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CSS实现图片加载前占位</title>
     <url>/2022/01/24/CSS%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E5%8A%A0%E8%BD%BD%E5%89%8D%E5%8D%A0%E4%BD%8D/</url>
     <content><![CDATA[<p>在优化个人简历网站的时候，发现图片加载很慢，页面结构异常，故通过提前占位的方式使页面结构能保持正常</p>
@@ -241,6 +206,41 @@
       <tags>
         <tag>CSS</tag>
         <tag>布局</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>堆叠上下文</title>
+    <url>/2022/01/24/CSS%E5%A0%86%E5%8F%A0%E4%B8%8A%E4%B8%8B%E6%96%87/</url>
+    <content><![CDATA[<h3 id="什么是堆叠上下文"><a href="#什么是堆叠上下文" class="headerlink" title="什么是堆叠上下文"></a>什么是堆叠上下文</h3><p>层叠上下文，英文称作 ”stacking context” 。是 HTML 中的一个三维的概念。如果一个元素含有层叠上下文，我们可以理解为这个元素（包括其中的子元素）在 z 轴上就“高人一等”。</p>
+<span id="more"></span>
+
+<p><img src="https://jiangnana.fun/test/%E5%A0%86%E5%8F%A0%E9%A1%BA%E5%BA%8F.jpg" alt="堆叠顺序"></p>
+<h3 id="什么时候出现堆叠上下文？"><a href="#什么时候出现堆叠上下文？" class="headerlink" title="什么时候出现堆叠上下文？"></a>什么时候出现堆叠上下文？</h3><p>堆叠上下文可以理解为堆叠作用域，以下属性会出发堆叠上下文。</p>
+<ul>
+<li>根元素(HTML)</li>
+<li>z-index 值不为 auto 的，相对绝对定位</li>
+<li>z-index 值不为 auto，flex 项目，即父元素 display:flex/inline-flex</li>
+<li>opacity 的值小于 1 的元素，rgba 不算，这是背景</li>
+<li>transform 属性不为 none</li>
+<li>mix-blend-mode 属性不为 normal 的元素</li>
+<li>filter 的值不为 none 的元素</li>
+<li>perspective 的值不为 none 的元素</li>
+<li>isolation 属性被设置为 isolate 的元素</li>
+<li>position: fixed</li>
+<li>在 will-charge 中指定了任意 css 属性</li>
+<li>webkit-overflow-scrolling 属性被设置 touch 的元素</li>
+</ul>
+<blockquote>
+<p>引用</p>
+</blockquote>
+<ul>
+<li><a href="https://www.zhangxinxu.com/wordpress/2016/01/understand-css-stacking-context-order-z-index/">https://www.zhangxinxu.com/wordpress/2016/01/understand-css-stacking-context-order-z-index/</a></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>CSS</tag>
+        <tag>堆叠上下文</tag>
+        <tag>z-index</tag>
       </tags>
   </entry>
   <entry>
@@ -416,6 +416,48 @@
       </tags>
   </entry>
   <entry>
+    <title>Cookies</title>
+    <url>/2022/01/24/Cookies/</url>
+    <content><![CDATA[<h1 id="Cookie-是什么？"><a href="#Cookie-是什么？" class="headerlink" title="Cookie 是什么？"></a>Cookie 是什么？</h1><p>以下是 Web 开发里 Cookie 的含义。</p>
+<ol>
+<li>Cookie 是浏览器访问服务器后，服务器传给浏览器的<strong>一段数据</strong>。</li>
+<li>浏览器需要保存这段数据，不得轻易删除。</li>
+<li>此后每次浏览器访问该服务器，都必须带上这段数据。</li>
+</ol>
+<span id="more"></span>
+
+<h1 id="Cookie-的特点"><a href="#Cookie-的特点" class="headerlink" title="Cookie 的特点"></a>Cookie 的特点</h1><ol>
+<li>服务器通过 Set-Cookie 响应头设置 Cookie</li>
+<li>浏览器得到 Cookie 之后，每次请求都要带上 Cookie</li>
+<li>客户端在一段时间内保存这个 Cookie，时长可通过代码修改</li>
+<li>最大一般 4kb</li>
+</ol>
+<h1 id="Cookie-的用途"><a href="#Cookie-的用途" class="headerlink" title="Cookie 的用途"></a>Cookie 的用途</h1><ol>
+<li><p>第一个作用是识别用户身份。</p>
+<p>比如用户 A 用浏览器访问了 <a href="http://a.com,那么/">http://a.com，那么</a> <a href="http://a.com/">http://a.com</a> 的服务器就会立刻给 A 返回一段数据「uid=1」（这就是 Cookie）。当 A 再次访问 <a href="http://a.com/">http://a.com</a> 的其他页面时，就会附带上「uid=1」这段数据。</p>
+<p>同理，用户 B 用浏览器访问 <a href="http://a.com/">http://a.com</a> 时，<a href="http://a.com/">http://a.com</a> 发现 B 没有附带 uid 数据，就给 B 分配了一个新的 uid，为 2，然后返回给 B 一段数据「uid=2」。B 之后访问 <a href="http://a.com/">http://a.com</a> 的时候，就会一直带上「uid=2」这段数据。</p>
+<p>借此，<a href="http://a.com/">http://a.com</a> 的服务器就能区分 A 和 B 两个用户了。</p>
+</li>
+<li><p>第二个作用是记录历史。</p>
+<p>假设 <a href="http://a.com/">http://a.com</a> 是一个购物网站，当 A 在上面将商品 A1 、A2 加入购物车时，JS 可以改写 Cookie，改为「uid=1; cart=A1,A2」，表示购物车里有 A1 和 A2 两样商品了。</p>
+<p>这样一来，当用户关闭网页，过三天再打开网页的时候，依然可以看到 A1、A2 躺在购物车里，因为浏览器并不会无缘无故地删除这个 Cookie。</p>
+<p>借此，就达到里记录用户操作历史的目的了。</p>
+</li>
+</ol>
+<p>（上面的例子只是为了让大家了解 Cookie 的作用而构想出来的，实际的网站使用 Cookie 时会更谨慎一些。）</p>
+<blockquote>
+<p>引用</p>
+</blockquote>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/22396872?refer=study-fe">https://zhuanlan.zhihu.com/p/22396872?refer=study-fe</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/Cookie">https://zh.wikipedia.org/wiki/Cookie</a></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Cookie</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CSS知识点</title>
     <url>/2022/01/24/CSS%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
     <content><![CDATA[<h3 id="CSS-介绍"><a href="#CSS-介绍" class="headerlink" title="CSS 介绍"></a>CSS 介绍</h3><p>层叠样式表 (Cascading Style Sheets，缩写为 CSS），是一种 样式表语言，用来描述 HTML 或 XML（包括如 SVG、MathML、XHTML 之类的 XML 分支语言）文档的呈现。CSS 描述了在屏幕、纸质、音频等其它媒体上的元素应该如何被渲染的问题。</p>
@@ -460,48 +502,6 @@
 ]]></content>
       <tags>
         <tag>CSS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Cookies</title>
-    <url>/2022/01/24/Cookies/</url>
-    <content><![CDATA[<h1 id="Cookie-是什么？"><a href="#Cookie-是什么？" class="headerlink" title="Cookie 是什么？"></a>Cookie 是什么？</h1><p>以下是 Web 开发里 Cookie 的含义。</p>
-<ol>
-<li>Cookie 是浏览器访问服务器后，服务器传给浏览器的<strong>一段数据</strong>。</li>
-<li>浏览器需要保存这段数据，不得轻易删除。</li>
-<li>此后每次浏览器访问该服务器，都必须带上这段数据。</li>
-</ol>
-<span id="more"></span>
-
-<h1 id="Cookie-的特点"><a href="#Cookie-的特点" class="headerlink" title="Cookie 的特点"></a>Cookie 的特点</h1><ol>
-<li>服务器通过 Set-Cookie 响应头设置 Cookie</li>
-<li>浏览器得到 Cookie 之后，每次请求都要带上 Cookie</li>
-<li>客户端在一段时间内保存这个 Cookie，时长可通过代码修改</li>
-<li>最大一般 4kb</li>
-</ol>
-<h1 id="Cookie-的用途"><a href="#Cookie-的用途" class="headerlink" title="Cookie 的用途"></a>Cookie 的用途</h1><ol>
-<li><p>第一个作用是识别用户身份。</p>
-<p>比如用户 A 用浏览器访问了 <a href="http://a.com,那么/">http://a.com，那么</a> <a href="http://a.com/">http://a.com</a> 的服务器就会立刻给 A 返回一段数据「uid=1」（这就是 Cookie）。当 A 再次访问 <a href="http://a.com/">http://a.com</a> 的其他页面时，就会附带上「uid=1」这段数据。</p>
-<p>同理，用户 B 用浏览器访问 <a href="http://a.com/">http://a.com</a> 时，<a href="http://a.com/">http://a.com</a> 发现 B 没有附带 uid 数据，就给 B 分配了一个新的 uid，为 2，然后返回给 B 一段数据「uid=2」。B 之后访问 <a href="http://a.com/">http://a.com</a> 的时候，就会一直带上「uid=2」这段数据。</p>
-<p>借此，<a href="http://a.com/">http://a.com</a> 的服务器就能区分 A 和 B 两个用户了。</p>
-</li>
-<li><p>第二个作用是记录历史。</p>
-<p>假设 <a href="http://a.com/">http://a.com</a> 是一个购物网站，当 A 在上面将商品 A1 、A2 加入购物车时，JS 可以改写 Cookie，改为「uid=1; cart=A1,A2」，表示购物车里有 A1 和 A2 两样商品了。</p>
-<p>这样一来，当用户关闭网页，过三天再打开网页的时候，依然可以看到 A1、A2 躺在购物车里，因为浏览器并不会无缘无故地删除这个 Cookie。</p>
-<p>借此，就达到里记录用户操作历史的目的了。</p>
-</li>
-</ol>
-<p>（上面的例子只是为了让大家了解 Cookie 的作用而构想出来的，实际的网站使用 Cookie 时会更谨慎一些。）</p>
-<blockquote>
-<p>引用</p>
-</blockquote>
-<ul>
-<li><a href="https://zhuanlan.zhihu.com/p/22396872?refer=study-fe">https://zhuanlan.zhihu.com/p/22396872?refer=study-fe</a></li>
-<li><a href="https://zh.wikipedia.org/wiki/Cookie">https://zh.wikipedia.org/wiki/Cookie</a></li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Cookie</tag>
       </tags>
   </entry>
   <entry>
@@ -882,6 +882,10 @@
 <p>解决方法 ：在 <code>/source</code> 文件夹中新建 <code>tags/index.md</code>文件，文件内容</p>
 <figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: tags</span><br><span class="line">type: tags</span><br><span class="line"><span class="section">layout: &#x27;tags&#x27;</span></span><br><span class="line"><span class="section">---</span></span><br></pre></td></tr></table></figure>
 
+<ol start="2">
+<li>更新后 CNAME 丢失</li>
+</ol>
+<p>解决方法：CNAME 放到 <code>/source</code> 文件夹</p>
 <blockquote>
 <p>引用</p>
 </blockquote>
@@ -1252,62 +1256,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Session、LocalStorage、HTTP缓存</title>
-    <url>/2022/01/24/Session%E3%80%81LocalStorage%E3%80%81HTTP%E7%BC%93%E5%AD%98/</url>
-    <content><![CDATA[<h1 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h1><ol>
-<li>将 SessionID（随机数）通过 Cookie 发给客户端(Session 可以用 LocalStorage + 查询参数实现)</li>
-<li>客户端访问服务器时，服务器读取 SessionID</li>
-<li>服务器有一块内存（哈希表）保存了所有 session</li>
-<li>通过 SessionID 我们可以得到对应用户的隐私信息，如 id、email</li>
-<li>这块内存（哈希表）就是服务器上的所有 session</li>
-<li>页面关闭的时候，会清空 SessionStorage</li>
-<li>Session 在服务器的默认有效时间是 30 分钟,可以通过代码控制失效时间</li>
-</ol>
-<span id="more"></span>
-
-<h1 id="LocalStorage"><a href="#LocalStorage" class="headerlink" title="LocalStorage"></a>LocalStorage</h1><ol>
-<li>LocalStorage 跟 HTTP 无关</li>
-<li>HTTP 不会带上 LocalStorage 的值</li>
-<li>只有相同域名的页面才能互相读取 LocalStorage（没有同源那么严格）</li>
-<li>每个域名 localStorage 最大存储量为 5Mb 左右（每个浏览器不一样）</li>
-<li>LocalStorage 永久有效，除非用户清理缓存</li>
-<li>常用场景：记录有没有提示过用户（没有用的信息，不能记录密码）</li>
-</ol>
-<h1 id="SessionStorage"><a href="#SessionStorage" class="headerlink" title="SessionStorage"></a>SessionStorage</h1><ol>
-<li>同上</li>
-<li>同上</li>
-<li>同上</li>
-<li>同上</li>
-<li>SessionStorage 在用户关闭页面（会话结束）后就失效</li>
-</ol>
-<h1 id="HTTP-缓存"><a href="#HTTP-缓存" class="headerlink" title="HTTP 缓存"></a>HTTP 缓存</h1><h2 id="Cache-Control"><a href="#Cache-Control" class="headerlink" title="Cache-Control"></a>Cache-Control</h2><ol>
-<li><code>Cache-Control: max-age=300</code>，当用户 300s 内提交请求时，不会像服务器重新请求</li>
-<li>首页不要用缓存</li>
-</ol>
-<h2 id="Expire"><a href="#Expire" class="headerlink" title="Expire"></a>Expire</h2><ol>
-<li>和 Cache-Control 类似，优先使用 Cache-Control</li>
-<li><code>Expires: Wed, 21 Oct 2015 07:28:00 GMT</code>，在某时刻之前的，都不会像服务器重新请求，但是这个‘时刻’是参照本地时间的，会有风险</li>
-</ol>
-<h2 id="ETag"><a href="#ETag" class="headerlink" title="ETag"></a>ETag</h2><ol>
-<li>服务器响应头有 Etag，其值为响应内容的 MD5</li>
-<li>客户端再次访问给定的 URL，会返回 If-None-Match 请求头，值还是 Etag 的值</li>
-<li>如果服务器响应内容没更新， 则 If-None-Match 的值和 Etag 的值一致，服务器返回 304；如果值不一致，则表示服务器内容有更新，需要重新下载。</li>
-</ol>
-<h2 id="Last-Modified"><a href="#Last-Modified" class="headerlink" title="Last-Modified"></a>Last-Modified</h2><ol>
-<li><p>The Last-Modified 是一个响应首部，其中包含源头服务器认定的资源做出修改的日期及时间。 它通常被用作一个验证器来判断接收到的或者存储的资源是否彼此一致。</p>
-</li>
-<li><p>If-Modified-Since 是由客户端往服务器发送的请求头，服务器只在所请求的资源在给定的日期时间之后对内容进行过修改的情况下才会将资源返回，状态码为 200 。如果请求的资源从那时起未经修改，那么返回一个不带有消息主体的 304 响应，而在 Last-Modified 首部中会带有上次修改时间。</p>
-</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>Session</tag>
-        <tag>LocalStorage</tag>
-        <tag>Cache-Control</tag>
-        <tag>HTTP缓存</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>VSCode 配置跳转定义</title>
     <url>/2022/01/24/VSCode%20%E9%85%8D%E7%BD%AE%E8%B7%B3%E8%BD%AC%E5%AE%9A%E4%B9%89/</url>
     <content><![CDATA[<p>使用 VSCode 的时候，有时想 F12 查看引用组件的内容，不会自动跳转，很不爽。今天鼓捣了一下，总算是可以跳转引用了。</p>
@@ -1411,6 +1359,62 @@
         <tag>Vue</tag>
         <tag>diff</tag>
         <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Session、LocalStorage、HTTP缓存</title>
+    <url>/2022/01/24/Session%E3%80%81LocalStorage%E3%80%81HTTP%E7%BC%93%E5%AD%98/</url>
+    <content><![CDATA[<h1 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h1><ol>
+<li>将 SessionID（随机数）通过 Cookie 发给客户端(Session 可以用 LocalStorage + 查询参数实现)</li>
+<li>客户端访问服务器时，服务器读取 SessionID</li>
+<li>服务器有一块内存（哈希表）保存了所有 session</li>
+<li>通过 SessionID 我们可以得到对应用户的隐私信息，如 id、email</li>
+<li>这块内存（哈希表）就是服务器上的所有 session</li>
+<li>页面关闭的时候，会清空 SessionStorage</li>
+<li>Session 在服务器的默认有效时间是 30 分钟,可以通过代码控制失效时间</li>
+</ol>
+<span id="more"></span>
+
+<h1 id="LocalStorage"><a href="#LocalStorage" class="headerlink" title="LocalStorage"></a>LocalStorage</h1><ol>
+<li>LocalStorage 跟 HTTP 无关</li>
+<li>HTTP 不会带上 LocalStorage 的值</li>
+<li>只有相同域名的页面才能互相读取 LocalStorage（没有同源那么严格）</li>
+<li>每个域名 localStorage 最大存储量为 5Mb 左右（每个浏览器不一样）</li>
+<li>LocalStorage 永久有效，除非用户清理缓存</li>
+<li>常用场景：记录有没有提示过用户（没有用的信息，不能记录密码）</li>
+</ol>
+<h1 id="SessionStorage"><a href="#SessionStorage" class="headerlink" title="SessionStorage"></a>SessionStorage</h1><ol>
+<li>同上</li>
+<li>同上</li>
+<li>同上</li>
+<li>同上</li>
+<li>SessionStorage 在用户关闭页面（会话结束）后就失效</li>
+</ol>
+<h1 id="HTTP-缓存"><a href="#HTTP-缓存" class="headerlink" title="HTTP 缓存"></a>HTTP 缓存</h1><h2 id="Cache-Control"><a href="#Cache-Control" class="headerlink" title="Cache-Control"></a>Cache-Control</h2><ol>
+<li><code>Cache-Control: max-age=300</code>，当用户 300s 内提交请求时，不会像服务器重新请求</li>
+<li>首页不要用缓存</li>
+</ol>
+<h2 id="Expire"><a href="#Expire" class="headerlink" title="Expire"></a>Expire</h2><ol>
+<li>和 Cache-Control 类似，优先使用 Cache-Control</li>
+<li><code>Expires: Wed, 21 Oct 2015 07:28:00 GMT</code>，在某时刻之前的，都不会像服务器重新请求，但是这个‘时刻’是参照本地时间的，会有风险</li>
+</ol>
+<h2 id="ETag"><a href="#ETag" class="headerlink" title="ETag"></a>ETag</h2><ol>
+<li>服务器响应头有 Etag，其值为响应内容的 MD5</li>
+<li>客户端再次访问给定的 URL，会返回 If-None-Match 请求头，值还是 Etag 的值</li>
+<li>如果服务器响应内容没更新， 则 If-None-Match 的值和 Etag 的值一致，服务器返回 304；如果值不一致，则表示服务器内容有更新，需要重新下载。</li>
+</ol>
+<h2 id="Last-Modified"><a href="#Last-Modified" class="headerlink" title="Last-Modified"></a>Last-Modified</h2><ol>
+<li><p>The Last-Modified 是一个响应首部，其中包含源头服务器认定的资源做出修改的日期及时间。 它通常被用作一个验证器来判断接收到的或者存储的资源是否彼此一致。</p>
+</li>
+<li><p>If-Modified-Since 是由客户端往服务器发送的请求头，服务器只在所请求的资源在给定的日期时间之后对内容进行过修改的情况下才会将资源返回，状态码为 200 。如果请求的资源从那时起未经修改，那么返回一个不带有消息主体的 304 响应，而在 Last-Modified 首部中会带有上次修改时间。</p>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>Session</tag>
+        <tag>LocalStorage</tag>
+        <tag>Cache-Control</tag>
+        <tag>HTTP缓存</tag>
       </tags>
   </entry>
   <entry>
@@ -1783,6 +1787,30 @@
       </tags>
   </entry>
   <entry>
+    <title>事件委托</title>
+    <url>/2022/01/24/%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98/</url>
+    <content><![CDATA[<p>现页面有<code>&lt;li&gt;</code>若干个，倘若需要监听每个<code>&lt;li&gt;</code>，传统的方法是遍历标签，并给它们添加同样多的点击事件，但如果页面中有多个标签，给每个标签都添加点击事件，会造成内存占用过多。今天利用事件捕获冒泡机制，写一个事件委托，解决这个问题。</p>
+<span id="more"></span>
+
+<h1 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h1><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>01<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>02<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>03<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>04<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>05<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>06<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> oUl = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;ul&#x27;</span>)</span><br><span class="line">oUl.addEventListener(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> ele =  e.target</span><br><span class="line">    <span class="keyword">while</span> (!ele.matches(<span class="string">&#x27;li&#x27;</span>))&#123;</span><br><span class="line">        <span class="keyword">if</span>(ele.matches(<span class="string">&#x27;ul&#x27;</span>))&#123;</span><br><span class="line">            ele = <span class="literal">null</span> </span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        &#125;</span><br><span class="line">        ele = ele.parentNode  <span class="comment">// 一直往上寻找父元素，直到ul退出循环、</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    ele &amp;&amp; ele.style.color = <span class="string">&#x27;red&#x27;</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h1 id="事件冒泡"><a href="#事件冒泡" class="headerlink" title="事件冒泡"></a>事件冒泡</h1><p>简单的说，事件分为捕获和冒泡阶段。当<code>addEventListener</code>设置为true时，监听捕获时的事件，当设置为false时，监听冒泡时的阶段，默认是使用冒泡。如果在目标上捕获和冒泡都有监听，则按照书写顺序依次执行。</p>
+<p>举个例子：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;a&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;b&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;c&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 当点击c时, 输出结果：c b a</span><br><span class="line">a.addEventListener(&#x27;click&#x27;,function()&#123;</span><br><span class="line">  console.log(&#x27;a&#x27;)</span><br><span class="line">&#125;)</span><br><span class="line">b.addEventListener(&#x27;click&#x27;,function()&#123;</span><br><span class="line">  console.log(&#x27;b&#x27;)</span><br><span class="line">&#125;)</span><br><span class="line">c.addEventListener(&#x27;click&#x27;,function()&#123;</span><br><span class="line">  console.log(&#x27;c&#x27;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 当点击c时,先捕获，再冒泡，因此输出结果：b c a</span><br><span class="line">a.addEventListener(&#x27;click&#x27;,function()&#123;</span><br><span class="line">  console.log(&#x27;a&#x27;)</span><br><span class="line">&#125;)</span><br><span class="line">b.addEventListener(&#x27;click&#x27;,function()&#123;</span><br><span class="line">  console.log(&#x27;b&#x27;)</span><br><span class="line">&#125;,true)</span><br><span class="line">c.addEventListener(&#x27;click&#x27;,function()&#123;</span><br><span class="line">  console.log(&#x27;c&#x27;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>事件委托</tag>
+        <tag>冒泡</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>个性化 echarts 图表</title>
     <url>/2022/01/24/%E4%B8%AA%E6%80%A7%E5%8C%96echarts/</url>
     <content><![CDATA[<p>最近公司开发 ERP 系统，其中有表格展示，一开始也没放在心上，心想用 echarts 就行了，但真正开始做后，才发现 echarts 并不简单。</p>
@@ -1816,30 +1844,6 @@
 ]]></content>
       <tags>
         <tag>echarts</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>事件委托</title>
-    <url>/2022/01/24/%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98/</url>
-    <content><![CDATA[<p>现页面有<code>&lt;li&gt;</code>若干个，倘若需要监听每个<code>&lt;li&gt;</code>，传统的方法是遍历标签，并给它们添加同样多的点击事件，但如果页面中有多个标签，给每个标签都添加点击事件，会造成内存占用过多。今天利用事件捕获冒泡机制，写一个事件委托，解决这个问题。</p>
-<span id="more"></span>
-
-<h1 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h1><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>01<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>02<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>03<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>04<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>05<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>06<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> oUl = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;ul&#x27;</span>)</span><br><span class="line">oUl.addEventListener(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> ele =  e.target</span><br><span class="line">    <span class="keyword">while</span> (!ele.matches(<span class="string">&#x27;li&#x27;</span>))&#123;</span><br><span class="line">        <span class="keyword">if</span>(ele.matches(<span class="string">&#x27;ul&#x27;</span>))&#123;</span><br><span class="line">            ele = <span class="literal">null</span> </span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        &#125;</span><br><span class="line">        ele = ele.parentNode  <span class="comment">// 一直往上寻找父元素，直到ul退出循环、</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    ele &amp;&amp; ele.style.color = <span class="string">&#x27;red&#x27;</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h1 id="事件冒泡"><a href="#事件冒泡" class="headerlink" title="事件冒泡"></a>事件冒泡</h1><p>简单的说，事件分为捕获和冒泡阶段。当<code>addEventListener</code>设置为true时，监听捕获时的事件，当设置为false时，监听冒泡时的阶段，默认是使用冒泡。如果在目标上捕获和冒泡都有监听，则按照书写顺序依次执行。</p>
-<p>举个例子：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;a&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;b&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;c&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 当点击c时, 输出结果：c b a</span><br><span class="line">a.addEventListener(&#x27;click&#x27;,function()&#123;</span><br><span class="line">  console.log(&#x27;a&#x27;)</span><br><span class="line">&#125;)</span><br><span class="line">b.addEventListener(&#x27;click&#x27;,function()&#123;</span><br><span class="line">  console.log(&#x27;b&#x27;)</span><br><span class="line">&#125;)</span><br><span class="line">c.addEventListener(&#x27;click&#x27;,function()&#123;</span><br><span class="line">  console.log(&#x27;c&#x27;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 当点击c时,先捕获，再冒泡，因此输出结果：b c a</span><br><span class="line">a.addEventListener(&#x27;click&#x27;,function()&#123;</span><br><span class="line">  console.log(&#x27;a&#x27;)</span><br><span class="line">&#125;)</span><br><span class="line">b.addEventListener(&#x27;click&#x27;,function()&#123;</span><br><span class="line">  console.log(&#x27;b&#x27;)</span><br><span class="line">&#125;,true)</span><br><span class="line">c.addEventListener(&#x27;click&#x27;,function()&#123;</span><br><span class="line">  console.log(&#x27;c&#x27;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>事件委托</tag>
-        <tag>冒泡</tag>
       </tags>
   </entry>
   <entry>
@@ -2098,30 +2102,6 @@
       </tags>
   </entry>
   <entry>
-    <title>函数节流</title>
-    <url>/2022/01/24/%E5%87%BD%E6%95%B0%E8%8A%82%E6%B5%81/</url>
-    <content><![CDATA[<p>有些事件，如 <code>onresize</code> 事件，高频更改可能导致浏览器崩溃。为了绕开这个问题，可以使用定时器对该函数进行节流。</p>
-<span id="more"></span>
-
-<h1 id="屯着一起送"><a href="#屯着一起送" class="headerlink" title="屯着一起送"></a>屯着一起送</h1><p>举个例子，小明去送外卖，收到订单后，不会马上去送，而是等个1分钟，5分钟内如果又有订单，就再等着，直到5分钟内没有新的订单。</p>
-<p>用代码表示就是这样：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span> = <span class="string">&#x27;xxx&#x27;</span>&gt;</span></span><br><span class="line">    送外卖</span><br><span class="line"><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> debounce  =  <span class="function"><span class="keyword">function</span> (<span class="params">callback,delay</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> timer = <span class="literal">null</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (timer) &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">            <span class="built_in">clearTimeout</span>(timer)</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        timer = <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="number">2</span>)</span><br><span class="line">            callback()</span><br><span class="line">            timer = <span class="literal">null</span></span><br><span class="line">        &#125;, delay)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">delivery</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;我去送外卖了&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">xxx.onclick = debounce(delivery,<span class="number">1000</span>)</span><br></pre></td></tr></table></figure>
-
-<h1 id="技能-CD"><a href="#技能-CD" class="headerlink" title="技能 CD"></a>技能 CD</h1><p>依旧举个例子，lol中某英雄的技能CD是10s，ta至少每隔10秒才能放同一个技能。</p>
-<p>用代码表示就是这样的</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span> = <span class="string">&#x27;xxx&#x27;</span>&gt;</span></span><br><span class="line">    施放 Q 技能</span><br><span class="line"><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> throttle  =  <span class="function"><span class="keyword">function</span> (<span class="params">callback,delay</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> fired = <span class="literal">false</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!fired)&#123;</span><br><span class="line">            fired = <span class="literal">true</span></span><br><span class="line">            callback()</span><br><span class="line">            <span class="keyword">var</span> timer = <span class="built_in">setTimeout</span>( <span class="function">() =&gt;</span> &#123;fired = <span class="literal">false</span>&#125;,delay)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fire</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;施放了 Q 技能&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">xxx.onclick = throttle(fire,<span class="number">10000</span>)</span><br></pre></td></tr></table></figure>
-
-<p>两种方式都使用了闭包，但只是简单的实现，目前 lodash 和 underscore 这两个js库都对以上方法进行了封装，功能也更完善。</p>
-]]></content>
-      <tags>
-        <tag>函数节流</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>初识jQuery</title>
     <url>/2022/01/24/%E5%88%9D%E8%AF%86JQuery/</url>
     <content><![CDATA[<p>jQuery 的思路：</p>
@@ -2189,6 +2169,30 @@
         <tag>JavaScript</tag>
         <tag>算法</tag>
         <tag>排序</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>函数节流</title>
+    <url>/2022/01/24/%E5%87%BD%E6%95%B0%E8%8A%82%E6%B5%81/</url>
+    <content><![CDATA[<p>有些事件，如 <code>onresize</code> 事件，高频更改可能导致浏览器崩溃。为了绕开这个问题，可以使用定时器对该函数进行节流。</p>
+<span id="more"></span>
+
+<h1 id="屯着一起送"><a href="#屯着一起送" class="headerlink" title="屯着一起送"></a>屯着一起送</h1><p>举个例子，小明去送外卖，收到订单后，不会马上去送，而是等个1分钟，5分钟内如果又有订单，就再等着，直到5分钟内没有新的订单。</p>
+<p>用代码表示就是这样：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span> = <span class="string">&#x27;xxx&#x27;</span>&gt;</span></span><br><span class="line">    送外卖</span><br><span class="line"><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> debounce  =  <span class="function"><span class="keyword">function</span> (<span class="params">callback,delay</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> timer = <span class="literal">null</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (timer) &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">            <span class="built_in">clearTimeout</span>(timer)</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        timer = <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="number">2</span>)</span><br><span class="line">            callback()</span><br><span class="line">            timer = <span class="literal">null</span></span><br><span class="line">        &#125;, delay)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">delivery</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;我去送外卖了&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">xxx.onclick = debounce(delivery,<span class="number">1000</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="技能-CD"><a href="#技能-CD" class="headerlink" title="技能 CD"></a>技能 CD</h1><p>依旧举个例子，lol中某英雄的技能CD是10s，ta至少每隔10秒才能放同一个技能。</p>
+<p>用代码表示就是这样的</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span> = <span class="string">&#x27;xxx&#x27;</span>&gt;</span></span><br><span class="line">    施放 Q 技能</span><br><span class="line"><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> throttle  =  <span class="function"><span class="keyword">function</span> (<span class="params">callback,delay</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> fired = <span class="literal">false</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!fired)&#123;</span><br><span class="line">            fired = <span class="literal">true</span></span><br><span class="line">            callback()</span><br><span class="line">            <span class="keyword">var</span> timer = <span class="built_in">setTimeout</span>( <span class="function">() =&gt;</span> &#123;fired = <span class="literal">false</span>&#125;,delay)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fire</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;施放了 Q 技能&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">xxx.onclick = throttle(fire,<span class="number">10000</span>)</span><br></pre></td></tr></table></figure>
+
+<p>两种方式都使用了闭包，但只是简单的实现，目前 lodash 和 underscore 这两个js库都对以上方法进行了封装，功能也更完善。</p>
+]]></content>
+      <tags>
+        <tag>函数节流</tag>
       </tags>
   </entry>
   <entry>
@@ -2361,36 +2365,6 @@
       </tags>
   </entry>
   <entry>
-    <title>巧用 Git 分支</title>
-    <url>/2022/01/24/%E5%B7%A7%E7%94%A8%20Git%20%E5%88%86%E6%94%AF/</url>
-    <content><![CDATA[<p>写代码不出 bug 这个事情呢，不能强求的，有时候在新分支（b0）开发新版本开发到一半，线上版本（master）忽然冒出一个 bug 或者功能急需变更，这时就要切换到 master，紧急修复，然后再切回 b0 继续开发；</p>
-<span id="more"></span>
-
-<p>具体要怎么操作呢？</p>
-<p>我们要建立分支 b0，在上面开发新版本</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">git checkout -b b0</span><br><span class="line"></span><br><span class="line"><span class="comment">// 上面是下面两句的简写</span></span><br><span class="line"><span class="comment">//git branch b0 新建分支b0</span></span><br><span class="line"><span class="comment">//git checkout b0 切换到分支b0</span></span><br></pre></td></tr></table></figure>
-
-<p>然后线上版本 bug 了，切回线上版本，新建分支 b1 紧急修复</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">git checkout master</span><br><span class="line">git checkout -b b1</span><br></pre></td></tr></table></figure>
-
-<p>修复成功后合并 b1，并删除 b1 分支</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">git checkout master</span><br><span class="line">git merge b1</span><br><span class="line">git branch -d b1</span><br></pre></td></tr></table></figure>
-
-<p>然后再愉快切回一开始开发的分支 b0 上，此时 b0 分支上是没有 b1 修改的东西，因为创建 b0 分支在 b1 分支前面，可以使用 git merge master 命令将 master 分支合并入 b0 分支，或者你也可以等到 b0 分支完成其使命，再将其合并回 master 分支。</p>
-<p>merge 过程中，可能会存在冲突导致合并失败，就要老老实实一个一个手动选择合并了。</p>
-<p>至此，一个修复流程就走完毕了。</p>
-<blockquote>
-<p>引用</p>
-</blockquote>
-<ul>
-<li><a href="https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E5%88%86%E6%94%AF%E7%9A%84%E6%96%B0%E5%BB%BA%E4%B8%8E%E5%90%88%E5%B9%B6"> Git 分支 - 分支的新建与合并</a></li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>常见网站攻击</title>
     <url>/2022/01/24/%E5%B8%B8%E8%A7%81%E7%BD%91%E7%AB%99%E6%94%BB%E5%87%BB/</url>
     <content><![CDATA[<p>网站安全是每个开发者都必须要了解的事情。本人从前端开发的角度，简单说一下几种常见的攻击手段以及如何防止这类攻击。</p>
@@ -2493,6 +2467,36 @@
         <tag>microTask</tag>
         <tag>宏任务</tag>
         <tag>微任务</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>巧用 Git 分支</title>
+    <url>/2022/01/24/%E5%B7%A7%E7%94%A8%20Git%20%E5%88%86%E6%94%AF/</url>
+    <content><![CDATA[<p>写代码不出 bug 这个事情呢，不能强求的，有时候在新分支（b0）开发新版本开发到一半，线上版本（master）忽然冒出一个 bug 或者功能急需变更，这时就要切换到 master，紧急修复，然后再切回 b0 继续开发；</p>
+<span id="more"></span>
+
+<p>具体要怎么操作呢？</p>
+<p>我们要建立分支 b0，在上面开发新版本</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">git checkout -b b0</span><br><span class="line"></span><br><span class="line"><span class="comment">// 上面是下面两句的简写</span></span><br><span class="line"><span class="comment">//git branch b0 新建分支b0</span></span><br><span class="line"><span class="comment">//git checkout b0 切换到分支b0</span></span><br></pre></td></tr></table></figure>
+
+<p>然后线上版本 bug 了，切回线上版本，新建分支 b1 紧急修复</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">git checkout master</span><br><span class="line">git checkout -b b1</span><br></pre></td></tr></table></figure>
+
+<p>修复成功后合并 b1，并删除 b1 分支</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">git checkout master</span><br><span class="line">git merge b1</span><br><span class="line">git branch -d b1</span><br></pre></td></tr></table></figure>
+
+<p>然后再愉快切回一开始开发的分支 b0 上，此时 b0 分支上是没有 b1 修改的东西，因为创建 b0 分支在 b1 分支前面，可以使用 git merge master 命令将 master 分支合并入 b0 分支，或者你也可以等到 b0 分支完成其使命，再将其合并回 master 分支。</p>
+<p>merge 过程中，可能会存在冲突导致合并失败，就要老老实实一个一个手动选择合并了。</p>
+<p>至此，一个修复流程就走完毕了。</p>
+<blockquote>
+<p>引用</p>
+</blockquote>
+<ul>
+<li><a href="https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E5%88%86%E6%94%AF%E7%9A%84%E6%96%B0%E5%BB%BA%E4%B8%8E%E5%90%88%E5%B9%B6"> Git 分支 - 分支的新建与合并</a></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
