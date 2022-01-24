@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>4种常用Linux命令用法</title>
-    <url>/2022/01/21/4%E7%A7%8D%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E7%94%A8%E6%B3%95/</url>
+    <url>/2022/01/24/4%E7%A7%8D%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E7%94%A8%E6%B3%95/</url>
     <content><![CDATA[<h3 id="ls"><a href="#ls" class="headerlink" title="ls"></a>ls</h3><ul>
 <li>语法：<code>ls [选项参数] [目录或者目录名]</code></li>
 <li>常用选项参数：<ul>
@@ -84,7 +84,7 @@
   </entry>
   <entry>
     <title>堆叠上下文</title>
-    <url>/2022/01/21/CSS%E5%A0%86%E5%8F%A0%E4%B8%8A%E4%B8%8B%E6%96%87/</url>
+    <url>/2022/01/24/CSS%E5%A0%86%E5%8F%A0%E4%B8%8A%E4%B8%8B%E6%96%87/</url>
     <content><![CDATA[<h3 id="什么是堆叠上下文"><a href="#什么是堆叠上下文" class="headerlink" title="什么是堆叠上下文"></a>什么是堆叠上下文</h3><p>层叠上下文，英文称作 ”stacking context” 。是 HTML 中的一个三维的概念。如果一个元素含有层叠上下文，我们可以理解为这个元素（包括其中的子元素）在 z 轴上就“高人一等”。</p>
 <span id="more"></span>
 
@@ -119,7 +119,7 @@
   </entry>
   <entry>
     <title>CSS实现图片加载前占位</title>
-    <url>/2022/01/21/CSS%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E5%8A%A0%E8%BD%BD%E5%89%8D%E5%8D%A0%E4%BD%8D/</url>
+    <url>/2022/01/24/CSS%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E5%8A%A0%E8%BD%BD%E5%89%8D%E5%8D%A0%E4%BD%8D/</url>
     <content><![CDATA[<p>在优化个人简历网站的时候，发现图片加载很慢，页面结构异常，故通过提前占位的方式使页面结构能保持正常</p>
 <span id="more"></span>
 
@@ -131,7 +131,7 @@
   </entry>
   <entry>
     <title>CSS布局</title>
-    <url>/2022/01/21/CSS%E5%B8%83%E5%B1%80/</url>
+    <url>/2022/01/24/CSS%E5%B8%83%E5%B1%80/</url>
     <content><![CDATA[<h3 id="左右布局"><a href="#左右布局" class="headerlink" title="左右布局"></a>左右布局</h3><ol>
 <li>绝对定位布局<ul>
 <li>在父元素下设置两个宽度 50%容器，设置绝对定位。但有时候会出错。</li>
@@ -245,7 +245,7 @@
   </entry>
   <entry>
     <title>CSS深入浅出</title>
-    <url>/2022/01/21/CSS%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA/</url>
+    <url>/2022/01/24/CSS%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA/</url>
     <content><![CDATA[<p>以前在用 CSS 时，总想系统学习一下 CSS 知识。因为以前写 CSS 时，总是哪里不会 baidu 哪里，没有系统性，对一些“效果”（bug）也是浅尝辄止，属于解决完就忘了的那种。现系统学习一番后，将学习总结、体会汇成一篇博客。</p>
 <span id="more"></span>
 
@@ -417,7 +417,7 @@
   </entry>
   <entry>
     <title>CSS知识点</title>
-    <url>/2022/01/21/CSS%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
+    <url>/2022/01/24/CSS%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
     <content><![CDATA[<h3 id="CSS-介绍"><a href="#CSS-介绍" class="headerlink" title="CSS 介绍"></a>CSS 介绍</h3><p>层叠样式表 (Cascading Style Sheets，缩写为 CSS），是一种 样式表语言，用来描述 HTML 或 XML（包括如 SVG、MathML、XHTML 之类的 XML 分支语言）文档的呈现。CSS 描述了在屏幕、纸质、音频等其它媒体上的元素应该如何被渲染的问题。</p>
 <span id="more"></span>
 
@@ -464,7 +464,7 @@
   </entry>
   <entry>
     <title>Cookies</title>
-    <url>/2022/01/21/Cookies/</url>
+    <url>/2022/01/24/Cookies/</url>
     <content><![CDATA[<h1 id="Cookie-是什么？"><a href="#Cookie-是什么？" class="headerlink" title="Cookie 是什么？"></a>Cookie 是什么？</h1><p>以下是 Web 开发里 Cookie 的含义。</p>
 <ol>
 <li>Cookie 是浏览器访问服务器后，服务器传给浏览器的<strong>一段数据</strong>。</li>
@@ -506,7 +506,7 @@
   </entry>
   <entry>
     <title>Docker 入门学习</title>
-    <url>/2022/01/21/Docker%20%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0/</url>
+    <url>/2022/01/24/Docker%20%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0/</url>
     <content><![CDATA[<p>什么是 Docker ？更小更快速的虚拟机？</p>
 <span id="more"></span>
 
@@ -557,7 +557,7 @@
   </entry>
   <entry>
     <title>HTTP请求与响应</title>
-    <url>/2022/01/21/HTTP%E8%AF%B7%E6%B1%82%E4%B8%8E%E5%93%8D%E5%BA%94/</url>
+    <url>/2022/01/24/HTTP%E8%AF%B7%E6%B1%82%E4%B8%8E%E5%93%8D%E5%BA%94/</url>
     <content><![CDATA[<h3 id="HTTP-请求"><a href="#HTTP-请求" class="headerlink" title="HTTP 请求"></a>HTTP 请求</h3><p>HTTP（HyperText Transfer Protocol）请求信息至少由 3 部分组成</p>
 <ul>
 <li>请求方法（GET/POST）、URI、协议版本</li>
@@ -843,8 +843,62 @@
       </tags>
   </entry>
   <entry>
+    <title>Hexo 博客搭建</title>
+    <url>/2022/01/24/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</url>
+    <content><![CDATA[<p>使用 GitHub Pages + Hexo 实现自动部署的个人技术博客搭建。</p>
+<span id="more"></span>
+
+<h3 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h3><pre><code>npm install -g hexo-cli
+</code></pre>
+<p>Hexo 安装好了后，执行以下命令初始项目：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo init 文件夹</span><br><span class="line">$ cd 文件夹</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
+
+<p>运行 <code>hexo server</code> 启动服务，默认运行在 <a href="http://localhost:4000/%E3%80%82">http://localhost:4000/。</a></p>
+<p>博客 <code>.md</code> 文件在项目的 <code>source/_posts</code> 文件夹中，现在就可以在该文件夹中增加。</p>
+<h3 id="配置浏览器热更新"><a href="#配置浏览器热更新" class="headerlink" title="配置浏览器热更新"></a>配置浏览器热更新</h3><p>有个问题，我们编辑在博客的时候，本地的浏览器不能动态更新，需要手动刷新浏览器，这很麻烦。</p>
+<p>安装 browsersync 浏览器热更新</p>
+<pre><code>npm i hexo-browsersync -D
+</code></pre>
+<p>然后重启服务</p>
+<h3 id="配置主题"><a href="#配置主题" class="headerlink" title="配置主题"></a>配置主题</h3><p>我使用的是 <code>Next</code> 主题，主题风格简约，适合我的口味。有多种下载方式，按需选择</p>
+<p>下载好之后，解压到 <code>/theme/next</code> 文件夹中，然后在项目的 <code>/_config.yml</code> 配置文件中设置 <code>theme: next</code> 即可，主注意空格和缩进。</p>
+<h3 id="部署到-GitHub-Pages"><a href="#部署到-GitHub-Pages" class="headerlink" title="部署到 GitHub Pages"></a>部署到 GitHub Pages</h3><ol>
+<li>新建名称为 <code>GitHub名称.github.io</code> 的仓库，然后将本地未编译文件上传到仓库；</li>
+<li>新建<code>gh-pages</code> 分支，Hexo 有 <code>hexo generate</code> 命令将我们的文件打包成 html 等静态文件，文件放在 <code>/public</code> 目录切换分支，编译好后上传；</li>
+<li>在仓库 <code>Setting/GitHub Pages/Source</code> 将分支改成 <code>gh-pages</code> 就可以了，然后在 <code>GitHub名称.github.io</code> 访问自己的博客了。</li>
+</ol>
+<h3 id="配置-Action-自动部署"><a href="#配置-Action-自动部署" class="headerlink" title="配置 Action 自动部署"></a>配置 Action 自动部署</h3><p>每次都要上传太麻烦了，能不能每次 push 后自动部署呢？答案是肯定的。</p>
+<ol>
+<li>新建 <code>.github/workflows/pages.yml</code> 配置文件，并增加以下配置;</li>
+</ol>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Pages</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">master</span> <span class="comment"># default branch master | main</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">pages:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v2</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Use</span> <span class="string">Node.js</span> <span class="number">16.</span><span class="string">x</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/setup-node@v2</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">node-version:</span> <span class="string">&#x27;16&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Cache</span> <span class="string">NPM</span> <span class="string">dependencies</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/cache@v2</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">path:</span> <span class="string">node_modules</span></span><br><span class="line">          <span class="attr">key:</span> <span class="string">$&#123;&#123;</span> <span class="string">runner.OS</span> <span class="string">&#125;&#125;-npm-cache</span></span><br><span class="line">          <span class="attr">restore-keys:</span> <span class="string">|</span></span><br><span class="line"><span class="string">            $&#123;&#123; runner.OS &#125;&#125;-npm-cache</span></span><br><span class="line"><span class="string"></span>      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Install</span> <span class="string">Dependencies</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">npm</span> <span class="string">install</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Build</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">npm</span> <span class="string">run</span> <span class="string">build</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Deploy</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">peaceiris/actions-gh-pages@v3</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">github_token:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.GITHUB_TOKEN</span> <span class="string">&#125;&#125;</span></span><br><span class="line">          <span class="attr">publish_dir:</span> <span class="string">./public</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>一旦部署完毕，就能在 <code>gh-pages</code> 分支看到编译好的文件，由于之前我们文件分支也在 <code>gh-pages</code>，并且配置好了 <code>GitHub Pages</code>，因此提交好后就能自动部署了；</li>
+</ol>
+<h3 id="碰到的一些问题"><a href="#碰到的一些问题" class="headerlink" title="碰到的一些问题"></a>碰到的一些问题</h3><ol>
+<li>在 next 主题配置中，增加 tags 目录，访问会报 404</li>
+</ol>
+<p>解决方法 ：在 <code>/source</code> 文件夹中新建 <code>tags/index.md</code>文件，文件内容</p>
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: tags</span><br><span class="line">type: tags</span><br><span class="line"><span class="section">layout: &#x27;tags&#x27;</span></span><br><span class="line"><span class="section">---</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>引用</p>
+</blockquote>
+<ul>
+<li><a href="https://hexo.io/docs/#Install-Hexo">Hexo Documentation</a></li>
+<li><a href="http://www.leojuly.top/2018/11/26/Hexo-browsersync/">Hexo 使用 browsersync 浏览器热更新</a></li>
+<li><a href="https://github.com/iissnan/hexo-theme-next">hexo-theme-next</a></li>
+<li><a href="https://hexo.io/docs/github-pages">GitHub Actions </a></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>JS里的数据类型</title>
-    <url>/2022/01/21/JS%E9%87%8C%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</url>
+    <url>/2022/01/24/JS%E9%87%8C%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</url>
     <content><![CDATA[<p>JavaScript 的数据类型，共有六种。（ES6 又新增了第七种 Symbol 类型的值)，所以现在有七种，分别为：</p>
 <span id="more"></span>
 
@@ -988,7 +1042,7 @@
   </entry>
   <entry>
     <title>JS里的数据类型转换</title>
-    <url>/2022/01/21/JS%E9%87%8C%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/</url>
+    <url>/2022/01/24/JS%E9%87%8C%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/</url>
     <content><![CDATA[<p>JS 里有许多方式可以实现数据类型的转换。以下主要讲的是<code>number</code>、<code>string</code>、<code>boolean</code>这三种类型的转换。</p>
 <span id="more"></span>
 
@@ -1037,7 +1091,7 @@
   </entry>
   <entry>
     <title>JavaScript 中的生成器</title>
-    <url>/2022/01/21/JavaScript%20%E4%B8%AD%E7%9A%84%E7%94%9F%E6%88%90%E5%99%A8/</url>
+    <url>/2022/01/24/JavaScript%20%E4%B8%AD%E7%9A%84%E7%94%9F%E6%88%90%E5%99%A8/</url>
     <content><![CDATA[<p>在看公司之前项目的时候，发现代码中某些函数前有<code>*</code>符号，然后函数内部也有<code>yield</code>，心想这是什么写法，难道 JavaScript 又更新了吗，翻了一下资料，发现这写法早就有了，在ES6中叫生成器。</p>
 <span id="more"></span>
 
@@ -1063,7 +1117,7 @@
   </entry>
   <entry>
     <title>JavaScript 深拷贝</title>
-    <url>/2022/01/21/JavaScript%20%E6%B7%B1%E6%8B%B7%E8%B4%9D/</url>
+    <url>/2022/01/24/JavaScript%20%E6%B7%B1%E6%8B%B7%E8%B4%9D/</url>
     <content><![CDATA[<p>对象的拷贝不像数值或字符串一样，可以用类似 <code>let newValue = value</code> 来进行拷贝，此时 <code>newValue</code> 的值只是 <code>value</code> 的引用，当我们修改 <code>newValue</code> 的值时，<code>value</code> 的值也会改变，这不是我们所想要的结果。</p>
 <span id="more"></span>
 
@@ -1091,7 +1145,7 @@
   </entry>
   <entry>
     <title>Promise</title>
-    <url>/2022/01/21/Promise/</url>
+    <url>/2022/01/24/Promise/</url>
     <content><![CDATA[<p>之前在写 ajax 方面的博客的时候，简单的介绍了一下 Promise 在 ajax 里的应用，这次详细的梳理一下Promise 功能以及原理。</p>
 <span id="more"></span>
 
@@ -1162,7 +1216,7 @@
   </entry>
   <entry>
     <title>React Hooks 获取“过去”和“未来”的值</title>
-    <url>/2022/01/21/React%20Hooks%20%E8%8E%B7%E5%8F%96%E2%80%9C%E8%BF%87%E5%8E%BB%E2%80%9D%E5%92%8C%E2%80%9C%E6%9C%AA%E6%9D%A5%E2%80%9D%E7%9A%84%E5%80%BC/</url>
+    <url>/2022/01/24/React%20Hooks%20%E8%8E%B7%E5%8F%96%E2%80%9C%E8%BF%87%E5%8E%BB%E2%80%9D%E5%92%8C%E2%80%9C%E6%9C%AA%E6%9D%A5%E2%80%9D%E7%9A%84%E5%80%BC/</url>
     <content><![CDATA[<p>这个标题看起来有点唬啊，其实主要是讲在使用 <code>useState</code> 时，因为使用异步函数而出现的一些问题。</p>
 <span id="more"></span>
 
@@ -1199,7 +1253,7 @@
   </entry>
   <entry>
     <title>Session、LocalStorage、HTTP缓存</title>
-    <url>/2022/01/21/Session%E3%80%81LocalStorage%E3%80%81HTTP%E7%BC%93%E5%AD%98/</url>
+    <url>/2022/01/24/Session%E3%80%81LocalStorage%E3%80%81HTTP%E7%BC%93%E5%AD%98/</url>
     <content><![CDATA[<h1 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h1><ol>
 <li>将 SessionID（随机数）通过 Cookie 发给客户端(Session 可以用 LocalStorage + 查询参数实现)</li>
 <li>客户端访问服务器时，服务器读取 SessionID</li>
@@ -1255,7 +1309,7 @@
   </entry>
   <entry>
     <title>VSCode 配置跳转定义</title>
-    <url>/2022/01/21/VSCode%20%E9%85%8D%E7%BD%AE%E8%B7%B3%E8%BD%AC%E5%AE%9A%E4%B9%89/</url>
+    <url>/2022/01/24/VSCode%20%E9%85%8D%E7%BD%AE%E8%B7%B3%E8%BD%AC%E5%AE%9A%E4%B9%89/</url>
     <content><![CDATA[<p>使用 VSCode 的时候，有时想 F12 查看引用组件的内容，不会自动跳转，很不爽。今天鼓捣了一下，总算是可以跳转引用了。</p>
 <span id="more"></span>
 
@@ -1272,7 +1326,7 @@
   </entry>
   <entry>
     <title>Vue Router的基本使用</title>
-    <url>/2022/01/21/Vue%20Router%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
+    <url>/2022/01/24/Vue%20Router%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<p>Vue Router 是 Vue.js 官方的路由管理器。现总结一下之前的使用方式。</p>
 <span id="more"></span>
 
@@ -1314,7 +1368,7 @@
   </entry>
   <entry>
     <title>Vue diff 算法解析</title>
-    <url>/2022/01/21/Vue%20diff%20%E7%AE%97%E6%B3%95%E8%A7%A3%E6%9E%90/</url>
+    <url>/2022/01/24/Vue%20diff%20%E7%AE%97%E6%B3%95%E8%A7%A3%E6%9E%90/</url>
     <content><![CDATA[<p>diff 算法是一种通过同层的树节点进行比较的高效算法，避免了对树进行逐层搜索遍历，所以时间复杂度只有 O(n)。在 Vue 虚拟 DOM 渲染成真实 DOM 的新旧 VNode 节点比较更新时，就用到了该算法。</p>
 <span id="more"></span>
 
@@ -1361,7 +1415,7 @@
   </entry>
   <entry>
     <title>Vue 基础知识</title>
-    <url>/2022/01/21/Vue%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</url>
+    <url>/2022/01/24/Vue%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</url>
     <content><![CDATA[<p>梳理一下 Vue 的基础知识。</p>
 <span id="more"></span>
 
@@ -1400,7 +1454,7 @@
   </entry>
   <entry>
     <title>Vuex 小记</title>
-    <url>/2022/01/21/Vuex%20%E5%B0%8F%E8%AE%B0/</url>
+    <url>/2022/01/24/Vuex%20%E5%B0%8F%E8%AE%B0/</url>
     <content><![CDATA[<p>Vuex 是一个专为 Vue.js 应用程序开发的<strong>状态管理模式</strong>。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。</p>
 <span id="more"></span>
 
@@ -1429,7 +1483,7 @@
   </entry>
   <entry>
     <title>Vue组件间通信</title>
-    <url>/2022/01/21/Vue%E7%BB%84%E4%BB%B6%E9%97%B4%E9%80%9A%E4%BF%A1/</url>
+    <url>/2022/01/24/Vue%E7%BB%84%E4%BB%B6%E9%97%B4%E9%80%9A%E4%BF%A1/</url>
     <content><![CDATA[<p>列举了4种组件间通信的形式</p>
 <span id="more"></span>
 
@@ -1463,7 +1517,7 @@
   </entry>
   <entry>
     <title>express 初识</title>
-    <url>/2022/01/21/express%20%E5%88%9D%E8%AF%86/</url>
+    <url>/2022/01/24/express%20%E5%88%9D%E8%AF%86/</url>
     <content><![CDATA[<p>最近在使用 express 做在线备忘贴的小项目，一边摸索着使用，一边整理一下使用过程中的笔记。</p>
 <span id="more"></span>
 
@@ -1496,7 +1550,7 @@
   </entry>
   <entry>
     <title>git入门</title>
-    <url>/2022/01/21/git%E5%85%A5%E9%97%A8/</url>
+    <url>/2022/01/24/git%E5%85%A5%E9%97%A8/</url>
     <content><![CDATA[<p>使用 Git 前，需要先建立一个仓库(repository)。我们可以使用一个已经存在的目录作为 Git 仓库或创建一个空目录。<br>使用当前目录作为 Git 仓库，我们只需使它初始化。</p>
 <span id="more"></span>
 
@@ -1539,7 +1593,7 @@
   </entry>
   <entry>
     <title>mixin、科里化，高阶函数</title>
-    <url>/2022/01/21/mixin%E3%80%81%E7%A7%91%E9%87%8C%E5%8C%96%EF%BC%8C%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/</url>
+    <url>/2022/01/24/mixin%E3%80%81%E7%A7%91%E9%87%8C%E5%8C%96%EF%BC%8C%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/</url>
     <content><![CDATA[<p>了解一下一些mixin、柯里化、高阶函数。</p>
 <span id="more"></span>
 
@@ -1571,7 +1625,7 @@
   </entry>
   <entry>
     <title>var,let,const之间的区别</title>
-    <url>/2022/01/21/var,let,const%E4%B9%8B%E9%97%B4%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+    <url>/2022/01/24/var,let,const%E4%B9%8B%E9%97%B4%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
     <content><![CDATA[<p>首先声明变量都放在作用域第一行！然后再写一下 var,let,const之间的区别。</p>
 <span id="more"></span>
 <h1 id="var"><a href="#var" class="headerlink" title="var"></a>var</h1><p>var在mdn中是被这描述的：</p>
@@ -1610,7 +1664,7 @@
   </entry>
   <entry>
     <title>web 性能优化</title>
-    <url>/2022/01/21/web%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</url>
+    <url>/2022/01/24/web%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</url>
     <content><![CDATA[<p>从网页开始请求到加载完成，从前端角度分析如何实现 web 性能优化，即：网页加载更快。</p>
 <span id="more"></span>
 
@@ -1682,7 +1736,7 @@
   </entry>
   <entry>
     <title>三种常见排序</title>
-    <url>/2022/01/21/%E4%B8%89%E7%A7%8D%E5%B8%B8%E8%A7%81%E6%8E%92%E5%BA%8F/</url>
+    <url>/2022/01/24/%E4%B8%89%E7%A7%8D%E5%B8%B8%E8%A7%81%E6%8E%92%E5%BA%8F/</url>
     <content><![CDATA[<p>好记性不如烂笔头，万一哪天忘了，我还能查…</p>
 <span id="more"></span>
 
@@ -1730,7 +1784,7 @@
   </entry>
   <entry>
     <title>个性化 echarts 图表</title>
-    <url>/2022/01/21/%E4%B8%AA%E6%80%A7%E5%8C%96echarts/</url>
+    <url>/2022/01/24/%E4%B8%AA%E6%80%A7%E5%8C%96echarts/</url>
     <content><![CDATA[<p>最近公司开发 ERP 系统，其中有表格展示，一开始也没放在心上，心想用 echarts 就行了，但真正开始做后，才发现 echarts 并不简单。</p>
 <span id="more"></span>
 
@@ -1766,7 +1820,7 @@
   </entry>
   <entry>
     <title>事件委托</title>
-    <url>/2022/01/21/%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98/</url>
+    <url>/2022/01/24/%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98/</url>
     <content><![CDATA[<p>现页面有<code>&lt;li&gt;</code>若干个，倘若需要监听每个<code>&lt;li&gt;</code>，传统的方法是遍历标签，并给它们添加同样多的点击事件，但如果页面中有多个标签，给每个标签都添加点击事件，会造成内存占用过多。今天利用事件捕获冒泡机制，写一个事件委托，解决这个问题。</p>
 <span id="more"></span>
 
@@ -1790,7 +1844,7 @@
   </entry>
   <entry>
     <title>二分查找如何定位左边界和右边界</title>
-    <url>/2022/01/21/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E5%A6%82%E4%BD%95%E5%AE%9A%E4%BD%8D%E5%B7%A6%E8%BE%B9%E7%95%8C%E5%92%8C%E5%8F%B3%E8%BE%B9%E7%95%8C/</url>
+    <url>/2022/01/24/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E5%A6%82%E4%BD%95%E5%AE%9A%E4%BD%8D%E5%B7%A6%E8%BE%B9%E7%95%8C%E5%92%8C%E5%8F%B3%E8%BE%B9%E7%95%8C/</url>
     <content><![CDATA[<p>不使用 JS 数组 API，查找<code>有序</code>数列最先出现的位置和最后出现的位置</p>
 <span id="more"></span>
 
@@ -1809,7 +1863,7 @@
   </entry>
   <entry>
     <title>什么是AJAX</title>
-    <url>/2022/01/21/%E4%BB%80%E4%B9%88%E6%98%AFAJAX/</url>
+    <url>/2022/01/24/%E4%BB%80%E4%B9%88%E6%98%AFAJAX/</url>
     <content><![CDATA[<h1 id="什么是-AJAX"><a href="#什么是-AJAX" class="headerlink" title="什么是 AJAX"></a>什么是 AJAX</h1><p>1999 年，微软公司发布 IE 浏览器 5.0 版，第一次引入新功能：允许 JavaScript 脚本向服务器发起 HTTP 请求。这个功能当时并没有引起注意，直到 2004 年 Gmail 发布和 2005 年 Google Map 发布，才引起广泛重视。2005 年 2 月，AJAX 这个词第一次正式提出，它是 Asynchronous JavaScript and XML 的缩写，指的是通过 JavaScript 的异步通信，从服务器获取 XML 文档从中提取数据，再更新当前网页的对应部分，而不用刷新整个网页。后来，AJAX 这个词就成为 JavaScript 脚本发起 HTTP 通信的代名词，也就是说，只要用脚本发起通信，就可以叫做 AJAX 通信。W3C 也在 2006 年发布了它的国际标准。</p>
 <span id="more"></span>
 
@@ -1848,7 +1902,7 @@
   </entry>
   <entry>
     <title>什么是JSONP</title>
-    <url>/2022/01/21/%E4%BB%80%E4%B9%88%E6%98%AFJSONP/</url>
+    <url>/2022/01/24/%E4%BB%80%E4%B9%88%E6%98%AFJSONP/</url>
     <content><![CDATA[<h3 id="什么是-JSONP"><a href="#什么是-JSONP" class="headerlink" title="什么是 JSONP"></a>什么是 JSONP</h3><p>请求方：浏览器（前端）</p>
 <p>响应方：服务器（后端）</p>
 <span id="more"></span>
@@ -1879,7 +1933,7 @@
   </entry>
   <entry>
     <title>什么是MVC</title>
-    <url>/2022/01/21/%E4%BB%80%E4%B9%88%E6%98%AFMVC/</url>
+    <url>/2022/01/24/%E4%BB%80%E4%B9%88%E6%98%AFMVC/</url>
     <content><![CDATA[<h3 id="什么是-MVC"><a href="#什么是-MVC" class="headerlink" title="什么是 MVC"></a>什么是 MVC</h3><ol>
 <li>最上面的一层，是直接面向最终用户的”视图层”（View）。它是提供给用户的操作界面，是程序的外壳。</li>
 <li>最底下的一层，是核心的”数据层”（Model），也就是程序需要操作的数据或信息。</li>
@@ -1896,7 +1950,7 @@
   </entry>
   <entry>
     <title>使用 Vue directives 封装 clipboard</title>
-    <url>/2022/01/21/%E4%BD%BF%E7%94%A8%20Vue%20directives%20%E5%B0%81%E8%A3%85%20clipboard.md/</url>
+    <url>/2022/01/24/%E4%BD%BF%E7%94%A8%20Vue%20directives%20%E5%B0%81%E8%A3%85%20clipboard.md/</url>
     <content><![CDATA[<p>最近在使用 clipboard 实现复制到剪切板的功能，发现在 Vue 中使用不是那么丝滑，想着怎么封装一下。</p>
 <span id="more"></span>
 
@@ -1938,7 +1992,7 @@
   </entry>
   <entry>
     <title>使用new后到底发生了什么？</title>
-    <url>/2022/01/21/%E4%BD%BF%E7%94%A8new%E5%90%8E%E5%88%B0%E5%BA%95%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88%EF%BC%9F/</url>
+    <url>/2022/01/24/%E4%BD%BF%E7%94%A8new%E5%90%8E%E5%88%B0%E5%BA%95%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88%EF%BC%9F/</url>
     <content><![CDATA[<p>当代码 new Foo(…) 执行时，会发生以下事情：</p>
 <ol>
 <li>首先新建一个空对象，空对象的 <code>__proto__</code> ，指向该构造函数的 <code>prototype</code>;</li>
@@ -1969,7 +2023,7 @@
   </entry>
   <entry>
     <title>render函数</title>
-    <url>/2022/01/21/%E5%87%BD%E6%95%B0/</url>
+    <url>/2022/01/24/%E5%87%BD%E6%95%B0/</url>
     <content><![CDATA[<p>字符串模板的代替方案，允许你发挥 JavaScript 最大的编程能力。该渲染函数接收一个 createElement 方法作为第一个参数用来创建 VNode。</p>
 <span id="more"></span>
 
@@ -2045,7 +2099,7 @@
   </entry>
   <entry>
     <title>函数节流</title>
-    <url>/2022/01/21/%E5%87%BD%E6%95%B0%E8%8A%82%E6%B5%81/</url>
+    <url>/2022/01/24/%E5%87%BD%E6%95%B0%E8%8A%82%E6%B5%81/</url>
     <content><![CDATA[<p>有些事件，如 <code>onresize</code> 事件，高频更改可能导致浏览器崩溃。为了绕开这个问题，可以使用定时器对该函数进行节流。</p>
 <span id="more"></span>
 
@@ -2069,7 +2123,7 @@
   </entry>
   <entry>
     <title>初识jQuery</title>
-    <url>/2022/01/21/%E5%88%9D%E8%AF%86JQuery/</url>
+    <url>/2022/01/24/%E5%88%9D%E8%AF%86JQuery/</url>
     <content><![CDATA[<p>jQuery 的思路：</p>
 <ol>
 <li>接收一个选择器</li>
@@ -2097,7 +2151,7 @@
   </entry>
   <entry>
     <title>原型与原型链</title>
-    <url>/2022/01/21/%E5%8E%9F%E5%9E%8B%E4%B8%8E%E5%8E%9F%E5%9E%8B%E9%93%BE/</url>
+    <url>/2022/01/24/%E5%8E%9F%E5%9E%8B%E4%B8%8E%E5%8E%9F%E5%9E%8B%E9%93%BE/</url>
     <content><![CDATA[<h1 id="什么是原型"><a href="#什么是原型" class="headerlink" title="什么是原型"></a>什么是原型</h1><p>在 javascript 中，全局函数<code>Number</code>、<code>String</code>、<code>Boolean</code>、<code>Object</code>等，都有<code>toSting()</code>、<code>valueOf()</code>等方法，倘若每个函数都独自定义这些相同的属性和方法，势必对内存造成极大的浪费。因此这些相同的属性和方法，都被集合到一起，对象可通过<code>__proto__</code>属性访问这些共用属性<code>prototype</code>，比如：</p>
 <span id="more"></span>
 
@@ -2119,7 +2173,7 @@
   </entry>
   <entry>
     <title>堆排序代码分析</title>
-    <url>/2022/01/21/%E5%A0%86%E6%8E%92%E5%BA%8F%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90/</url>
+    <url>/2022/01/24/%E5%A0%86%E6%8E%92%E5%BA%8F%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90/</url>
     <content><![CDATA[<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">heapSort</span>(<span class="params">array</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//交换i，j的位置</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">swap</span>(<span class="params">array, i, j</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> temp = array[i]</span><br><span class="line">    array[i] = array[j]</span><br><span class="line">    array[j] = temp</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//比较当前节点与子节点的大小，形成一个最大堆</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">maxHeapify</span>(<span class="params">array, index, heapSize</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> iMax, iLeft, iRight</span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">      iMax = index <span class="comment">//默认父元素最大</span></span><br><span class="line">      iLeft = <span class="number">2</span> * index + <span class="number">1</span> <span class="comment">//根据父节点的索引，计算出左子节点的索引</span></span><br><span class="line">      iRight = <span class="number">2</span> * (index + <span class="number">1</span>)</span><br><span class="line">      <span class="keyword">if</span> (iLeft &lt; heapSize &amp;&amp; array[index] &lt; array[iLeft]) &#123;</span><br><span class="line">        <span class="comment">//iLeft &lt; heapSize说明还未到叶节点，然后才比较值的大小</span></span><br><span class="line">        iMax = iLeft</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> (iRight &lt; heapSize &amp;&amp; array[iMax] &lt; array[iRight]) &#123;</span><br><span class="line">        iMax = iRight</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//如果最大值的索引发生了改变，则交换二者的位置，使符合最大堆定义，因为子节点的值发生了改变，子节点下面的值需要重新排序。</span></span><br><span class="line">      <span class="keyword">if</span> (iMax != index) &#123;</span><br><span class="line">        swap(array, iMax, index)</span><br><span class="line">        index = iMax</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//将数组构造成最大堆</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">buildMaxHeap</span>(<span class="params">array</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> i,</span><br><span class="line">      iParent = <span class="built_in">Math</span>.floor(array.length / <span class="number">2</span>) - <span class="number">1</span> <span class="comment">//根据传来数组，计算最后一个元素其父节点的位置</span></span><br><span class="line">    <span class="keyword">for</span> (i = iParent; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">      <span class="comment">//从下往上，构造最大堆；</span></span><br><span class="line">      maxHeapify(array, i, array.length)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">sort</span>(<span class="params">array</span>) </span>&#123;</span><br><span class="line">    buildMaxHeap(array)</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = array.length - <span class="number">1</span>; i &gt; <span class="number">0</span>; i--) &#123;</span><br><span class="line">      swap(array, <span class="number">0</span>, i) <span class="comment">//将第一项和最后一项交换位置</span></span><br><span class="line">      maxHeapify(array, <span class="number">0</span>, i) <span class="comment">//因为根节点元素发生了改变，重新构造最大堆,0-i,后面是排好序的元素</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> array</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//返回排序好的数组</span></span><br><span class="line">  <span class="keyword">return</span> sort(array)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <span id="more"></span>
@@ -2139,7 +2193,7 @@
   </entry>
   <entry>
     <title>多个迭代器</title>
-    <url>/2022/01/21/%E5%A4%9A%E4%B8%AA%E8%BF%AD%E4%BB%A3%E5%99%A8/</url>
+    <url>/2022/01/24/%E5%A4%9A%E4%B8%AA%E8%BF%AD%E4%BB%A3%E5%99%A8/</url>
     <content><![CDATA[<p>多个迭代器彼此交替运行的时候，不同的顺序，<code>yield</code> 的位置，都可能有不同的输出。</p>
 <span id="more"></span>
 
@@ -2179,7 +2233,7 @@
   </entry>
   <entry>
     <title>如何发布npm包</title>
-    <url>/2022/01/21/%E5%A6%82%E4%BD%95%E5%8F%91%E5%B8%83npm%E5%8C%85/</url>
+    <url>/2022/01/24/%E5%A6%82%E4%BD%95%E5%8F%91%E5%B8%83npm%E5%8C%85/</url>
     <content><![CDATA[<p>最近在造轮子的过程中，需要将本地的代码发布到npm上，方便他人使用。写一篇博客方便以后查阅。</p>
 <span id="more"></span>
 
@@ -2215,7 +2269,7 @@
   </entry>
   <entry>
     <title>如何调试手机页面</title>
-    <url>/2022/01/21/%E5%A6%82%E4%BD%95%E8%B0%83%E8%AF%95%E6%89%8B%E6%9C%BA%E9%A1%B5%E9%9D%A2/</url>
+    <url>/2022/01/24/%E5%A6%82%E4%BD%95%E8%B0%83%E8%AF%95%E6%89%8B%E6%9C%BA%E9%A1%B5%E9%9D%A2/</url>
     <content><![CDATA[<p>如何在手机端调试的时候输出报错信息呢？</p>
 <p>我这儿先写两种比较方便的方法。</p>
 <span id="more"></span>
@@ -2247,7 +2301,7 @@
   </entry>
   <entry>
     <title>实现极简版reactive</title>
-    <url>/2022/01/21/%E5%AE%9E%E7%8E%B0%E6%9E%81%E7%AE%80%E7%89%88reactive/</url>
+    <url>/2022/01/24/%E5%AE%9E%E7%8E%B0%E6%9E%81%E7%AE%80%E7%89%88reactive/</url>
     <content><![CDATA[<p>Vue3.0 出来有一段是时间了，趁着有点空，跟着大佬一起学习一下新的响应式系统。</p>
 <span id="more"></span>
 
@@ -2291,7 +2345,7 @@
   </entry>
   <entry>
     <title>对类的初步认识</title>
-    <url>/2022/01/21/%E5%AF%B9%E7%B1%BB%E7%9A%84%E5%88%9D%E6%AD%A5%E8%AE%A4%E8%AF%86/</url>
+    <url>/2022/01/24/%E5%AF%B9%E7%B1%BB%E7%9A%84%E5%88%9D%E6%AD%A5%E8%AE%A4%E8%AF%86/</url>
     <content><![CDATA[<p>之前的 <a href="https://jiangnana.fun/2018/12/26/%E4%BB%80%E4%B9%88%E6%98%AFMVC">MVC</a> 案例，初步认识了 MVC 是什么。但是当项目中，有多个模块，每个模块都初始化 MVC，就显得非常冗余。这时需要将相同的代码提出来，声明一个函数，以后每次要声明 MVC 时，就调用这个函数。</p>
 <span id="more"></span>
 
@@ -2308,7 +2362,7 @@
   </entry>
   <entry>
     <title>巧用 Git 分支</title>
-    <url>/2022/01/21/%E5%B7%A7%E7%94%A8%20Git%20%E5%88%86%E6%94%AF/</url>
+    <url>/2022/01/24/%E5%B7%A7%E7%94%A8%20Git%20%E5%88%86%E6%94%AF/</url>
     <content><![CDATA[<p>写代码不出 bug 这个事情呢，不能强求的，有时候在新分支（b0）开发新版本开发到一半，线上版本（master）忽然冒出一个 bug 或者功能急需变更，这时就要切换到 master，紧急修复，然后再切回 b0 继续开发；</p>
 <span id="more"></span>
 
@@ -2338,7 +2392,7 @@
   </entry>
   <entry>
     <title>常见网站攻击</title>
-    <url>/2022/01/21/%E5%B8%B8%E8%A7%81%E7%BD%91%E7%AB%99%E6%94%BB%E5%87%BB/</url>
+    <url>/2022/01/24/%E5%B8%B8%E8%A7%81%E7%BD%91%E7%AB%99%E6%94%BB%E5%87%BB/</url>
     <content><![CDATA[<p>网站安全是每个开发者都必须要了解的事情。本人从前端开发的角度，简单说一下几种常见的攻击手段以及如何防止这类攻击。</p>
 <span id="more"></span>
 
@@ -2388,7 +2442,7 @@
   </entry>
   <entry>
     <title>弄懂 JavaScript 执行机制</title>
-    <url>/2022/01/21/%E5%BC%84%E6%87%82%20JavaScript%20%E6%89%A7%E8%A1%8C%E6%9C%BA%E5%88%B6/</url>
+    <url>/2022/01/24/%E5%BC%84%E6%87%82%20JavaScript%20%E6%89%A7%E8%A1%8C%E6%9C%BA%E5%88%B6/</url>
     <content><![CDATA[<p>以前以为 JavaScript 是按照语句执行顺序执行的，直到现在被打脸了</p>
 <span id="more"></span>
 
@@ -2443,7 +2497,7 @@
   </entry>
   <entry>
     <title>弄懂 Promise 的 async 和 await</title>
-    <url>/2022/01/21/%E5%BC%84%E6%87%82%20Promise%20%E7%9A%84%20async%20%E5%92%8C%20await/</url>
+    <url>/2022/01/24/%E5%BC%84%E6%87%82%20Promise%20%E7%9A%84%20async%20%E5%92%8C%20await/</url>
     <content><![CDATA[<p>在 MDN 中，关于 async function 是这么解释的：async function 声明用于定义一个返回 <code>AsyncFunction</code> 对象的异步函数。异步函数是指通过事件循环异步执行的函数，它会通过一个隐式的 <code>Promise</code> 返回其结果。但是如果你的代码使用了异步函数，它的语法和结构会更像是标准的同步函数.</p>
 <span id="more"></span>
 
@@ -2476,7 +2530,7 @@
   </entry>
   <entry>
     <title>手写 Promise</title>
-    <url>/2022/01/21/%E6%89%8B%E5%86%99%20Promise/</url>
+    <url>/2022/01/24/%E6%89%8B%E5%86%99%20Promise/</url>
     <content><![CDATA[<p>现在前端面试越来越高深莫测了，居然还要手写 Promise。不会啊，怎么办！赶紧自己借鉴一下，手撸一个。</p>
 <span id="more"></span>
 
@@ -2501,7 +2555,7 @@
   </entry>
   <entry>
     <title>手写一个批量请求函数</title>
-    <url>/2022/01/21/%E6%89%8B%E5%86%99%E4%B8%80%E4%B8%AA%E6%89%B9%E9%87%8F%E8%AF%B7%E6%B1%82%E5%87%BD%E6%95%B0/</url>
+    <url>/2022/01/24/%E6%89%8B%E5%86%99%E4%B8%80%E4%B8%AA%E6%89%B9%E9%87%8F%E8%AF%B7%E6%B1%82%E5%87%BD%E6%95%B0/</url>
     <content><![CDATA[<blockquote>
 <p>要求如下</p>
 </blockquote>
@@ -2527,7 +2581,7 @@
   </entry>
   <entry>
     <title>插入排序代码分析</title>
-    <url>/2022/01/21/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90/</url>
+    <url>/2022/01/24/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90/</url>
     <content><![CDATA[<h3 id="直接插入排序-JavaScript-实现代码："><a href="#直接插入排序-JavaScript-实现代码：" class="headerlink" title="直接插入排序 JavaScript 实现代码："></a>直接插入排序 JavaScript 实现代码：</h3><span id="more"></span>
 
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">insertionSort</span>(<span class="params">array</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//自定义函数，交换i和j的位置</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">swap</span>(<span class="params">array, i, j</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> temp = array[i]</span><br><span class="line">    array[i] = array[j]</span><br><span class="line">    array[j] = temp</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> length = array.length,</span><br><span class="line">    i, <span class="comment">//从第二项开始，与前一项作比较</span></span><br><span class="line">    j <span class="comment">//为了往前进行比较</span></span><br><span class="line">  <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt; length; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (j = i; j &gt; <span class="number">0</span>; j--) &#123;</span><br><span class="line">      <span class="comment">//从第j项开始，与前一项比较大小，如果前项大于后项，则交换位置；如果前项小于等于后项，说明当前排序完成，跳出当前循环，i++进行下一项比较，直到最后一项。</span></span><br><span class="line">      <span class="keyword">if</span> (array[j - <span class="number">1</span>] &gt; array[j]) &#123;</span><br><span class="line">        swap(array, j - <span class="number">1</span>, j)</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> array</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -2552,7 +2606,7 @@
   </entry>
   <entry>
     <title>插槽slot</title>
-    <url>/2022/01/21/%E6%8F%92%E6%A7%BDslot/</url>
+    <url>/2022/01/24/%E6%8F%92%E6%A7%BDslot/</url>
     <content><![CDATA[<p>slot 将父组件的内容传给子组件，弥补视图缺失</p>
 <span id="more"></span>
 
@@ -2576,7 +2630,7 @@
   </entry>
   <entry>
     <title>模拟继承</title>
-    <url>/2022/01/21/%E6%A8%A1%E6%8B%9F%E7%BB%A7%E6%89%BF/</url>
+    <url>/2022/01/24/%E6%A8%A1%E6%8B%9F%E7%BB%A7%E6%89%BF/</url>
     <content><![CDATA[<p>在ES6出现之前，JS中是没有类的概念的，只是通过对象模拟类，因此继承也只是模拟继承。</p>
 <span id="more"></span>
 
@@ -2598,7 +2652,7 @@
   </entry>
   <entry>
     <title>浅谈 JavaScript 解构赋值语法</title>
-    <url>/2022/01/21/%E6%B5%85%E8%B0%88%20JavaScript%20%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC%E8%AF%AD%E6%B3%95/</url>
+    <url>/2022/01/24/%E6%B5%85%E8%B0%88%20JavaScript%20%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC%E8%AF%AD%E6%B3%95/</url>
     <content><![CDATA[<p>最近工作项目中，使用了解构赋值语法，感觉非常爽，但是有些写法只是有印象，每次都要查一下，非常麻烦，故写这篇博客巩固一下知识。</p>
 <span id="more"></span>
 
@@ -2651,7 +2705,7 @@
   </entry>
   <entry>
     <title>深度优先遍历和广度优先遍历</title>
-    <url>/2022/01/21/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86%E5%92%8C%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86/</url>
+    <url>/2022/01/24/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86%E5%92%8C%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86/</url>
     <content><![CDATA[<p>用 JavaScript 实现深度优先遍历和广度优先遍历</p>
 <span id="more"></span>
 
@@ -2671,7 +2725,7 @@
   </entry>
   <entry>
     <title>理解 await</title>
-    <url>/2022/01/21/%E7%90%86%E8%A7%A3%20await/</url>
+    <url>/2022/01/24/%E7%90%86%E8%A7%A3%20await/</url>
     <content><![CDATA[<p>输出以下代码执行结果</p>
 <span id="more"></span>
 
@@ -2692,7 +2746,7 @@
   </entry>
   <entry>
     <title>简单实现一个发布订阅模式和观察者模式</title>
-    <url>/2022/01/21/%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%E6%A8%A1%E5%BC%8F/</url>
+    <url>/2022/01/24/%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%E6%A8%A1%E5%BC%8F/</url>
     <content><![CDATA[<p>补习一下发布订阅模式和观察者模式，比较两者区别</p>
 <span id="more"></span>
 
@@ -2711,7 +2765,7 @@
   </entry>
   <entry>
     <title>简单的模块管理器</title>
-    <url>/2022/01/21/%E7%AE%80%E5%8D%95%E7%9A%84%E6%A8%A1%E5%9D%97%E7%AE%A1%E7%90%86%E5%99%A8/</url>
+    <url>/2022/01/24/%E7%AE%80%E5%8D%95%E7%9A%84%E6%A8%A1%E5%9D%97%E7%AE%A1%E7%90%86%E5%99%A8/</url>
     <content><![CDATA[<p>双 11 的销售额不会自己增长，知识也是，需要时长充电。最近在看 <code>你不知道的 JavaScript</code>，里面讲了模块管理器的核心概念，梳理一下其思路。</p>
 <span id="more"></span>
 
@@ -2729,7 +2783,7 @@
   </entry>
   <entry>
     <title>造轮子时踩的坑</title>
-    <url>/2022/01/21/%E9%80%A0%E8%BD%AE%E5%AD%90%E6%97%B6%E8%B8%A9%E7%9A%84%E5%9D%91/</url>
+    <url>/2022/01/24/%E9%80%A0%E8%BD%AE%E5%AD%90%E6%97%B6%E8%B8%A9%E7%9A%84%E5%9D%91/</url>
     <content><![CDATA[<h1 id="Vue-相关"><a href="#Vue-相关" class="headerlink" title="Vue 相关"></a>Vue 相关</h1><ol>
 <li>v-if：没有在 dom 中出现。v-show ：元素被加上 <code>display:none</code></li>
 <li>scss 尽量都用变量 <code>$</code></li>
@@ -2781,7 +2835,7 @@
   </entry>
   <entry>
     <title>重排和重绘</title>
-    <url>/2022/01/21/%E9%87%8D%E6%8E%92%E5%92%8C%E9%87%8D%E7%BB%98/</url>
+    <url>/2022/01/24/%E9%87%8D%E6%8E%92%E5%92%8C%E9%87%8D%E7%BB%98/</url>
     <content><![CDATA[<p>网页生成的时候，至少会渲染一次。用户访问的过程中，还会不断重新渲染。</p>
 <span id="more"></span>
 
@@ -2818,7 +2872,7 @@
   </entry>
   <entry>
     <title>闭包</title>
-    <url>/2022/01/21/%E9%97%AD%E5%8C%85/</url>
+    <url>/2022/01/24/%E9%97%AD%E5%8C%85/</url>
     <content><![CDATA[<p>今天我们搞清楚闭包是什么。</p>
 <h1 id="什么是闭包"><a href="#什么是闭包" class="headerlink" title="什么是闭包"></a>什么是闭包</h1><p>MDN 就是简单的一句话：</p>
 <blockquote>
