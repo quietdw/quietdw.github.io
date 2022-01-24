@@ -1,7 +1,7 @@
 ---
 title: Hexo 博客搭建
 date: 2022-1-24 10:46:30
-updated: 2022-1-24 13:46:30
+updated: 2022-1-24 13:54:40
 tags:
   - Hexo
 ---
@@ -109,9 +109,14 @@ layout: 'tags'
 
 解决方法：CNAME 放到 `/source` 文件夹
 
+3. 自动部署后时间变为部署时间
+
+解决方法：增加 `date`、`updated` 手动维护时间
+
 > 引用
 
 - [Hexo Documentation](https://hexo.io/docs/#Install-Hexo)
 - [Hexo 使用 browsersync 浏览器热更新](http://www.leojuly.top/2018/11/26/Hexo-browsersync/)
 - [hexo-theme-next](https://github.com/iissnan/hexo-theme-next)
 - [GitHub Actions ](https://hexo.io/docs/github-pages)
+- [The update time of the article is incorrect ](https://github.com/theme-next/hexo-theme-next/issues/893)
