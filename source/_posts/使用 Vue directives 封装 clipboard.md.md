@@ -1,5 +1,7 @@
 ---
 title: 使用 Vue directives 封装 clipboard
+date: 2022-01-22 00:00:00
+updated: 2022-01-22 00:00:00
 tags:
   - Vue
   - directives

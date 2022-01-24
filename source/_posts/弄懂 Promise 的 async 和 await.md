@@ -1,5 +1,7 @@
 ---
 title: 弄懂 Promise 的 async 和 await
+date: 2019-04-24 00:00:00
+updated: 2019-04-24 00:00:00
 tags:
   - Promise
   - async
@@ -14,77 +16,79 @@ tags:
 
 通过例子更直观的了解一下，日常是这么使用 Promise 的：
 
-  ```javascript
-  function fn() {
-    return new Promise((resolve, reject) => { // 两个钩子
-      setTimeout(() => {
-        let a = 5;
-        resolve(a);
-      }, 1000);
-    });
-  }
+```javascript
+function fn() {
+  return new Promise((resolve, reject) => {
+    // 两个钩子
+    setTimeout(() => {
+      let a = 5
+      resolve(a)
+    }, 1000)
+  })
+}
 
-  fn().then(x => { // 注：这个函数和 resolve 不是同一个函数
-    console.log(x);
-  });
-  ```
+fn().then(x => {
+  // 注：这个函数和 resolve 不是同一个函数
+  console.log(x)
+})
+```
 
 可以 通过 async await 改写：
 
-  ```javascript
-  function fn() {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        let a = 5;
-        resolve(a);
-      }, 1000);
-    });
-  }
+```javascript
+function fn() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      let a = 5
+      resolve(a)
+    }, 1000)
+  })
+}
 
-  async function test() { // 内部函数有异步操作，所以要用 async 标识
-    let n = await fn();
-    console.log(n);
-  }
+async function test() {
+  // 内部函数有异步操作，所以要用 async 标识
+  let n = await fn()
+  console.log(n)
+}
 
-  test();
-
-  ```
+test()
+```
 
 await 一定要和 async 一起使用，单独使用会报错。
 
-除了resolve ，还要处理 reject ：
+除了 resolve ，还要处理 reject ：
 
-  ```javascript
-  function fn() {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        let a=5
-        if(a<3){
-          resolve(a);
-        }else{
-          reject(a) // 会执行这一步
-        }
-      }, 1000);
-    });
+```javascript
+function fn() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      let a = 5
+      if (a < 3) {
+        resolve(a)
+      } else {
+        reject(a) // 会执行这一步
+      }
+    }, 1000)
+  })
+}
+
+async function test() {
+  try {
+    let n = await fn()
+    console.log(n)
+  } catch (error) {
+    console.log(`error:${error}`) // error:5
   }
+}
 
-  async function test() {
-    try{
-      let n = await fn();
-      console.log(n);
-    }catch(error){
-      console.log(`error:${error}`) // error:5
-    }
-  }
+test() // error:5
+```
 
-  test(); // error:5
-  ```
+上面两个 await 的例子，可能没有 then 简洁，但是逻辑很“同步”，当有需要处理问题时，不会太容易出错。
 
-上面两个 await 的例子，可能没有then简洁，但是逻辑很“同步”，当有需要处理问题时，不会太容易出错。
-
-await 后面只能跟一个Promise，当需要处理多个 PRomise 时，请使用 Promise.all()
+await 后面只能跟一个 Promise，当需要处理多个 PRomise 时，请使用 Promise.all()
 
 > 引用
-- [async function
-](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/async_function)
 
+- [async function
+  ](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/async_function)

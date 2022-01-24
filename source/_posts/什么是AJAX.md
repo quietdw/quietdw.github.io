@@ -1,5 +1,7 @@
 ---
 title: 什么是AJAX
+date: 2018-12-19 00:00:00
+updated: 2018-12-19 00:00:00
 tags:
   - AJAX
 ---

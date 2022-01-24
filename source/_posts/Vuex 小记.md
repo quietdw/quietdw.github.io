@@ -1,5 +1,7 @@
 ---
 title: Vuex 小记
+date: 2019-04-02 00:00:00
+updated: 2019-04-02 00:00:00
 tags:
   - Vuex
 ---
@@ -8,7 +10,7 @@ Vuex 是一个专为 Vue.js 应用程序开发的**状态管理模式**。它采
 
 <!-- more -->
 
-简单的数据共享可以用eventBus，复杂的可以选择用Vuex。
+简单的数据共享可以用 eventBus，复杂的可以选择用 Vuex。
 
 每一个 Vuex 应用的核心就是 store（仓库）。“store”基本上就是一个容器，它包含着你的应用中大部分的状态 (state)。Vuex 和单纯的全局对象有以下两点不同：
 
@@ -20,7 +22,7 @@ Vuex 的状态存储是响应式的。当 Vue 组件从 store 中读取状态的
 
 ## State
 
-state 里存储的是状态（数据），当需要生成多个状态时，可使用 mapState  辅助函数帮助我们生成计算属性，让你少按几次键。
+state 里存储的是状态（数据），当需要生成多个状态时，可使用 mapState 辅助函数帮助我们生成计算属性，让你少按几次键。
 
 ```javascript
 import { mapState } from 'vuex'
@@ -43,15 +45,11 @@ Vuex 通过 store 选项，提供了一种机制将状态从根组件“注入�
 
 Action 类似于 mutation，不同在于：
 
-  1. Action 提交的是 mutation，而不是直接变更状态。
-  2. Action 可以包含任意异步操作。
+1. Action 提交的是 mutation，而不是直接变更状态。
+2. Action 可以包含任意异步操作。
 
 Action 通过 store.dispatch 方法触发
 
 ## Module
 
 当应用变得非常复杂时，store 对象就有可能变得相当臃肿。Vuex 允许我们将 store 分割成模块（module）。每个模块拥有自己的 state、mutation、action、getter、甚至是嵌套子模块。
-
-
-
-

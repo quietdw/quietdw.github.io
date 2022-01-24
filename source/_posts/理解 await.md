@@ -1,5 +1,7 @@
 ---
 title: 理解 await
+date: 2021-06-08 00:00:00
+updated: 2021-06-08 00:00:00
 tags:
   - await
 ---
@@ -10,7 +12,7 @@ tags:
 
 ```javascript
 function wait() {
-  return new Promise((resolve) => setTimeout(resolve, 10 * 1000))
+  return new Promise(resolve => setTimeout(resolve, 10 * 1000))
 }
 
 async function main() {
@@ -33,4 +35,3 @@ main()
 > 引用
 
 - [第 129 题：输出以下代码执行结果](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/251)
-

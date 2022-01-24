@@ -1,5 +1,7 @@
 ---
 title: 手写 Promise
+date: 2020-07-27 00:00:00
+updated: 2020-07-27 00:00:00
 tags:
   - Promise
 ---

@@ -1,10 +1,12 @@
 ---
 title: 如何发布npm包
+date: 2019-03-27 00:00:00
+updated: 2019-03-27 00:00:00
 tags:
   - npm
 ---
 
-最近在造轮子的过程中，需要将本地的代码发布到npm上，方便他人使用。写一篇博客方便以后查阅。
+最近在造轮子的过程中，需要将本地的代码发布到 npm 上，方便他人使用。写一篇博客方便以后查阅。
 
 <!-- more -->
 
@@ -14,17 +16,17 @@ tags:
 
 2. 将写好的组件导入到 index.js 中，形如：
 
-  ```JavaScript
-  import Component from "dist"
-  ```
+```JavaScript
+import Component from "dist"
+```
 
-3. 如报错提示不支持import的语法， 可在使用 parcel
-`mpx parcel build index.js --no-minify --no-cache` 将文件转移成兼容版本。
+3. 如报错提示不支持 import 的语法， 可在使用 parcel
+   `mpx parcel build index.js --no-minify --no-cache` 将文件转移成兼容版本。
 
 4. 上传
 
-  - 第一次发布前需要使用 `npm adduser` 添加在 npm 上注册的用户名；
-  - `npm publish` 发布。
+- 第一次发布前需要使用 `npm adduser` 添加在 npm 上注册的用户名；
+- `npm publish` 发布。
 
 # 测试包
 

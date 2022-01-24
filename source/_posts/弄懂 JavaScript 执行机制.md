@@ -1,5 +1,7 @@
 ---
 title: 弄懂 JavaScript 执行机制
+date: 2019-03-11 00:00:00
+updated: 2019-03-11 00:00:00
 tags:
   - macroTask
   - microTask
@@ -15,19 +17,21 @@ tags:
 举个的例子：
 
 ```javascript
-console.log('script start');
+console.log('script start')
 
-setTimeout(function() {
-  console.log('setTimeout');
-}, 0);
+setTimeout(function () {
+  console.log('setTimeout')
+}, 0)
 
-Promise.resolve().then(function() {
-  console.log('promise1');
-}).then(function() {
-  console.log('promise2');
-});
+Promise.resolve()
+  .then(function () {
+    console.log('promise1')
+  })
+  .then(function () {
+    console.log('promise2')
+  })
 
-console.log('script end');
+console.log('script end')
 ```
 
 按照以前的思路，运行结果应该是
@@ -93,53 +97,53 @@ setTimeout 等待当前 macrotasks 结束，才能执行。这也解释 为什�
 做个小例子
 
 ```javascript
-console.log("1");
-async function func1(){
+console.log('1')
+async function func1() {
   await func2()
   //以下所有内容都被放置微任务中
-	console.log('a')
+  console.log('a')
 }
-async function func2(){
-	console.log('b')
+async function func2() {
+  console.log('b')
 }
 func1()
-setTimeout(function() {
-  console.log("2");
-  Promise.resolve().then(function() {
-    console.log("3");
-  });
-  new Promise(function(resolve) {
-    console.log("4");
-    resolve();
-  }).then(function() {
-    console.log("5");
-  });
-});
-Promise.resolve().then(function() {
-  console.log("6");
-});
-new Promise(function(resolve) {
-  console.log("7");
-  resolve();
-}).then(function() {
-  console.log("8");
-});
+setTimeout(function () {
+  console.log('2')
+  Promise.resolve().then(function () {
+    console.log('3')
+  })
+  new Promise(function (resolve) {
+    console.log('4')
+    resolve()
+  }).then(function () {
+    console.log('5')
+  })
+})
+Promise.resolve().then(function () {
+  console.log('6')
+})
+new Promise(function (resolve) {
+  console.log('7')
+  resolve()
+}).then(function () {
+  console.log('8')
+})
 
-setTimeout(function() {
-  console.log("9");
-  Promise.resolve().then(function() {
-    console.log("10");
-  });
-  new Promise(function(resolve) {
-    console.log("11");
-    resolve();
-  }).then(function() {
-    console.log("12");
-  });
-});
+setTimeout(function () {
+  console.log('9')
+  Promise.resolve().then(function () {
+    console.log('10')
+  })
+  new Promise(function (resolve) {
+    console.log('11')
+    resolve()
+  }).then(function () {
+    console.log('12')
+  })
+})
 ```
 
-在Chrome输出结果是：1,b,7,a,6,8,2,4,3,5,9,11,10,12
+在 Chrome 输出结果是：1,b,7,a,6,8,2,4,3,5,9,11,10,12
 
 > 引用
 

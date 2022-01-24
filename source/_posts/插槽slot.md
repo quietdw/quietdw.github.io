@@ -1,5 +1,7 @@
 ---
 title: 插槽slot
+date: 2019-04-16 00:00:00
+updated: 2019-04-16 00:00:00
 tags:
   - Vue
   - slot
@@ -20,7 +22,7 @@ slot 将父组件的内容传给子组件，弥补视图缺失
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script type="text/javascript">
   Vue.component('child', {
-    template:`
+    template: `
     <div>
       <slot>如果父组件没有插入内容，就默认出现这个</slot>
     </div>
@@ -28,10 +30,8 @@ slot 将父组件的内容传给子组件，弥补视图缺失
   })
 
   let vm = new Vue({
-    el: "#app",
-    data:{
-
-    }
+    el: '#app',
+    data: {}
   })
 </script>
 ```
@@ -78,31 +78,30 @@ slot 将父组件的内容传给子组件，弥补视图缺失
 ```html
 <div id="app">
   <child>
-    <template scope="xxx">
-      {{xxx.text}}
-    </template>
+    <template scope="xxx"> {{xxx.text}} </template>
   </child>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script type="text/javascript">
   Vue.component('child', {
-    render(createElement){
-      return createElement('div',this.$scopedSlots.default({
-        text:'xxx'
-      }))
+    render(createElement) {
+      return createElement(
+        'div',
+        this.$scopedSlots.default({
+          text: 'xxx'
+        })
+      )
     }
   })
 
   let vm = new Vue({
-    el: "#app",
-    data:{
-
-    }
+    el: '#app',
+    data: {}
   })
 </script>
 ```
 
-# 访问slot里的内容
+# 访问 slot 里的内容
 
 通过 this.$slots 访问静态插槽的内容，得到的是一个 VNodes 数组
 
@@ -115,35 +114,34 @@ slot 将父组件的内容传给子组件，弥补视图缺失
     v-bind:key="tab"
     v-bind:class="['tab-button', { active: currentTab === tab }]"
     v-on:click="currentTab = tab"
-  >{{ tab }}</button>
+  >
+    {{ tab }}
+  </button>
 
-  <component
-    v-bind:is="currentTabComponent"
-    class="tab"
-  ></component>
+  <component v-bind:is="currentTabComponent" class="tab"></component>
 </div>
 <script>
-Vue.component('tab-home', {
-	template: '<div>Home component</div>'
-})
-Vue.component('tab-posts', {
-	template: '<div>Posts component</div>'
-})
-Vue.component('tab-archive', {
-	template: '<div>Archive component</div>'
-})
+  Vue.component('tab-home', {
+    template: '<div>Home component</div>'
+  })
+  Vue.component('tab-posts', {
+    template: '<div>Posts component</div>'
+  })
+  Vue.component('tab-archive', {
+    template: '<div>Archive component</div>'
+  })
 
-new Vue({
-  el: '#dynamic-component-demo',
-  data: {
-    currentTab: 'Home',
-    tabs: ['Home', 'Posts', 'Archive']
-  },
-  computed: {
-    currentTabComponent: function () {
-      return 'tab-' + this.currentTab.toLowerCase()
+  new Vue({
+    el: '#dynamic-component-demo',
+    data: {
+      currentTab: 'Home',
+      tabs: ['Home', 'Posts', 'Archive']
+    },
+    computed: {
+      currentTabComponent: function () {
+        return 'tab-' + this.currentTab.toLowerCase()
+      }
     }
-  }
-})
+  })
 </script>
 ```

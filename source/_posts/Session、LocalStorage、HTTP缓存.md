@@ -1,5 +1,7 @@
 ---
 title: Session、LocalStorage、HTTP缓存
+date: 2019-01-08 00:00:00
+updated: 2019-01-08 00:00:00
 tags:
   - Session
   - LocalStorage

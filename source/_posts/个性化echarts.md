@@ -1,5 +1,7 @@
 ---
 title: 个性化 echarts 图表
+date: 2019-06-29 00:00:00
+updated: 2019-06-29 00:00:00
 tags:
   - echarts
 ---
@@ -17,40 +19,40 @@ tags:
 ```javascript
 option = {
   xAxis: {
-    type: "category",
-    data: ["shop1", "shop2", "shop3", "shop4", "shop5", "shop5", "shop6"]
+    type: 'category',
+    data: ['shop1', 'shop2', 'shop3', 'shop4', 'shop5', 'shop5', 'shop6']
   },
   yAxis: {
-    type: "value",
+    type: 'value',
     axisLabel: {
       formatter(value) {
-        return `${value} 万元`;
+        return `${value} 万元`
       }
     }
   },
   tooltip: {
-    trigger: "axis"
+    trigger: 'axis'
   },
   series: [
     {
-      name: "预期销售额",
-      stack: "one",
+      name: '预期销售额',
+      stack: 'one',
       data: [120, 200, 150, 80, 70, 110, 130],
-      type: "bar"
+      type: 'bar'
     },
     {
-      name: "完成情况",
-      stack: "one",
+      name: '完成情况',
+      stack: 'one',
       data: [12, 20, 15, -8, 7, -11, 13],
-      type: "bar",
+      type: 'bar',
       itemStyle: {
-        color: function(p) {
-          return p.value >= 0 ? "purple" : "red";
+        color: function (p) {
+          return p.value >= 0 ? 'purple' : 'red'
         }
       }
     }
   ]
-};
+}
 ```
 
 展示出来的效果：

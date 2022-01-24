@@ -1,5 +1,7 @@
 ---
 title: express 初识
+date: 2019-05-01 00:00:00
+updated: 2019-05-01 00:00:00
 tags:
   - express
 ---
@@ -19,6 +21,7 @@ tags:
 # EXPRESS 工作流程
 
 目录结构
+
 ```
 ├── app.js # 应用的主入口
 ├── bin  # 启动脚本
@@ -35,24 +38,26 @@ tags:
 
 ## 路由
 
-  顾名思义，负责寻址的，根据用户请求的定位资源，图片、样式等文件的路由走static
+顾名思义，负责寻址的，根据用户请求的定位资源，图片、样式等文件的路由走 static
 
 ## 中间件
 
-  进行数据处理，把请求交给中间键处理，得到的结果再给下一级
+进行数据处理，把请求交给中间键处理，得到的结果再给下一级
 
-  ```javascript
-    var app = express()
+```javascript
+var app = express()
 
-    app.use(function (req, res, next) { // 可以得到请求的相关信息
-    console.log('Time:', Date.now())
-    next() // 交给下一层的中间件，或者直接send
-    })
-  ```
+app.use(function (req, res, next) {
+  // 可以得到请求的相关信息
+  console.log('Time:', Date.now())
+  next() // 交给下一层的中间件，或者直接send
+})
+```
 
 ## 模板引擎
 
-  模板引擎类似 `Vue` 中的 template ，express 可选的模板引擎有 jade ，ejs 等
+模板引擎类似 `Vue` 中的 template ，express 可选的模板引擎有 jade ，ejs 等
 
 > 引用
-- [Express使用手记：核心入门](https://www.cnblogs.com/chyingp/p/express-intro.html)
+
+- [Express 使用手记：核心入门](https://www.cnblogs.com/chyingp/p/express-intro.html)

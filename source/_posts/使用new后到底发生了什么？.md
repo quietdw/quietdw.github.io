@@ -1,5 +1,7 @@
 ---
 title: 使用new后到底发生了什么？
+date: 2018-12-27 00:00:00
+updated: 2018-12-27 00:00:00
 tags:
   - new
   - JavaScript

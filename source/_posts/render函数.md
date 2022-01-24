@@ -1,5 +1,7 @@
 ---
 title: render函数
+date: 2019-04-16 00:00:00
+updated: 2019-04-16 00:00:00
 tags:
   - Vue
   - render
@@ -11,46 +13,47 @@ tags:
 
 # 基本用法
 
-
 template
+
 ```html
 <template id="hdom">
-<div>
-  <h1 v-if="level==1">
-  <slot></slot>
-  </h1>
-  <h2 v-if="level==2">
-  <slot></slot>
-  </h2>
-  <h3 v-if="level==3">
-  <slot></slot>
-  </h3>
-</div>
+  <div>
+    <h1 v-if="level==1">
+      <slot></slot>
+    </h1>
+    <h2 v-if="level==2">
+      <slot></slot>
+    </h2>
+    <h3 v-if="level==3">
+      <slot></slot>
+    </h3>
+  </div>
 </template>
 ```
 
-使用vue组件定义
+使用 vue 组件定义
+
 ```javascript
-Vue.component('child',{
-  props:['level'],
-  template:'#hdom'
+Vue.component('child', {
+  props: ['level'],
+  template: '#hdom'
 })
 ```
 
-使用render函数进行定义组件
+使用 render 函数进行定义组件
+
 ```javascript
-Vue.component('child',{
-  render:function (createElement) {
-  return createElement('h'+this.level,
-  this.$slots.default);
+Vue.component('child', {
+  render: function (createElement) {
+    return createElement('h' + this.level, this.$slots.default)
   },
-  props:['level']
+  props: ['level']
 })
 ```
 
 # render 函数的参数
 
-1. 第一个参数必须是 createElement,该参数的类型是function
+1. 第一个参数必须是 createElement,该参数的类型是 function
 
 # createElement 函数的参数
 
@@ -58,29 +61,27 @@ Vue.component('child',{
 
 有三种数据类型
 
-1. String 类型：HTML标签，例如`h1`
+1. String 类型：HTML 标签，例如`h1`
 2. Object 类型：含有数据的对象，如`{template: "<h1></h1>"}`
 3. Function 类型：返回一个数据对象，例如：
-  ```javascript
-	Vue.component('child',{
-    render (createElement) {
-      let dom=()=>{
-        return
-          {
-            template:"<h1>13</h1>"
-          }
-        }
-      return createElement(
-        dom(),
-        this.$slots.default
-      );
+
+```javascript
+Vue.component('child', {
+  render(createElement) {
+    let dom = () => {
+      return
+      {
+        template: '<h1>13</h1>'
+      }
     }
-  })
-  ```
+    return createElement(dom(), this.$slots.default)
+  }
+})
+```
 
 ## 第二个参数（可选）
 
-数据对象，只能是Object
+数据对象，只能是 Object
 
 常用的选项有：
 
@@ -95,12 +96,12 @@ class:{
 2. style
 
 ```javascript
-style:{
-  color:'red'
+style: {
+  color: 'red'
 }
 ```
 
-3. attrs （正常的html特性）
+3. attrs （正常的 html 特性）
 
 ```
 attrs:{
@@ -108,7 +109,7 @@ attrs:{
 }
 ```
 
-4. domprops （原生Dom特性）
+4. domprops （原生 Dom 特性）
 
 ```
 domProps:{
@@ -152,7 +153,7 @@ render(createElement) {
 			}
 ```
 
-# slot 在render中应用
+# slot 在 render 中应用
 
 ```Javascript
 <div id="app">
@@ -185,7 +186,7 @@ render(createElement) {
 </script>
 ```
 
-# 作用域插槽在render中的应用
+# 作用域插槽在 render 中的应用
 
 ```javascript
 <div id="app">
@@ -252,6 +253,6 @@ render(createElement) {
 </script>
 ```
 
-
 > 引用
+
 - [渲染函数 & JSX](https://cn.vuejs.org/v2/guide/render-function.html)
