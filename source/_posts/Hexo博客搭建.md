@@ -103,6 +103,10 @@ layout: 'tags'
 ---
 ```
 
+2. 更新后 CNAME 丢失
+
+解决方法：CNAME 放到 `/source` 文件夹
+
 > 引用
 
 - [Hexo Documentation](https://hexo.io/docs/#Install-Hexo)
