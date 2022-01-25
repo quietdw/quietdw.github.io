@@ -180,7 +180,7 @@ body {
   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 1em;
   line-height: 2;
-  background-image: url("../images/bg.jpg");
+  background-image: url("../images/bg.webp");
   background-position-x: center;
   background-position-y: top;
   background-repeat-x: repeat;
@@ -1181,7 +1181,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #3269b1;
+  background: #ff47ff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
