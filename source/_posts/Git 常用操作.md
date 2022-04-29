@@ -70,11 +70,6 @@ tags:
 5. `git rm --cached xxx` 用于 xxx 虽然被写入 .gitignore 但依然被提交了的情况;
 6. `git add . ; git stash` 有时代码还没提交，但需要 `git pull`; pull 结束后再用 `git stash pop` 将其召唤回来
 
-
-
-
-
-
 > 引用
 
 - [git 详解](http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html)
