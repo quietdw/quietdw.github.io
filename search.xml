@@ -586,7 +586,7 @@
 <li><code>git push</code></li>
 </ol>
 <h1 id="更多技巧"><a href="#更多技巧" class="headerlink" title="更多技巧"></a>更多技巧</h1><ol>
-<li><code>git reflog</code> 回到 reset 之前的时间点;</li>
+<li><code>git reflog</code> 查看 reset 之前的时间点，使用 <code>git reset --hard</code> 返回之前时间点;</li>
 <li><code>git commit . --amend</code> 当前代码提交到上一次提交里;</li>
 <li><code>git rebase -i HEAD~3</code> 对最近的三次 commit 进行合并、修改;</li>
 <li><code>git rm --cached xxx</code> 用于 xxx 虽然被写入 .gitignore 但依然被提交了的情况;</li>
