@@ -557,6 +557,57 @@
       </tags>
   </entry>
   <entry>
+    <title>Git 常用操作</title>
+    <url>/2018/10/11/Git%20%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<p>使用 Git 前，需要先建立一个仓库(repository)。我们可以使用一个已经存在的目录作为 Git 仓库或创建一个空目录。<br>使用当前目录作为 Git 仓库，我们只需使它初始化。</p>
+<span id="more"></span>
+
+<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><p><code>git init</code></p>
+<p>运行后会在当前文件夹建立一个<code>.git</code>的文件夹，此时仓库是没有其他文件的，我们可以通过<code>add</code>命令增加文件。</p>
+<p><code>git add filename</code></p>
+<p>现在我们已经添加了这些文件，我们希望它们能够真正被保存在 Git 仓库。为此，我们将它们提交到仓库。</p>
+<p><code>git commit -m &quot;Adding files&quot;</code></p>
+<p>可以通过</p>
+<p><code>git commit -v</code></p>
+<p>查看所有 diff 信息</p>
+<p>当我们修改了很多文件，而不想每一个都 add，想 commit 自动来提交本地修改，我们可以使用-a 标识。</p>
+<p><code>git commit -a -m &quot;Changed some files&quot;</code></p>
+<p><code>git commit</code>命令的<code>-a</code>选项可将所有被修改或者已删除的且已经被 git 管理的文档提交到仓库中。<br>千万注意，<code>-a</code>不会造成新文件被提交，只能修改。</p>
+<p><code>git pull</code></p>
+<p>拉取线上代码，有可能会有冲突，这时需要手动合并冲突，并提交，vscode 有代码合并工具，方便合并代码。</p>
+<p><code>git push</code></p>
+<p>提交本地代码到线上</p>
+<h1 id="处理-bug"><a href="#处理-bug" class="headerlink" title="处理 bug"></a>处理 bug</h1><p>当代码出现 bug 时，可以将当前代码先提交，注意一定要先提交成功，然后执行 <code>git reset --hard commitID</code>，重置到指定 commit 时的版本。可以通过<code>git show commitID</code> 查看提交时的代码。</p>
+<h1 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h1><p><code>git branch 分支名</code> 创建一个分支<br><code>git push origin 本地分支名:远程</code> 提交本地分支到远程<br><code>git checkout 分支名</code> 切换到另一个分支</p>
+<h1 id="通常提交代码流程"><a href="#通常提交代码流程" class="headerlink" title="通常提交代码流程"></a>通常提交代码流程</h1><ol>
+<li><code>git add .</code> 通常来讲每次的 add 都是一种类型修改提交，不建议一次提交所有</li>
+<li><code>git commit</code></li>
+<li><code>git pull</code> 注意 push 前一定要 pull 代码</li>
+<li><code>git push</code></li>
+</ol>
+<h1 id="常用技巧"><a href="#常用技巧" class="headerlink" title="常用技巧"></a>常用技巧</h1><ol>
+<li><code>git reset --hard xxx</code> 让代码快速回到某个历史提交点;</li>
+<li><code>git reflog</code> 回到 reset 之前的时间点;</li>
+<li><code>git commit . --amend</code> 当前代码提交到上一次提交里;</li>
+<li><code>git rebase -i HEAD~3</code> 对最近的三次 commit 进行合并、修改;</li>
+<li><code>git rm --cached xxx</code> 用于 xxx 虽然被写入 .gitignore 但依然被提交了的情况;</li>
+<li><code>git add . ; git stash</code> 有时代码还没提交，但需要 <code>git pull</code>; pull 结束后再用 <code>git stash pop</code> 将其召唤回来</li>
+</ol>
+<blockquote>
+<p>引用</p>
+</blockquote>
+<ul>
+<li><p><a href="http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html">git 详解</a></p>
+</li>
+<li><p><a href="https://xiedaimala.com/tasks/24e32d28-9aeb-4010-a643-d97904e8101d/text_tutorials/317c56bc-d774-415c-9594-4b11e67a3f5d">Git 操作手册</a></p>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>HTTP请求与响应</title>
     <url>/2018/10/13/HTTP%E8%AF%B7%E6%B1%82%E4%B8%8E%E5%93%8D%E5%BA%94/</url>
     <content><![CDATA[<h3 id="HTTP-请求"><a href="#HTTP-请求" class="headerlink" title="HTTP 请求"></a>HTTP 请求</h3><p>HTTP（HyperText Transfer Protocol）请求信息至少由 3 部分组成</p>
@@ -1560,49 +1611,6 @@
       </tags>
   </entry>
   <entry>
-    <title>git入门</title>
-    <url>/2018/10/11/git%E5%85%A5%E9%97%A8/</url>
-    <content><![CDATA[<p>使用 Git 前，需要先建立一个仓库(repository)。我们可以使用一个已经存在的目录作为 Git 仓库或创建一个空目录。<br>使用当前目录作为 Git 仓库，我们只需使它初始化。</p>
-<span id="more"></span>
-
-<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><p><code>git init</code></p>
-<p>运行后会在当前文件夹建立一个<code>.git</code>的文件夹，此时仓库是没有其他文件的，我们可以通过<code>add</code>命令增加文件。</p>
-<p><code>git add filename</code></p>
-<p>现在我们已经添加了这些文件，我们希望它们能够真正被保存在 Git 仓库。为此，我们将它们提交到仓库。</p>
-<p><code>git commit -m &quot;Adding files&quot;</code></p>
-<p>可以通过</p>
-<p><code>git commit -v</code></p>
-<p>查看所有 diff 信息</p>
-<p>当我们修改了很多文件，而不想每一个都 add，想 commit 自动来提交本地修改，我们可以使用-a 标识。</p>
-<p><code>git commit -a -m &quot;Changed some files&quot;</code></p>
-<p><code>git commit</code>命令的<code>-a</code>选项可将所有被修改或者已删除的且已经被 git 管理的文档提交到仓库中。<br>千万注意，<code>-a</code>不会造成新文件被提交，只能修改。</p>
-<p><code>git pull</code></p>
-<p>拉取线上代码，有可能会有冲突，这时需要手动合并冲突，并提交，vscode 有代码合并工具，方便合并代码。</p>
-<p><code>git push</code></p>
-<p>提交本地代码到线上</p>
-<h1 id="处理-bug"><a href="#处理-bug" class="headerlink" title="处理 bug"></a>处理 bug</h1><p>当代码出现 bug 时，可以将当前代码先提交，注意一定要先提交成功，然后执行 <code>git reset --hard commitID</code>，重置到指定 commit 时的版本。可以通过<code>git show commitID</code> 查看提交时的代码。</p>
-<h1 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h1><p><code>git branch 分支名</code> 创建一个分支<br><code>git push origin 本地分支名:远程</code> 提交本地分支到远程<br><code>git checkout 分支名</code> 切换到另一个分支</p>
-<h1 id="通常提交代码流程"><a href="#通常提交代码流程" class="headerlink" title="通常提交代码流程"></a>通常提交代码流程</h1><ol>
-<li><code>git add .</code> 通常来讲每次的 add 都是一种类型修改提交，不建议一次提交所有</li>
-<li><code>git commit</code></li>
-<li><code>git pull</code> 注意 push 前一定要 pull 代码</li>
-<li><code>git push</code></li>
-</ol>
-<blockquote>
-<p>引用</p>
-</blockquote>
-<ul>
-<li><p><a href="http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html">git 详解</a></p>
-</li>
-<li><p><a href="https://xiedaimala.com/tasks/24e32d28-9aeb-4010-a643-d97904e8101d/text_tutorials/317c56bc-d774-415c-9594-4b11e67a3f5d">Git 操作手册</a></p>
-</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>mixin、科里化，高阶函数</title>
     <url>/2019/03/09/mixin%E3%80%81%E7%A7%91%E9%87%8C%E5%8C%96%EF%BC%8C%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/</url>
     <content><![CDATA[<p>了解一下一些 mixin、柯里化、高阶函数。</p>
@@ -1985,23 +1993,6 @@
       </tags>
   </entry>
   <entry>
-    <title>什么是MVC</title>
-    <url>/2018/12/26/%E4%BB%80%E4%B9%88%E6%98%AFMVC/</url>
-    <content><![CDATA[<h3 id="什么是-MVC"><a href="#什么是-MVC" class="headerlink" title="什么是 MVC"></a>什么是 MVC</h3><ol>
-<li>最上面的一层，是直接面向最终用户的”视图层”（View）。它是提供给用户的操作界面，是程序的外壳。</li>
-<li>最底下的一层，是核心的”数据层”（Model），也就是程序需要操作的数据或信息。</li>
-<li>中间的一层，就是”控制层”（Controller），它负责根据用户从”视图层”输入的指令，选取”数据层”中的数据，然后对其进行相应的操作，产生最终结果。</li>
-</ol>
-<span id="more"></span>
-
-<p>Model 和服务器交互，Model 将得到的数据交给 Controller，Controller 把数据填入 View，并监听 View<br>用户操作 View，如点击按钮，Controller 就会接受到点击事件，Controller 这时会去调用 Model，Model 会与服务器交互，得到数据后返回给 Controller，Controller 得到数据就去更新 View</p>
-<h3 id="MVC-例子"><a href="#MVC-例子" class="headerlink" title="MVC 例子"></a>MVC 例子</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">!<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> model = Model(&#123;</span><br><span class="line">    <span class="attr">resouceName</span>: <span class="string">&#x27;Message&#x27;</span></span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="keyword">let</span> view = View(<span class="string">&#x27;.message&#x27;</span>)[<span class="number">0</span>]</span><br><span class="line">  <span class="keyword">let</span> controller = &#123;</span><br><span class="line">    <span class="attr">view</span>: <span class="literal">null</span>,</span><br><span class="line">    <span class="attr">leaveMessage</span>: <span class="literal">null</span>,</span><br><span class="line">    <span class="attr">messageList</span>: <span class="literal">null</span>,</span><br><span class="line">    <span class="attr">model</span>: <span class="literal">null</span>,</span><br><span class="line">    <span class="attr">init</span>: <span class="function"><span class="keyword">function</span> (<span class="params">view, model</span>) </span>&#123;</span><br><span class="line">      <span class="built_in">this</span>.view = view</span><br><span class="line">      <span class="built_in">this</span>.model = model</span><br><span class="line">      <span class="built_in">this</span>.leaveMessage = view.querySelector(<span class="string">&#x27;#leaveMessage&#x27;</span>)</span><br><span class="line">      <span class="built_in">this</span>.messageList = view.querySelector(<span class="string">&#x27;ul&#x27;</span>)</span><br><span class="line">      <span class="built_in">this</span>.model.init()</span><br><span class="line">      <span class="built_in">this</span>.messageInit()</span><br><span class="line">      <span class="built_in">this</span>.bindEvents()</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">messageInit</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">this</span>.model.fetch().then(<span class="function"><span class="params">message</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> array = message.map(<span class="function"><span class="params">value</span> =&gt;</span> value.attributes)</span><br><span class="line"></span><br><span class="line">        array.forEach(<span class="function">(<span class="params">value, key</span>) =&gt;</span> &#123;</span><br><span class="line">          <span class="keyword">let</span> oLi = <span class="built_in">document</span>.createElement(<span class="string">&#x27;li&#x27;</span>)</span><br><span class="line">          <span class="keyword">let</span> ospanname = <span class="built_in">document</span>.createElement(<span class="string">&#x27;span&#x27;</span>)</span><br><span class="line">          <span class="keyword">let</span> ospanmessage = <span class="built_in">document</span>.createElement(<span class="string">&#x27;span&#x27;</span>)</span><br><span class="line">          ospanname.innerText = value.name + <span class="string">&#x27;: &#x27;</span></span><br><span class="line">          ospanmessage.innerText = value.message</span><br><span class="line"></span><br><span class="line">          oLi.appendChild(ospanname)</span><br><span class="line">          oLi.appendChild(ospanmessage)</span><br><span class="line"></span><br><span class="line">          <span class="built_in">this</span>.messageList.appendChild(oLi)</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">bindEvents</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">this</span>.leaveMessage.addEventListener(<span class="string">&#x27;submit&#x27;</span>, <span class="function"><span class="params">e</span> =&gt;</span> &#123;</span><br><span class="line">        e.preventDefault()</span><br><span class="line">        <span class="built_in">this</span>.savemessage()</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">savemessage</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      leaveMessage = <span class="built_in">this</span>.leaveMessage</span><br><span class="line">      <span class="keyword">let</span> postName = leaveMessage.querySelector(<span class="string">&#x27;input[name=name]&#x27;</span>).value</span><br><span class="line">      <span class="keyword">let</span> postMessages = leaveMessage.querySelector(<span class="string">&#x27;input[name=messages]&#x27;</span>).value</span><br><span class="line"></span><br><span class="line">      <span class="built_in">this</span>.model</span><br><span class="line">        .save(&#123;</span><br><span class="line">          <span class="attr">name</span>: postName,</span><br><span class="line">          <span class="attr">message</span>: postMessages</span><br><span class="line">        &#125;)</span><br><span class="line">        .then(<span class="function"><span class="keyword">function</span> (<span class="params">object</span>) </span>&#123;</span><br><span class="line">          alert(<span class="string">&#x27;提交成功&#x27;</span>)</span><br><span class="line">          <span class="keyword">let</span> ul = view.querySelector(<span class="string">&#x27;ul&#x27;</span>)</span><br><span class="line">          <span class="keyword">let</span> oLi = <span class="built_in">document</span>.createElement(<span class="string">&#x27;li&#x27;</span>)</span><br><span class="line">          <span class="keyword">let</span> ospanname = <span class="built_in">document</span>.createElement(<span class="string">&#x27;span&#x27;</span>)</span><br><span class="line">          <span class="keyword">let</span> ospanmessage = <span class="built_in">document</span>.createElement(<span class="string">&#x27;span&#x27;</span>)</span><br><span class="line">          ospanname.innerText = object.attributes.name + <span class="string">&#x27;: &#x27;</span></span><br><span class="line">          ospanmessage.innerText = object.attributes.message</span><br><span class="line"></span><br><span class="line">          oLi.appendChild(ospanname)</span><br><span class="line">          oLi.appendChild(ospanmessage)</span><br><span class="line"></span><br><span class="line">          ul.appendChild(oLi)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  controller.init.call(controller, view, model)</span><br><span class="line">&#125;.call()</span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>MVC</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>什么是JSONP</title>
     <url>/2018/12/18/%E4%BB%80%E4%B9%88%E6%98%AFJSONP/</url>
     <content><![CDATA[<h3 id="什么是-JSONP"><a href="#什么是-JSONP" class="headerlink" title="什么是 JSONP"></a>什么是 JSONP</h3><p>请求方：浏览器（前端）</p>
@@ -2030,6 +2021,23 @@
 ]]></content>
       <tags>
         <tag>JSONP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>什么是MVC</title>
+    <url>/2018/12/26/%E4%BB%80%E4%B9%88%E6%98%AFMVC/</url>
+    <content><![CDATA[<h3 id="什么是-MVC"><a href="#什么是-MVC" class="headerlink" title="什么是 MVC"></a>什么是 MVC</h3><ol>
+<li>最上面的一层，是直接面向最终用户的”视图层”（View）。它是提供给用户的操作界面，是程序的外壳。</li>
+<li>最底下的一层，是核心的”数据层”（Model），也就是程序需要操作的数据或信息。</li>
+<li>中间的一层，就是”控制层”（Controller），它负责根据用户从”视图层”输入的指令，选取”数据层”中的数据，然后对其进行相应的操作，产生最终结果。</li>
+</ol>
+<span id="more"></span>
+
+<p>Model 和服务器交互，Model 将得到的数据交给 Controller，Controller 把数据填入 View，并监听 View<br>用户操作 View，如点击按钮，Controller 就会接受到点击事件，Controller 这时会去调用 Model，Model 会与服务器交互，得到数据后返回给 Controller，Controller 得到数据就去更新 View</p>
+<h3 id="MVC-例子"><a href="#MVC-例子" class="headerlink" title="MVC 例子"></a>MVC 例子</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">!<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> model = Model(&#123;</span><br><span class="line">    <span class="attr">resouceName</span>: <span class="string">&#x27;Message&#x27;</span></span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="keyword">let</span> view = View(<span class="string">&#x27;.message&#x27;</span>)[<span class="number">0</span>]</span><br><span class="line">  <span class="keyword">let</span> controller = &#123;</span><br><span class="line">    <span class="attr">view</span>: <span class="literal">null</span>,</span><br><span class="line">    <span class="attr">leaveMessage</span>: <span class="literal">null</span>,</span><br><span class="line">    <span class="attr">messageList</span>: <span class="literal">null</span>,</span><br><span class="line">    <span class="attr">model</span>: <span class="literal">null</span>,</span><br><span class="line">    <span class="attr">init</span>: <span class="function"><span class="keyword">function</span> (<span class="params">view, model</span>) </span>&#123;</span><br><span class="line">      <span class="built_in">this</span>.view = view</span><br><span class="line">      <span class="built_in">this</span>.model = model</span><br><span class="line">      <span class="built_in">this</span>.leaveMessage = view.querySelector(<span class="string">&#x27;#leaveMessage&#x27;</span>)</span><br><span class="line">      <span class="built_in">this</span>.messageList = view.querySelector(<span class="string">&#x27;ul&#x27;</span>)</span><br><span class="line">      <span class="built_in">this</span>.model.init()</span><br><span class="line">      <span class="built_in">this</span>.messageInit()</span><br><span class="line">      <span class="built_in">this</span>.bindEvents()</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">messageInit</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">this</span>.model.fetch().then(<span class="function"><span class="params">message</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> array = message.map(<span class="function"><span class="params">value</span> =&gt;</span> value.attributes)</span><br><span class="line"></span><br><span class="line">        array.forEach(<span class="function">(<span class="params">value, key</span>) =&gt;</span> &#123;</span><br><span class="line">          <span class="keyword">let</span> oLi = <span class="built_in">document</span>.createElement(<span class="string">&#x27;li&#x27;</span>)</span><br><span class="line">          <span class="keyword">let</span> ospanname = <span class="built_in">document</span>.createElement(<span class="string">&#x27;span&#x27;</span>)</span><br><span class="line">          <span class="keyword">let</span> ospanmessage = <span class="built_in">document</span>.createElement(<span class="string">&#x27;span&#x27;</span>)</span><br><span class="line">          ospanname.innerText = value.name + <span class="string">&#x27;: &#x27;</span></span><br><span class="line">          ospanmessage.innerText = value.message</span><br><span class="line"></span><br><span class="line">          oLi.appendChild(ospanname)</span><br><span class="line">          oLi.appendChild(ospanmessage)</span><br><span class="line"></span><br><span class="line">          <span class="built_in">this</span>.messageList.appendChild(oLi)</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">bindEvents</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">this</span>.leaveMessage.addEventListener(<span class="string">&#x27;submit&#x27;</span>, <span class="function"><span class="params">e</span> =&gt;</span> &#123;</span><br><span class="line">        e.preventDefault()</span><br><span class="line">        <span class="built_in">this</span>.savemessage()</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">savemessage</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      leaveMessage = <span class="built_in">this</span>.leaveMessage</span><br><span class="line">      <span class="keyword">let</span> postName = leaveMessage.querySelector(<span class="string">&#x27;input[name=name]&#x27;</span>).value</span><br><span class="line">      <span class="keyword">let</span> postMessages = leaveMessage.querySelector(<span class="string">&#x27;input[name=messages]&#x27;</span>).value</span><br><span class="line"></span><br><span class="line">      <span class="built_in">this</span>.model</span><br><span class="line">        .save(&#123;</span><br><span class="line">          <span class="attr">name</span>: postName,</span><br><span class="line">          <span class="attr">message</span>: postMessages</span><br><span class="line">        &#125;)</span><br><span class="line">        .then(<span class="function"><span class="keyword">function</span> (<span class="params">object</span>) </span>&#123;</span><br><span class="line">          alert(<span class="string">&#x27;提交成功&#x27;</span>)</span><br><span class="line">          <span class="keyword">let</span> ul = view.querySelector(<span class="string">&#x27;ul&#x27;</span>)</span><br><span class="line">          <span class="keyword">let</span> oLi = <span class="built_in">document</span>.createElement(<span class="string">&#x27;li&#x27;</span>)</span><br><span class="line">          <span class="keyword">let</span> ospanname = <span class="built_in">document</span>.createElement(<span class="string">&#x27;span&#x27;</span>)</span><br><span class="line">          <span class="keyword">let</span> ospanmessage = <span class="built_in">document</span>.createElement(<span class="string">&#x27;span&#x27;</span>)</span><br><span class="line">          ospanname.innerText = object.attributes.name + <span class="string">&#x27;: &#x27;</span></span><br><span class="line">          ospanmessage.innerText = object.attributes.message</span><br><span class="line"></span><br><span class="line">          oLi.appendChild(ospanname)</span><br><span class="line">          oLi.appendChild(ospanmessage)</span><br><span class="line"></span><br><span class="line">          ul.appendChild(oLi)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  controller.init.call(controller, view, model)</span><br><span class="line">&#125;.call()</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>MVC</tag>
       </tags>
   </entry>
   <entry>
@@ -2369,6 +2377,36 @@
       </tags>
   </entry>
   <entry>
+    <title>巧用 Git 分支</title>
+    <url>/2020/08/19/%E5%B7%A7%E7%94%A8%20Git%20%E5%88%86%E6%94%AF/</url>
+    <content><![CDATA[<p>写代码不出 bug 这个事情呢，不能强求的，有时候在新分支（b0）开发新版本开发到一半，线上版本（master）忽然冒出一个 bug 或者功能急需变更，这时就要切换到 master，紧急修复，然后再切回 b0 继续开发；</p>
+<span id="more"></span>
+
+<p>具体要怎么操作呢？</p>
+<p>我们要建立分支 b0，在上面开发新版本</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">git checkout -b b0</span><br><span class="line"></span><br><span class="line"><span class="comment">// 上面是下面两句的简写</span></span><br><span class="line"><span class="comment">//git branch b0 新建分支b0</span></span><br><span class="line"><span class="comment">//git checkout b0 切换到分支b0</span></span><br></pre></td></tr></table></figure>
+
+<p>然后线上版本 bug 了，切回线上版本，新建分支 b1 紧急修复</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">git checkout master</span><br><span class="line">git checkout -b b1</span><br></pre></td></tr></table></figure>
+
+<p>修复成功后合并 b1，并删除 b1 分支</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">git checkout master</span><br><span class="line">git merge b1</span><br><span class="line">git branch -d b1</span><br></pre></td></tr></table></figure>
+
+<p>然后再愉快切回一开始开发的分支 b0 上，此时 b0 分支上是没有 b1 修改的东西，因为创建 b0 分支在 b1 分支前面，可以使用 git merge master 命令将 master 分支合并入 b0 分支，或者你也可以等到 b0 分支完成其使命，再将其合并回 master 分支。</p>
+<p>merge 过程中，可能会存在冲突导致合并失败，就要老老实实一个一个手动选择合并了。</p>
+<p>至此，一个修复流程就走完毕了。</p>
+<blockquote>
+<p>引用</p>
+</blockquote>
+<ul>
+<li><a href="https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E5%88%86%E6%94%AF%E7%9A%84%E6%96%B0%E5%BB%BA%E4%B8%8E%E5%90%88%E5%B9%B6"> Git 分支 - 分支的新建与合并</a></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>常见网站攻击</title>
     <url>/2019/03/13/%E5%B8%B8%E8%A7%81%E7%BD%91%E7%AB%99%E6%94%BB%E5%87%BB/</url>
     <content><![CDATA[<p>网站安全是每个开发者都必须要了解的事情。本人从前端开发的角度，简单说一下几种常见的攻击手段以及如何防止这类攻击。</p>
@@ -2416,36 +2454,6 @@
       <tags>
         <tag>XSS</tag>
         <tag>CSRF</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>巧用 Git 分支</title>
-    <url>/2020/08/19/%E5%B7%A7%E7%94%A8%20Git%20%E5%88%86%E6%94%AF/</url>
-    <content><![CDATA[<p>写代码不出 bug 这个事情呢，不能强求的，有时候在新分支（b0）开发新版本开发到一半，线上版本（master）忽然冒出一个 bug 或者功能急需变更，这时就要切换到 master，紧急修复，然后再切回 b0 继续开发；</p>
-<span id="more"></span>
-
-<p>具体要怎么操作呢？</p>
-<p>我们要建立分支 b0，在上面开发新版本</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">git checkout -b b0</span><br><span class="line"></span><br><span class="line"><span class="comment">// 上面是下面两句的简写</span></span><br><span class="line"><span class="comment">//git branch b0 新建分支b0</span></span><br><span class="line"><span class="comment">//git checkout b0 切换到分支b0</span></span><br></pre></td></tr></table></figure>
-
-<p>然后线上版本 bug 了，切回线上版本，新建分支 b1 紧急修复</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">git checkout master</span><br><span class="line">git checkout -b b1</span><br></pre></td></tr></table></figure>
-
-<p>修复成功后合并 b1，并删除 b1 分支</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">git checkout master</span><br><span class="line">git merge b1</span><br><span class="line">git branch -d b1</span><br></pre></td></tr></table></figure>
-
-<p>然后再愉快切回一开始开发的分支 b0 上，此时 b0 分支上是没有 b1 修改的东西，因为创建 b0 分支在 b1 分支前面，可以使用 git merge master 命令将 master 分支合并入 b0 分支，或者你也可以等到 b0 分支完成其使命，再将其合并回 master 分支。</p>
-<p>merge 过程中，可能会存在冲突导致合并失败，就要老老实实一个一个手动选择合并了。</p>
-<p>至此，一个修复流程就走完毕了。</p>
-<blockquote>
-<p>引用</p>
-</blockquote>
-<ul>
-<li><a href="https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E5%88%86%E6%94%AF%E7%9A%84%E6%96%B0%E5%BB%BA%E4%B8%8E%E5%90%88%E5%B9%B6"> Git 分支 - 分支的新建与合并</a></li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
