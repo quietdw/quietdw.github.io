@@ -63,7 +63,7 @@ tags:
 
 # 更多技巧
 
-1. `git reflog` 回到 reset 之前的时间点;
+1. `git reflog` 查看 reset 之前的时间点，使用 `git reset --hard` 返回之前时间点;
 2. `git commit . --amend` 当前代码提交到上一次提交里;
 3. `git rebase -i HEAD~3` 对最近的三次 commit 进行合并、修改;
 4. `git rm --cached xxx` 用于 xxx 虽然被写入 .gitignore 但依然被提交了的情况;
