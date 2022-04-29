@@ -1,7 +1,7 @@
 ---
-title: git入门
+title: Git 常用操作
 date: 2018-10-11 00:00:00
-updated: 2018-10-11 00:00:00
+updated: 2022-04-29 00:00:00
 tags:
   - git
 ---
@@ -60,6 +60,17 @@ tags:
 2. `git commit`
 3. `git pull` 注意 push 前一定要 pull 代码
 4. `git push`
+
+# 常用技巧
+
+1. `git reset --hard xxx` 让代码快速回到某个历史提交点;
+2. `git reflog` 回到 reset 之前的时间点;
+3. `git commit . --amend` 当前代码提交到上一次提交里;
+4. `git rebase -i HEAD~3` 对最近的三次 commit 进行合并、修改;
+5. `git rm --cached xxx` 用于 xxx 虽然被写入 .gitignore 但依然被提交了的情况;
+6. `git add . ; git stash` 有时代码还没提交，但需要 `git pull`; pull 结束后再用 `git stash pop` 将其召唤回来
+
+
 
 > 引用
 
