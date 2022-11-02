@@ -1610,6 +1610,31 @@
       </tags>
   </entry>
   <entry>
+    <title>fuck ie , ie 兼容相关</title>
+    <url>/2022/11/02/fuck%20ie%20,%20ie%20%E5%85%BC%E5%AE%B9%E7%9B%B8%E5%85%B3/</url>
+    <content><![CDATA[<p>IE 始终都在，无法逃避。不过辛亏有各种 Babel 帮我们处理 IE 兼容问题。</p>
+<p>目前只处理兼容 ie10 及以上。</p>
+<span id="more"></span>
+
+<h3 id="Echarts-兼容"><a href="#Echarts-兼容" class="headerlink" title="Echarts 兼容"></a>Echarts 兼容</h3><p>新版本的 Echarts5.0 对 ie 兼容有问题，降版本处理，如果使用 vue-echarts 也需要降版本。注意参数、方法变更，比如 5.0 版本 options 字段改成了 option。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&quot;echarts&quot;: &quot;4.1.0&quot;,</span><br><span class="line">&quot;vue-echarts&quot;: &quot;4.0.2&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Vue-cli-兼容"><a href="#Vue-cli-兼容" class="headerlink" title="Vue cli 兼容"></a>Vue cli 兼容</h3><p>cli 版本 5.0</p>
+<p>.browserslistrc</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt; 1%</span><br><span class="line">last 2 versions</span><br><span class="line">not ie &lt;= 10</span><br></pre></td></tr></table></figure>
+
+<p>vue cli 有 babel 插件 <code>@vue/cli-plugin-babel</code>，需要配置一下：</p>
+<p>babel.config.js</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">presets: [</span><br><span class="line">   [</span><br><span class="line">     &#x27;@vue/app&#x27;,</span><br><span class="line">     &#123;</span><br><span class="line">       polyfills: [&#x27;es.promise&#x27;, &#x27;web.url&#x27;, &#x27;web.url-search-params&#x27;],</span><br><span class="line">     &#125;,</span><br><span class="line">   ],</span><br><span class="line"> ],</span><br></pre></td></tr></table></figure>
+
+<p>以上，后续有再补充。</p>
+]]></content>
+      <tags>
+        <tag>IE</tag>
+        <tag>兼容</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>mixin、科里化，高阶函数</title>
     <url>/2019/03/09/mixin%E3%80%81%E7%A7%91%E9%87%8C%E5%8C%96%EF%BC%8C%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/</url>
     <content><![CDATA[<p>了解一下一些 mixin、柯里化、高阶函数。</p>
