@@ -314,6 +314,95 @@ export default defineConfig({
 
 至此，使用 vite 搭建就完成了
 
+# 自动引入
+
+`Vue3` 有组合式 `API` 的语法糖，但是比如需要使用 `ref` 的时候，都需要在页面引入，使用起来十分不舒服。能不能在使用的时候自动引入呢？
+
+话不多说，安装！
+
+```
+yarn add -D unplugin-auto-import
+```
+
+按照官方要求增加配置
+
+```js
+import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue";
+import AutoImport from "unplugin-auto-import/vite";
+
+export default defineConfig({
+  plugins: [
+    vue(),
+    AutoImport({
+     
+    }),
+  ],
+});
+```
+
+删除 ref 引用，页面报错了，ref 并没有引用
+
+```
+Uncaught ReferenceError: ref is not defined
+```
+
+继续看文档，发现少了配置……
+
+```
+{
+      include: [
+        /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
+        /\.vue$/,
+        /\.vue\?vue/, // .vue
+        /\.md$/, // .md
+      ],
+      // global imports to register
+      imports: [
+        "vue",
+      ],
+    }
+```
+
+> *注
+
+1. `include` 表示符合这些结尾的文件，都可以自动引用；
+2. `imports` 表示这些的包提供的方法，能全局使用。
+
+真香！现在组件也不想手动引入了，可以吗？
+
+话不多说，安装！
+
+
+```
+yarn add -D unplugin-vue-components/vite
+```
+
+在 `vite.config.ts` 添加配置，想都不用想，肯定也要加配置的，文档接着往下翻，然后复制过来
+
+```
+ Components({ 
+    dirs: ['src/components'],
+  }),
+```
+
+> *注
+
+1. `dirs` 表示这个目录下的文件可以被自动引入
+
+我们 `src` 下新建组件，然后在 `App` 组件里直接使用，页面直接更新了！
+
+
+[代码地址](https://github.com/quietdw/vue3-test1/tree/vite)
+
+
+
+
+
+#
+
+
+
 > 引用
 
 - [Getting Started](https://webpack.js.org/guides/getting-started/#basic-setup)
@@ -322,6 +411,8 @@ export default defineConfig({
 - [Vue Loader](https://vue-loader.vuejs.org/zh/guide/)
 - [index.html 与项目根目录](https://cn.vitejs.dev/guide/#index-html-and-project-root)
 - [vite-vue-starter](https://stackblitz.com/edit/vitejs-vite-xm5kcu?file=package.json&terminal=dev)
+- [unplugin-auto-import](https://github.com/antfu/unplugin-auto-import)
+- [unplugin-vue-components](https://github.com/antfu/unplugin-vue-components)
 
 
 
