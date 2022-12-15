@@ -332,7 +332,42 @@
 
 <p>都不用重启，页面就好了！</p>
 <p>至此，使用 vite 搭建就完成了</p>
+<h1 id="自动引入"><a href="#自动引入" class="headerlink" title="自动引入"></a>自动引入</h1><p><code>Vue3</code> 有组合式 <code>API</code> 的语法糖，但是比如需要使用 <code>ref</code> 的时候，都需要在页面引入，使用起来十分不舒服。能不能在使用的时候自动引入呢？</p>
+<p>话不多说，安装！</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add -D unplugin-auto-import</span><br></pre></td></tr></table></figure>
+
+<p>按照官方要求增加配置</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; defineConfig &#125; <span class="keyword">from</span> <span class="string">&quot;vite&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> vue <span class="keyword">from</span> <span class="string">&quot;@vitejs/plugin-vue&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> AutoImport <span class="keyword">from</span> <span class="string">&quot;unplugin-auto-import/vite&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> defineConfig(&#123;</span><br><span class="line">  <span class="attr">plugins</span>: [</span><br><span class="line">    vue(),</span><br><span class="line">    AutoImport(&#123;</span><br><span class="line">     </span><br><span class="line">    &#125;),</span><br><span class="line">  ],</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>删除 ref 引用，页面报错了，ref 并没有引用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Uncaught ReferenceError: ref is not defined</span><br></pre></td></tr></table></figure>
+
+<p>继续看文档，发现少了配置……</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">      include: [</span><br><span class="line">        /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx</span><br><span class="line">        /\.vue$/,</span><br><span class="line">        /\.vue\?vue/, // .vue</span><br><span class="line">        /\.md$/, // .md</span><br><span class="line">      ],</span><br><span class="line">      // global imports to register</span><br><span class="line">      imports: [</span><br><span class="line">        &quot;vue&quot;,</span><br><span class="line">      ],</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
 <blockquote>
+<p>*注</p>
+</blockquote>
+<ol>
+<li><code>include</code> 表示符合这些结尾的文件，都可以自动引用；</li>
+<li><code>imports</code> 表示这些的包提供的方法，能全局使用。</li>
+</ol>
+<p>真香！现在组件也不想手动引入了，可以吗？</p>
+<p>话不多说，安装！</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add -D unplugin-vue-components/vite</span><br></pre></td></tr></table></figure>
+
+<p>在 <code>vite.config.ts</code> 添加配置，想都不用想，肯定也要加配置的，文档接着往下翻，然后复制过来</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Components(&#123; </span><br><span class="line">   dirs: [&#x27;src/components&#x27;],</span><br><span class="line"> &#125;),</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>*注</p>
+</blockquote>
+<ol>
+<li><code>dirs</code> 表示这个目录下的文件可以被自动引入</li>
+</ol>
+<p>我们 <code>src</code> 下新建组件，然后在 <code>App</code> 组件里直接使用，页面直接更新了！</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/quietdw/vue3-test1/tree/vite">代码地址</a></p>
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1><blockquote>
 <p>引用</p>
 </blockquote>
 <ul>
@@ -342,6 +377,8 @@
 <li><a target="_blank" rel="noopener" href="https://vue-loader.vuejs.org/zh/guide/">Vue Loader</a></li>
 <li><a target="_blank" rel="noopener" href="https://cn.vitejs.dev/guide/#index-html-and-project-root">index.html 与项目根目录</a></li>
 <li><a target="_blank" rel="noopener" href="https://stackblitz.com/edit/vitejs-vite-xm5kcu?file=package.json&terminal=dev">vite-vue-starter</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/antfu/unplugin-auto-import">unplugin-auto-import</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/antfu/unplugin-vue-components">unplugin-vue-components</a></li>
 </ul>
 
     </div>
@@ -424,7 +461,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-Webpack-%E7%8E%AF%E5%A2%83"><span class="nav-number">1.</span> <span class="nav-text">配置 Webpack 环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-html-%E6%A8%A1%E6%9D%BF"><span class="nav-number">2.</span> <span class="nav-text">配置 html 模板</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E7%83%AD%E6%9B%B4%E6%96%B0"><span class="nav-number">3.</span> <span class="nav-text">配置热更新</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-Vue"><span class="nav-number">4.</span> <span class="nav-text">配置 Vue</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-vite-%E6%90%AD%E5%BB%BA"><span class="nav-number">5.</span> <span class="nav-text">使用 vite 搭建</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-Webpack-%E7%8E%AF%E5%A2%83"><span class="nav-number">1.</span> <span class="nav-text">配置 Webpack 环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-html-%E6%A8%A1%E6%9D%BF"><span class="nav-number">2.</span> <span class="nav-text">配置 html 模板</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E7%83%AD%E6%9B%B4%E6%96%B0"><span class="nav-number">3.</span> <span class="nav-text">配置热更新</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-Vue"><span class="nav-number">4.</span> <span class="nav-text">配置 Vue</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-vite-%E6%90%AD%E5%BB%BA"><span class="nav-number">5.</span> <span class="nav-text">使用 vite 搭建</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E5%BC%95%E5%85%A5"><span class="nav-number">6.</span> <span class="nav-text">自动引入</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">7.</span> <span class="nav-text"></span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
