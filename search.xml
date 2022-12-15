@@ -607,6 +607,69 @@
       </tags>
   </entry>
   <entry>
+    <title>Hexo 博客搭建</title>
+    <url>/2022/01/24/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</url>
+    <content><![CDATA[<p>使用 GitHub Pages + Hexo 实现自动部署的个人技术博客搭建。</p>
+<span id="more"></span>
+
+<h3 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h3><pre><code>npm install -g hexo-cli
+</code></pre>
+<p>Hexo 安装好了后，执行以下命令初始项目：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo init 文件夹</span><br><span class="line">$ cd 文件夹</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
+
+<p>运行 <code>hexo server</code> 启动服务，默认运行在 <a href="http://localhost:4000/%E3%80%82">http://localhost:4000/。</a></p>
+<p>博客 <code>.md</code> 文件在项目的 <code>source/_posts</code> 文件夹中，现在就可以在该文件夹中增加。</p>
+<h3 id="配置浏览器热更新"><a href="#配置浏览器热更新" class="headerlink" title="配置浏览器热更新"></a>配置浏览器热更新</h3><p>有个问题，我们编辑在博客的时候，本地的浏览器不能动态更新，需要手动刷新浏览器，这很麻烦。</p>
+<p>安装 browsersync 浏览器热更新</p>
+<pre><code>npm i hexo-browsersync -D
+</code></pre>
+<p>然后重启服务</p>
+<h3 id="配置主题"><a href="#配置主题" class="headerlink" title="配置主题"></a>配置主题</h3><p>我使用的是 <code>Next</code> 主题，主题风格简约，适合我的口味。有多种下载方式，按需选择</p>
+<p>下载好之后，解压到 <code>/theme/next</code> 文件夹中，然后在项目的 <code>/_config.yml</code> 配置文件中设置 <code>theme: next</code> 即可，主注意空格和缩进。</p>
+<h3 id="部署到-GitHub-Pages"><a href="#部署到-GitHub-Pages" class="headerlink" title="部署到 GitHub Pages"></a>部署到 GitHub Pages</h3><ol>
+<li>新建名称为 <code>GitHub名称.github.io</code> 的仓库，然后将本地未编译文件上传到仓库；</li>
+<li>新建<code>gh-pages</code> 分支，Hexo 有 <code>hexo generate</code> 命令将我们的文件打包成 html 等静态文件，文件放在 <code>/public</code> 目录切换分支，编译好后上传；</li>
+<li>在仓库 <code>Setting/GitHub Pages/Source</code> 将分支改成 <code>gh-pages</code> 就可以了，然后在 <code>GitHub名称.github.io</code> 访问自己的博客了。</li>
+</ol>
+<h3 id="配置-Action-自动部署"><a href="#配置-Action-自动部署" class="headerlink" title="配置 Action 自动部署"></a>配置 Action 自动部署</h3><p>每次都要上传太麻烦了，能不能每次 push 后自动部署呢？答案是肯定的。</p>
+<ol>
+<li>新建 <code>.github/workflows/pages.yml</code> 配置文件，并增加以下配置;</li>
+</ol>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Pages</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">master</span> <span class="comment"># default branch master | main</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">pages:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v2</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Use</span> <span class="string">Node.js</span> <span class="number">16.</span><span class="string">x</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/setup-node@v2</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">node-version:</span> <span class="string">&#x27;16&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Cache</span> <span class="string">NPM</span> <span class="string">dependencies</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/cache@v2</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">path:</span> <span class="string">node_modules</span></span><br><span class="line">          <span class="attr">key:</span> <span class="string">$&#123;&#123;</span> <span class="string">runner.OS</span> <span class="string">&#125;&#125;-npm-cache</span></span><br><span class="line">          <span class="attr">restore-keys:</span> <span class="string">|</span></span><br><span class="line"><span class="string">            $&#123;&#123; runner.OS &#125;&#125;-npm-cache</span></span><br><span class="line"><span class="string"></span>      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Install</span> <span class="string">Dependencies</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">npm</span> <span class="string">install</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Build</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">npm</span> <span class="string">run</span> <span class="string">build</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Deploy</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">peaceiris/actions-gh-pages@v3</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">github_token:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.GITHUB_TOKEN</span> <span class="string">&#125;&#125;</span></span><br><span class="line">          <span class="attr">publish_dir:</span> <span class="string">./public</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>一旦部署完毕，就能在 <code>gh-pages</code> 分支看到编译好的文件，由于之前我们文件分支也在 <code>gh-pages</code>，并且配置好了 <code>GitHub Pages</code>，因此提交好后就能自动部署了；</li>
+</ol>
+<h3 id="碰到的一些问题"><a href="#碰到的一些问题" class="headerlink" title="碰到的一些问题"></a>碰到的一些问题</h3><ol>
+<li>在 next 主题配置中，增加 tags 目录，访问会报 404</li>
+</ol>
+<p>解决方法 ：在 <code>/source</code> 文件夹中新建 <code>tags/index.md</code>文件，文件内容</p>
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: tags</span><br><span class="line">type: tags</span><br><span class="line"><span class="section">layout: &#x27;tags&#x27;</span></span><br><span class="line"><span class="section">---</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>更新后 CNAME 丢失</li>
+</ol>
+<p>解决方法：CNAME 放到 <code>/source</code> 文件夹</p>
+<ol start="3">
+<li>自动部署后时间变为部署时间</li>
+</ol>
+<p>解决方法：增加 <code>date</code>、<code>updated</code> 手动维护时间</p>
+<blockquote>
+<p>引用</p>
+</blockquote>
+<ul>
+<li><a href="https://hexo.io/docs/#Install-Hexo">Hexo Documentation</a></li>
+<li><a href="http://www.leojuly.top/2018/11/26/Hexo-browsersync/">Hexo 使用 browsersync 浏览器热更新</a></li>
+<li><a href="https://github.com/iissnan/hexo-theme-next">hexo-theme-next</a></li>
+<li><a href="https://hexo.io/docs/github-pages">GitHub Actions </a></li>
+<li><a href="https://github.com/theme-next/hexo-theme-next/issues/893">The update time of the article is incorrect </a></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>HTTP请求与响应</title>
     <url>/2018/10/13/HTTP%E8%AF%B7%E6%B1%82%E4%B8%8E%E5%93%8D%E5%BA%94/</url>
     <content><![CDATA[<h3 id="HTTP-请求"><a href="#HTTP-请求" class="headerlink" title="HTTP 请求"></a>HTTP 请求</h3><p>HTTP（HyperText Transfer Protocol）请求信息至少由 3 部分组成</p>
@@ -894,69 +957,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo 博客搭建</title>
-    <url>/2022/01/24/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</url>
-    <content><![CDATA[<p>使用 GitHub Pages + Hexo 实现自动部署的个人技术博客搭建。</p>
-<span id="more"></span>
-
-<h3 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h3><pre><code>npm install -g hexo-cli
-</code></pre>
-<p>Hexo 安装好了后，执行以下命令初始项目：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo init 文件夹</span><br><span class="line">$ cd 文件夹</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
-
-<p>运行 <code>hexo server</code> 启动服务，默认运行在 <a href="http://localhost:4000/%E3%80%82">http://localhost:4000/。</a></p>
-<p>博客 <code>.md</code> 文件在项目的 <code>source/_posts</code> 文件夹中，现在就可以在该文件夹中增加。</p>
-<h3 id="配置浏览器热更新"><a href="#配置浏览器热更新" class="headerlink" title="配置浏览器热更新"></a>配置浏览器热更新</h3><p>有个问题，我们编辑在博客的时候，本地的浏览器不能动态更新，需要手动刷新浏览器，这很麻烦。</p>
-<p>安装 browsersync 浏览器热更新</p>
-<pre><code>npm i hexo-browsersync -D
-</code></pre>
-<p>然后重启服务</p>
-<h3 id="配置主题"><a href="#配置主题" class="headerlink" title="配置主题"></a>配置主题</h3><p>我使用的是 <code>Next</code> 主题，主题风格简约，适合我的口味。有多种下载方式，按需选择</p>
-<p>下载好之后，解压到 <code>/theme/next</code> 文件夹中，然后在项目的 <code>/_config.yml</code> 配置文件中设置 <code>theme: next</code> 即可，主注意空格和缩进。</p>
-<h3 id="部署到-GitHub-Pages"><a href="#部署到-GitHub-Pages" class="headerlink" title="部署到 GitHub Pages"></a>部署到 GitHub Pages</h3><ol>
-<li>新建名称为 <code>GitHub名称.github.io</code> 的仓库，然后将本地未编译文件上传到仓库；</li>
-<li>新建<code>gh-pages</code> 分支，Hexo 有 <code>hexo generate</code> 命令将我们的文件打包成 html 等静态文件，文件放在 <code>/public</code> 目录切换分支，编译好后上传；</li>
-<li>在仓库 <code>Setting/GitHub Pages/Source</code> 将分支改成 <code>gh-pages</code> 就可以了，然后在 <code>GitHub名称.github.io</code> 访问自己的博客了。</li>
-</ol>
-<h3 id="配置-Action-自动部署"><a href="#配置-Action-自动部署" class="headerlink" title="配置 Action 自动部署"></a>配置 Action 自动部署</h3><p>每次都要上传太麻烦了，能不能每次 push 后自动部署呢？答案是肯定的。</p>
-<ol>
-<li>新建 <code>.github/workflows/pages.yml</code> 配置文件，并增加以下配置;</li>
-</ol>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Pages</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">master</span> <span class="comment"># default branch master | main</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">pages:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v2</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Use</span> <span class="string">Node.js</span> <span class="number">16.</span><span class="string">x</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/setup-node@v2</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">node-version:</span> <span class="string">&#x27;16&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Cache</span> <span class="string">NPM</span> <span class="string">dependencies</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/cache@v2</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">path:</span> <span class="string">node_modules</span></span><br><span class="line">          <span class="attr">key:</span> <span class="string">$&#123;&#123;</span> <span class="string">runner.OS</span> <span class="string">&#125;&#125;-npm-cache</span></span><br><span class="line">          <span class="attr">restore-keys:</span> <span class="string">|</span></span><br><span class="line"><span class="string">            $&#123;&#123; runner.OS &#125;&#125;-npm-cache</span></span><br><span class="line"><span class="string"></span>      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Install</span> <span class="string">Dependencies</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">npm</span> <span class="string">install</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Build</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">npm</span> <span class="string">run</span> <span class="string">build</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Deploy</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">peaceiris/actions-gh-pages@v3</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">github_token:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.GITHUB_TOKEN</span> <span class="string">&#125;&#125;</span></span><br><span class="line">          <span class="attr">publish_dir:</span> <span class="string">./public</span></span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>一旦部署完毕，就能在 <code>gh-pages</code> 分支看到编译好的文件，由于之前我们文件分支也在 <code>gh-pages</code>，并且配置好了 <code>GitHub Pages</code>，因此提交好后就能自动部署了；</li>
-</ol>
-<h3 id="碰到的一些问题"><a href="#碰到的一些问题" class="headerlink" title="碰到的一些问题"></a>碰到的一些问题</h3><ol>
-<li>在 next 主题配置中，增加 tags 目录，访问会报 404</li>
-</ol>
-<p>解决方法 ：在 <code>/source</code> 文件夹中新建 <code>tags/index.md</code>文件，文件内容</p>
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: tags</span><br><span class="line">type: tags</span><br><span class="line"><span class="section">layout: &#x27;tags&#x27;</span></span><br><span class="line"><span class="section">---</span></span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>更新后 CNAME 丢失</li>
-</ol>
-<p>解决方法：CNAME 放到 <code>/source</code> 文件夹</p>
-<ol start="3">
-<li>自动部署后时间变为部署时间</li>
-</ol>
-<p>解决方法：增加 <code>date</code>、<code>updated</code> 手动维护时间</p>
-<blockquote>
-<p>引用</p>
-</blockquote>
-<ul>
-<li><a href="https://hexo.io/docs/#Install-Hexo">Hexo Documentation</a></li>
-<li><a href="http://www.leojuly.top/2018/11/26/Hexo-browsersync/">Hexo 使用 browsersync 浏览器热更新</a></li>
-<li><a href="https://github.com/iissnan/hexo-theme-next">hexo-theme-next</a></li>
-<li><a href="https://hexo.io/docs/github-pages">GitHub Actions </a></li>
-<li><a href="https://github.com/theme-next/hexo-theme-next/issues/893">The update time of the article is incorrect </a></li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>JS里的数据类型</title>
     <url>/2018/11/25/JS%E9%87%8C%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</url>
     <content><![CDATA[<p>JavaScript 的数据类型，共有六种。（ES6 又新增了第七种 Symbol 类型的值)，所以现在有七种，分别为：</p>
@@ -1204,6 +1204,43 @@
       </tags>
   </entry>
   <entry>
+    <title>React Hooks 获取“过去”和“未来”的值</title>
+    <url>/2020/07/31/React%20Hooks%20%E8%8E%B7%E5%8F%96%E2%80%9C%E8%BF%87%E5%8E%BB%E2%80%9D%E5%92%8C%E2%80%9C%E6%9C%AA%E6%9D%A5%E2%80%9D%E7%9A%84%E5%80%BC/</url>
+    <content><![CDATA[<p>这个标题看起来有点唬啊，其实主要是讲在使用 <code>useState</code> 时，因为使用异步函数而出现的一些问题。</p>
+<span id="more"></span>
+
+<p>先讲一下 <code>useState</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">const [state, setState] = useState(initialState);</span><br></pre></td></tr></table></figure>
+
+<p>当组件被创建而不是重用时，该状态将被赋予初始值 initialState，而之后的重用过程中，不会被重复赋予初始值。</p>
+<p>在实例中，可以通过 useState 等方式拥有局部状态。在重用的过程中，这些状态会得到保留。而如果无法重用，状态会被销毁。</p>
+<p>需要明确的是，<code>state</code> 作为函数中的一个常量，就是普通的数据，并不存在诸如数据绑定这样的操作来驱使 DOM 发生更新。在调用 <code>setState</code> 后，React 将重新执行 <code>render</code> 函数。</p>
+<p>举两个例子，例子中会使用 <code>useRef</code>，useRef 返回一个可变的 ref 对象，其 .current 属性被初始化为传入的参数（initialValue）。返回的 ref 对象在组件的整个生命周期内保持不变。</p>
+<h3 id="使用“未来”的值"><a href="#使用“未来”的值" class="headerlink" title="使用“未来”的值"></a>使用“未来”的值</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">function Example() &#123;</span><br><span class="line">  const [count, setCount] = useState(0);</span><br><span class="line"></span><br><span class="line">  const currentCount = useRef(count);</span><br><span class="line"></span><br><span class="line">  currentCount.current = count;</span><br><span class="line"></span><br><span class="line">  const handleClick = () =&gt; &#123;</span><br><span class="line">    setTimeout(() =&gt; &#123;</span><br><span class="line">      setCount(currentCount.current + 1);</span><br><span class="line">     // setCount(count + 1);</span><br><span class="line">    &#125;, 3000);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  return (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;p&gt;&#123;count&#125;&lt;/p&gt;</span><br><span class="line">      &lt;button onClick=&#123;() =&gt; setCount(count + 1)&#125;&gt;setCount&lt;/button&gt;</span><br><span class="line">      &lt;button onClick=&#123;handleClick&#125;&gt;Delay setCount&lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面这个例子，如果我们在 <code>handleClick</code> 中使用 <code>count</code>而不是 <code>currentCount.current</code>，当我们点击<br><code>Delay setCount</code> 按钮，然后三秒内点两次 <code>setCount</code> 按钮，页面展示的值，先回变成 1、2，然后又会变成 1。</p>
+<p><code>count</code>，<code>handleClick</code> 都是 Example 函数作用域中的常量。定时器设置 3000ms 到期后的执行函数为第一次点击 <code>Delay setCount</code> 按钮时的函数，此时 <code>count</code> 的值是 0，和我们点击 <code>setCount</code> 两次时的 <code>count</code> 的值无关。</p>
+<p>我们使用 useRef ，设置它的值不会重新触发 render 函数。此时 <code>currentCount.current</code> 的值是最新的 <code>count</code> 的值，因此页面展示的值分别是 1，2，3。</p>
+<h3 id="使用“过去”的值"><a href="#使用“过去”的值" class="headerlink" title="使用“过去”的值"></a>使用“过去”的值</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">理解上面的例子后，我们再理解下面的例子就方便多了。</span><br><span class="line"></span><br><span class="line">function Example() &#123;</span><br><span class="line">    const [count, setCount] = useState(1);</span><br><span class="line"></span><br><span class="line">    const prevCountRef = useRef(1);</span><br><span class="line">    const prevCount = prevCountRef.current;</span><br><span class="line">    prevCountRef.current = count;</span><br><span class="line"></span><br><span class="line">    const handleClick = () =&gt; &#123;</span><br><span class="line">        setCount(prevCount + count);</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    return (</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;p&gt;&#123;count&#125;&lt;/p&gt;</span><br><span class="line">            &lt;button onClick=&#123;handleClick&#125;&gt;SetCount&lt;/button&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>页面首次渲染时，<code>count</code> 的值是初始值 1，<code>prevCountRef.current</code>的值是初始值 1</p>
+<p>第一次点击 <code>SetCount</code> 按钮，重新执行函数，此时 <code>count</code> 的值是 2，<code>prevCount</code> 的值是上次存的值 1，然后<code>prevCountRef.current</code>更新成了 2。</p>
+<p>页面展示的值 1，2，3，5……</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>理解上面的例子，主要是理解每次 <code>SetCount</code> 后，页面都会重新渲染，每次渲染后的 count、handleClick 的值都是不相关的。</p>
+<blockquote>
+<p>引用</p>
+</blockquote>
+<ul>
+<li><a href="https://juejin.im/post/5ec7372cf265da76de5cd0c9">React Hooks 最佳实践</a></li>
+<li><a href="https://zh-hans.reactjs.org/docs/hooks-reference.html#useref">useRef</a></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>React</tag>
+        <tag>Hooks</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Promise</title>
     <url>/2019/03/14/Promise/</url>
     <content><![CDATA[<p>之前在写 ajax 方面的博客的时候，简单的介绍了一下 Promise 在 ajax 里的应用，这次详细的梳理一下 Promise 功能以及原理。</p>
@@ -1272,43 +1309,6 @@
 ]]></content>
       <tags>
         <tag>Promise</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>React Hooks 获取“过去”和“未来”的值</title>
-    <url>/2020/07/31/React%20Hooks%20%E8%8E%B7%E5%8F%96%E2%80%9C%E8%BF%87%E5%8E%BB%E2%80%9D%E5%92%8C%E2%80%9C%E6%9C%AA%E6%9D%A5%E2%80%9D%E7%9A%84%E5%80%BC/</url>
-    <content><![CDATA[<p>这个标题看起来有点唬啊，其实主要是讲在使用 <code>useState</code> 时，因为使用异步函数而出现的一些问题。</p>
-<span id="more"></span>
-
-<p>先讲一下 <code>useState</code></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">const [state, setState] = useState(initialState);</span><br></pre></td></tr></table></figure>
-
-<p>当组件被创建而不是重用时，该状态将被赋予初始值 initialState，而之后的重用过程中，不会被重复赋予初始值。</p>
-<p>在实例中，可以通过 useState 等方式拥有局部状态。在重用的过程中，这些状态会得到保留。而如果无法重用，状态会被销毁。</p>
-<p>需要明确的是，<code>state</code> 作为函数中的一个常量，就是普通的数据，并不存在诸如数据绑定这样的操作来驱使 DOM 发生更新。在调用 <code>setState</code> 后，React 将重新执行 <code>render</code> 函数。</p>
-<p>举两个例子，例子中会使用 <code>useRef</code>，useRef 返回一个可变的 ref 对象，其 .current 属性被初始化为传入的参数（initialValue）。返回的 ref 对象在组件的整个生命周期内保持不变。</p>
-<h3 id="使用“未来”的值"><a href="#使用“未来”的值" class="headerlink" title="使用“未来”的值"></a>使用“未来”的值</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">function Example() &#123;</span><br><span class="line">  const [count, setCount] = useState(0);</span><br><span class="line"></span><br><span class="line">  const currentCount = useRef(count);</span><br><span class="line"></span><br><span class="line">  currentCount.current = count;</span><br><span class="line"></span><br><span class="line">  const handleClick = () =&gt; &#123;</span><br><span class="line">    setTimeout(() =&gt; &#123;</span><br><span class="line">      setCount(currentCount.current + 1);</span><br><span class="line">     // setCount(count + 1);</span><br><span class="line">    &#125;, 3000);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  return (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;p&gt;&#123;count&#125;&lt;/p&gt;</span><br><span class="line">      &lt;button onClick=&#123;() =&gt; setCount(count + 1)&#125;&gt;setCount&lt;/button&gt;</span><br><span class="line">      &lt;button onClick=&#123;handleClick&#125;&gt;Delay setCount&lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>上面这个例子，如果我们在 <code>handleClick</code> 中使用 <code>count</code>而不是 <code>currentCount.current</code>，当我们点击<br><code>Delay setCount</code> 按钮，然后三秒内点两次 <code>setCount</code> 按钮，页面展示的值，先回变成 1、2，然后又会变成 1。</p>
-<p><code>count</code>，<code>handleClick</code> 都是 Example 函数作用域中的常量。定时器设置 3000ms 到期后的执行函数为第一次点击 <code>Delay setCount</code> 按钮时的函数，此时 <code>count</code> 的值是 0，和我们点击 <code>setCount</code> 两次时的 <code>count</code> 的值无关。</p>
-<p>我们使用 useRef ，设置它的值不会重新触发 render 函数。此时 <code>currentCount.current</code> 的值是最新的 <code>count</code> 的值，因此页面展示的值分别是 1，2，3。</p>
-<h3 id="使用“过去”的值"><a href="#使用“过去”的值" class="headerlink" title="使用“过去”的值"></a>使用“过去”的值</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">理解上面的例子后，我们再理解下面的例子就方便多了。</span><br><span class="line"></span><br><span class="line">function Example() &#123;</span><br><span class="line">    const [count, setCount] = useState(1);</span><br><span class="line"></span><br><span class="line">    const prevCountRef = useRef(1);</span><br><span class="line">    const prevCount = prevCountRef.current;</span><br><span class="line">    prevCountRef.current = count;</span><br><span class="line"></span><br><span class="line">    const handleClick = () =&gt; &#123;</span><br><span class="line">        setCount(prevCount + count);</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    return (</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;p&gt;&#123;count&#125;&lt;/p&gt;</span><br><span class="line">            &lt;button onClick=&#123;handleClick&#125;&gt;SetCount&lt;/button&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>页面首次渲染时，<code>count</code> 的值是初始值 1，<code>prevCountRef.current</code>的值是初始值 1</p>
-<p>第一次点击 <code>SetCount</code> 按钮，重新执行函数，此时 <code>count</code> 的值是 2，<code>prevCount</code> 的值是上次存的值 1，然后<code>prevCountRef.current</code>更新成了 2。</p>
-<p>页面展示的值 1，2，3，5……</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>理解上面的例子，主要是理解每次 <code>SetCount</code> 后，页面都会重新渲染，每次渲染后的 count、handleClick 的值都是不相关的。</p>
-<blockquote>
-<p>引用</p>
-</blockquote>
-<ul>
-<li><a href="https://juejin.im/post/5ec7372cf265da76de5cd0c9">React Hooks 最佳实践</a></li>
-<li><a href="https://zh-hans.reactjs.org/docs/hooks-reference.html#useref">useRef</a></li>
-</ul>
-]]></content>
-      <tags>
-        <tag>React</tag>
-        <tag>Hooks</tag>
       </tags>
   </entry>
   <entry>
@@ -2227,7 +2227,7 @@
 </ol>
 <p>我们 <code>src</code> 下新建组件，然后在 <code>App</code> 组件里直接使用，页面直接更新了！</p>
 <p><a href="https://github.com/quietdw/vue3-test1/tree/vite">代码地址</a></p>
-<h1 id=""><a href="#" class="headerlink" title=""></a></h1><blockquote>
+<blockquote>
 <p>引用</p>
 </blockquote>
 <ul>
