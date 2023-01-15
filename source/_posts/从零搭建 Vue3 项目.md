@@ -27,7 +27,7 @@ yarn init
 然后运行以下命令安装 `Webpack` 。
 
 ```
-yarn add webpack webpack-cli
+yarn add webpack webpack-cli -D
 ```
 
 接下来在根目录新建 `src` 文件夹，并增加 `main.js` 文件，并在根目录下创建 `index.html` 和 `webpack.config.js` 文件
