@@ -1784,6 +1784,28 @@
       </tags>
   </entry>
   <entry>
+    <title>vw、rem 混合适配移动端与PC端</title>
+    <url>/2023/03/11/vw%E3%80%81rem%20%E6%B7%B7%E5%90%88%E9%80%82%E9%85%8D%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B8%8EPC%E7%AB%AF/</url>
+    <content><![CDATA[<p>目前移动端有两种适配方案，一种是传统的 rem 布局，需要在页面中加入一段js代码，用于计算根元素的 <code>font-size</code>，另外一种则是使用 vw 单位，不用使用js。</p>
+<span id="more"></span>
+
+<p>两种方案，主流是vw，因为不用额外在页面中加入js，但是该方案在 PC 端就非常不友好，因为vw是取决于页面的宽度，加上PC端是横屏的，就会导致页面内容被放大，对用户非常不友好。</p>
+<p>如果是纯粹移动端访问的，那问题不大，直接找个可以 px 转 vw 插件 <code>postcss-px-to-viewport-8-plugin</code>，自动转单位就好了。</p>
+<p>如果想移动端（页面宽度小于750px）自动适配，大于750px就固定大小的，可以使用 <code>媒体查询 + rem + vw</code> 进行适配；</p>
+<p>考虑到根元素 <code>font-size</code> 有最小值，而设计稿也有 375px 宽度的，计算后的 <code>font-size</code> 单位太小，在低版本浏览器有显示问题，需要放大根元素的 <code>font-size</code>；</p>
+<p>话不多说，直接上代码。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@media</span> (<span class="attribute">max-width</span>: <span class="number">750px</span>) &#123;</span><br><span class="line">  <span class="selector-tag">html</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">4vw</span>; </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 大于750px就居中显示 */</span></span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="number">750px</span>) &#123;</span><br><span class="line">  <span class="selector-tag">html</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">24px</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">750px</span> <span class="meta">!important</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="attr">plugins</span>: [</span><br><span class="line">    <span class="built_in">require</span>(<span class="string">&#x27;postcss-px-to-viewport-8-plugin&#x27;</span>)(&#123;</span><br><span class="line">      <span class="attr">unitToConvert</span>: <span class="string">&#x27;px&#x27;</span>,</span><br><span class="line">      <span class="attr">viewportWidth</span>: <span class="number">375</span>*<span class="number">4</span>, <span class="comment">// 设计稿 放大4倍，css那也要放大4倍。</span></span><br><span class="line">      <span class="attr">unitPrecision</span>: <span class="number">5</span>,</span><br><span class="line">      <span class="attr">propList</span>: [<span class="string">&#x27;*&#x27;</span>],</span><br><span class="line">      <span class="attr">viewportUnit</span>: <span class="string">&#x27;rem&#x27;</span>,</span><br><span class="line">      <span class="attr">fontViewportUnit</span>: <span class="string">&#x27;rem&#x27;</span>,</span><br><span class="line">      <span class="attr">selectorBlackList</span>: [<span class="string">&#x27;.ignore&#x27;</span>, <span class="string">&#x27;.hairlines&#x27;</span>],</span><br><span class="line">      <span class="attr">minPixelValue</span>: <span class="number">1</span>,</span><br><span class="line">      <span class="attr">mediaQuery</span>: <span class="literal">false</span>,</span><br><span class="line">      <span class="attr">replace</span>: <span class="literal">true</span>,</span><br><span class="line">      <span class="attr">landscape</span>: <span class="literal">false</span>,</span><br><span class="line">      <span class="attr">landscapeUnit</span>: <span class="string">&#x27;rem&#x27;</span>,</span><br><span class="line">      <span class="attr">landscapeWidth</span>: <span class="number">667</span>,</span><br><span class="line">    &#125;),</span><br><span class="line">  ],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>移动端</tag>
+        <tag>vw</tag>
+        <tag>rem</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>web 性能优化</title>
     <url>/2019/03/10/web%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</url>
     <content><![CDATA[<p>从网页开始请求到加载完成，从前端角度分析如何实现 web 性能优化，即：网页加载更快。</p>
