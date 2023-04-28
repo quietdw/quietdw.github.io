@@ -585,6 +585,12 @@
 <li><code>git pull</code> 注意 push 前一定要 pull 代码</li>
 <li><code>git push</code></li>
 </ol>
+<h1 id="分支重命名"><a href="#分支重命名" class="headerlink" title="分支重命名"></a>分支重命名</h1><ol>
+<li><code>git branch -m oldName newName</code> 本地重命名分支;</li>
+<li><code>git push --delete origin/oldName</code> 删除远程分支；</li>
+<li><code>git branch --unset-upstream</code> 本地分支与远程解除绑定；</li>
+<li><code>git branch --set-upstream-to=origin/newName</code> 重新绑定远程分支;</li>
+</ol>
 <h1 id="更多技巧"><a href="#更多技巧" class="headerlink" title="更多技巧"></a>更多技巧</h1><ol>
 <li><code>git reflog</code> 查看 reset 之前的时间点，使用 <code>git reset --hard</code> 返回之前时间点;</li>
 <li><code>git commit . --amend</code> 当前代码提交到上一次提交里;</li>
