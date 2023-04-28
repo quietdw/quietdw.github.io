@@ -1,7 +1,7 @@
 ---
 title: Git 常用操作
 date: 2018-10-11 00:00:00
-updated: 2022-04-29 00:00:00
+updated: 2023-04-28 00:00:00
 tags:
   - git
 ---
@@ -60,6 +60,13 @@ tags:
 2. `git commit`
 3. `git pull` 注意 push 前一定要 pull 代码
 4. `git push`
+
+# 分支重命名
+
+1. `git branch -m oldName newName` 本地重命名分支;
+2. `git push --delete origin/oldName` 删除远程分支；
+3. `git branch --unset-upstream` 本地分支与远程解除绑定；
+4. `git branch --set-upstream-to=origin/newName` 重新绑定远程分支;
 
 # 更多技巧
 
